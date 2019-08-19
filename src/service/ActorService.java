@@ -1,7 +1,8 @@
 package service;
 
 import bean.Actor;
+import bean.Movie;
 
-public interface FindMovieActorInformationService {
+public interface ActorService {
 	Actor FindMovieActorInformation(String name);
 }

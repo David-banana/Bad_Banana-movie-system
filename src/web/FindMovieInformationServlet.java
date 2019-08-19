@@ -1,6 +1,7 @@
 package web;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,21 +11,24 @@ import javax.servlet.http.HttpSession;
 
 import bean.Actor;
 import bean.Movie;
-import service.FindMovieActorInformationImpl;
-import service.FindMovieInformationImpl;
+import service.ActorService;
+import service.MovieService;
+import service.impl.ActorServiceImpl;
+import service.impl.MovieServiceImpl;
 @WebServlet("/FindMovieInformationServlet")
 public class FindMovieInformationServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String moviename = "哥斯拉";
-		FindMovieInformationImpl fmii = new FindMovieInformationImpl();
-		Movie movie = fmii.FindMovieInformation(moviename);
+		MovieService ms = new MovieServiceImpl();
+		
+		Movie movie = ms.FindMovieInformation(moviename);
 		HttpSession session = request.getSession();
 		session.setAttribute("movie", movie);
-		FindMovieActorInformationImpl faii = new FindMovieActorInformationImpl();
-		Actor actor1 = faii.FindMovieActorInformation(movie.getActorone());
-		Actor actor2 = faii.FindMovieActorInformation(movie.getActortwo());
-		Actor actor3 = faii.FindMovieActorInformation(movie.getActorthree());
+		ActorService as = new ActorServiceImpl();
+		Actor actor1 = as.FindMovieActorInformation(movie.getActorone());
+		Actor actor2 = as.FindMovieActorInformation(movie.getActortwo());
+		Actor actor3 = as.FindMovieActorInformation(movie.getActorthree());
 		session.setAttribute("actor1", actor1);
 		session.setAttribute("actor2", actor2);
 		session.setAttribute("actor3", actor3);
