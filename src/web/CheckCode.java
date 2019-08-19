@@ -18,14 +18,12 @@ public class CheckCode extends HttpServlet {
 		System.out.println(checkCode);
 		HttpSession session = request.getSession();
 		String checkcode_session = (String) session.getAttribute("checkcode_session");
-		// 3.对比内容，返回结果
 		response.setContentType("text/plain;charset=utf-8");
-		//{"massage":"校验成功"}
 		if (checkcode_session.equals(checkCode)) {
-			response.getWriter().write("{\"massage\":\"校验成功\"}");
+			response.getWriter().write("{\"massage\":\"鏍￠獙鎴愬姛\"}");
 			System.out.println(1111);
 		} else {
-			response.getWriter().write("{\"massage\":\"校验失败\"}");
+			response.getWriter().write("{\"massage\":\"鏍￠獙澶辫触\"}");
 			System.out.println(2222);
 		}
 		
