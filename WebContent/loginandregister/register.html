@@ -25,20 +25,9 @@
 		$("#YanZhengMa").click(function(){
 			$("#YanZhengMa").prop("src","/BadBanana/YanZhengMa?id="+new Date());
 		});
-		$("#checkcode").blur(function(){
-			console.log(111);
-			$.get(
-					"/BadBanana/CheckCode",
-					{
-						"checkcode":$("#checkcode").val()
-					},
-					function(data){
-						$("#massage").html(data.massage);
-						console.log(data);
-						$("#right").css("display","block")
-					},
-					"json");
-		});
+
+		
+		
 		// 自定义校验规则
 		$.validator.addMethod("checkUser",
 				function(value,element,params){
@@ -58,17 +47,36 @@
 						async: false // 必须同步
 					});
 					return pass; // 返回true表示校验通过
-// 					 $.get(
-// 	    					"/BadBanana/CheckUserServlet",
-// 	    					{
-// 	    						"username":$("#username").val()
-// 	    					},
-// 	    					function(data){
-// 	    						pass = !data.isExists ;
-// 	    					},
-// 	    					"json");
-// 					return pass;
+
 		});
+		
+		
+		
+		// 自定义校验规则
+		$.validator.addMethod("checkYanZhengMa",
+				function(value,element,params){
+					var pas = false;
+					// value: 输入内容，需要给数据库对比
+					$.ajax({
+						url: "/BadBanana/CheckCode",
+						data: {
+							"checkcode":value
+						},
+						success:function(data){
+							// data.isExists -> true -> 校验不通过
+							// data.isExists -> false -> 校验通过
+							pas = data.isExists ;
+						},
+						dataType: "json",
+						async: false // 必须同步
+					});
+					return pas; // 返回true表示校验通过
+
+		});		
+		
+		
+		
+		
 		$("#registForm").validate({
 			rules:{
 				username:{
@@ -101,7 +109,12 @@
 
 				address:{
 					required:true
+				},
+				checkcode:{
+					required:true,
+					checkYanZhengMa:true
 				}
+				
 			},
 			messages:{
 				username:{
@@ -133,6 +146,10 @@
 
 				address:{
 					required:"地址不能为空"
+				},
+				checkcode:{
+					required:"验证码不能为空",
+					checkYanZhengMa:"验证码错误"
 				}
 			}
 		});
@@ -198,14 +215,15 @@
 					<div class="row">
 					<div>
 						<div class="input-field">
+						<div>
 							<input placeholder="CheckCode" id="checkcode" name="checkcode"
 								type="text" class="validate">
 								</div>
-								 <div class="input-field" name="right" id="right"><span style="color:white" id="massage"></span></div>
+								</div>
 						</div>
 						
 						<div>
-							<img src="/BadBanana/YanZhengMa" alt="验证码"  id="YanZhengMa">
+							<img src="/BadBanana/YanZhengMa" alt="验证码"  id="YanZhengMa" name="YanZhengMa">
 						</div>
 					</div>
 					<div class="">
