@@ -15,6 +15,29 @@
     <link rel="stylesheet" href="/BadBanana/loginandregister/css/tooplate.css">
     <script src="/BadBanana/js/jquery-3.2.1.min.js"></script>
     <script src="/BadBanana/js/jquery.validate.min.js"></script>
+    
+    <script type="text/javascript">
+    	$(function(){
+    		$("#YanZhengMa").click(function(){
+    			$("#YanZhengMa").prop("src","/BadBanana/YanZhengMa?id="+new Date());
+    		});
+    		$("#checkcode").blur(function(){
+    			console.log(111);
+    			$.get(
+    					"/BadBanana/CheckCode",
+    					{
+    						"checkcode":$("#checkcode").val()
+    					},
+    					function(data){
+    						$("#massage").html(data.massage);
+    						console.log(data);
+    						$("#right").css("display","block")
+    					},
+    					"json");
+    		});
+    	});
+    </script>
+    
 </head>
 
 <body id="login">
@@ -31,10 +54,14 @@
                     <div class="input-field  mb-5">
                         <input placeholder="CheckCode" id="checkcode" name="checkcode" type="text" class="validate">
                     </div>
-                     <div>
+                    
+                    
+                      <div  name="right" id="right"><span id="massage"></span></div>
+                    <div>
                         <img src="/BadBanana/YanZhengMa" name="YanZhengMa" id="YanZhengMa">
                     </div>
-                    <div style="color:red">${message }</div>
+                    
+                    
                     <div class="tm-flex-lr">
                         <a href="#" class="white-text small">忘记密码？</a>
                         <button type="submit" class="waves-effect btn-large btn-large-white px-4 black-text rounded-0">登陆</button>
