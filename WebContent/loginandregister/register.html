@@ -22,6 +22,23 @@
 //# sourceMappingURL=file.js.map
 <script>
 	$(function(){
+		$("#YanZhengMa").click(function(){
+			$("#YanZhengMa").prop("src","/BadBanana/YanZhengMa?id="+new Date());
+		});
+		$("#checkcode").blur(function(){
+			console.log(111);
+			$.get(
+					"/BadBanana/CheckCode",
+					{
+						"checkcode":$("#checkcode").val()
+					},
+					function(data){
+						$("#massage").html(data.massage);
+						console.log(data);
+						$("#right").css("display","block")
+					},
+					"json");
+		});
 		// 自定义校验规则
 		$.validator.addMethod("checkUser",
 				function(value,element,params){
@@ -184,6 +201,7 @@
 							<input placeholder="CheckCode" id="checkcode" name="checkcode"
 								type="text" class="validate">
 								</div>
+								 <div class="input-field" name="right" id="right"><span style="color:white" id="massage"></span></div>
 						</div>
 						
 						<div>
