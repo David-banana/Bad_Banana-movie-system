@@ -1,6 +1,7 @@
 package dao.impl;
 
 import java.sql.SQLException;
+import java.util.UUID;
 
 import javax.sql.DataSource;
 
@@ -29,5 +30,31 @@ public class UserDaoImpl implements UserDao {
 		}
 		return null;
 	}
+	@Override
+	public void addUser(User user) {
+
+	
+
+		String sql="insert into user values(null,?,?,?,?,?,?)";
+		try {
+			qu.update(sql,user.getUsername(),user.getSex(),user.getPassword(),user.getEmail(),user.getPhone(),user.getAddress());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	@Override
+	public User getUserByUsername(String username) {
+		String sql = "select * from user where username= ?";
+		try {
+			User user = qu.query(sql, new BeanHandler<User>(User.class),username);
+			return user;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+
+	}
+
 
 }

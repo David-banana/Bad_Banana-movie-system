@@ -5,7 +5,7 @@ public class User {
 	private String username;
 	private String sex;
 	private String password;
-	private String emaiil;
+	private String email;
 	private String phone;
 	private String address;
 	public User() {
@@ -36,11 +36,11 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getEmaiil() {
-		return emaiil;
+	public String getEmail() {
+		return email;
 	}
-	public void setEmaiil(String emaiil) {
-		this.emaiil = emaiil;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getPhone() {
 		return phone;
@@ -57,7 +57,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [userid=" + userid + ", username=" + username + ", sex=" + sex + ", password=" + password
-				+ ", emaiil=" + emaiil + ", phone=" + phone + ", address=" + address + "]";
+				+ ", email=" + email + ", phone=" + phone + ", address=" + address + "]";
 	}
 	
 }

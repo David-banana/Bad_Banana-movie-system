@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Register</title>
+<title>注册页面</title>
 
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
@@ -14,14 +14,52 @@
 <link rel="stylesheet" href="css/materialize.min.css">
 <link rel="stylesheet" href="css/tooplate.css">
 </head>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/materialize.min.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script src="js/messages_zh.js"></script>
+//# sourceMappingURL=file.js.map
 <script>
 	$(function(){
+		// 自定义校验规则
+		$.validator.addMethod("checkUser",
+				function(value,element,params){
+					var pass = false;
+					// value: 输入内容，需要给数据库对比
+					$.ajax({
+						url: "/BadBanana/CheckUserServlet",
+						data: {
+							"username":value
+						},
+						success:function(data){
+							// data.isExists -> true -> 校验不通过
+							// data.isExists -> false -> 校验通过
+							pass = !data.isExists ;
+						},
+						dataType: "json",
+						async: false // 必须同步
+					});
+					return pass; // 返回true表示校验通过
+// 					 $.get(
+// 	    					"/BadBanana/CheckUserServlet",
+// 	    					{
+// 	    						"username":$("#username").val()
+// 	    					},
+// 	    					function(data){
+// 	    						pass = !data.isExists ;
+// 	    					},
+// 	    					"json");
+// 					return pass;
+		});
 		$("#registForm").validate({
 			rules:{
 				username:{
 					required:true,
 					minlength:6,
-					maxlength:16
+					maxlength:16,
+					checkUser:true
+	
 				},
 				password:{
 					required:true,
@@ -43,9 +81,7 @@
 					digits:true,
 					minlength:11
 				},
-				sex:{
-					required:true
-				},
+
 				address:{
 					required:true
 				}
@@ -54,7 +90,8 @@
 				username:{
 					required:"用户名不能为空",
 					minlength:"用户名最小长度不能少于6位",
-					maxlength:"用户名最大长度不能超过16位"
+					maxlength:"用户名最大长度不能超过16位",
+					checkUser: "用户名已存在"
 				},
 				password:{
 					required:"密码不能为空",
@@ -76,65 +113,84 @@
 					digits:"电话只能为数字",
 					minlength:"电话长度不能少于11位"
 				},
-				sex:{
-					required:"性别必须勾选"
-				},
+
 				address:{
 					required:"地址不能为空"
 				}
-			},
+			}
 		});
-	})
+	});
 </script>
 <body id="register">
 	<div class="container">
 		<div class="row tm-register-row">
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 tm-register-col-l">
-				<form action="" method="post" name="registForm">
+				<form action="/BadBanana/RegisterServlet" method="post" id="registForm" id="registForm">
 					<div class="mb-2">
+					
 						<label class="mr-4"> <input class="with-gap" name="sex"
 							type="radio" value="mr" /> <span>Mr.</span>
-						</label> <label class="mr-4"> <input class="with-gap" name="sex"
+						</label> 
+						
+						<label class="mr-4"> <input class="with-gap" name="sex"
 							type="radio" value="ms" /> <span>Ms.</span>
-						</label> <label> <input class="with-gap" name="sex" type="radio"
+						</label> 
+						
+						<label> <input class="with-gap" name="sex" type="radio"
 							value="mrs" /> <span>Mrs.</span>
 						</label>
+						
 					</div>
 
 					<div class="input-field">
+					<div>
 						<input placeholder="User Name" id="username" name="username"
 							type="text" class="validate">
+							</div>
 					</div>
 					<div class="input-field">
+					<div>
 						<input placeholder="Password" id="password" name="password"
-							type="text" class="validate">
+							type="password" class="validate">
+							</div>
 					</div>
 					<div class="input-field">
+					<div>
 						<input placeholder="Password Agin" id="passwordAgin" name="passwordAgin"
-							type="text" class="validate">
+							type="password" class="validate">
+							</div>
 					</div>
 					<div class="input-field">
+					<div>
 						<input placeholder="Email" id="email" name="email" type="text"
 							class="validate">
+							</div>
 					</div>
 					<div class="input-field">
+					<div>
 						<input placeholder="Phone" id="phone" name="phone" type="text"
 							class="validate">
+							</div>
 					</div>
 					<div class="input-field">
+					<div>
 						<input placeholder="Address" id="address" name="address"
 							type="text" class="validate">
+							</div>
 					</div>
 					<div class="row">
+					<div>
 						<div class="input-field">
 							<input placeholder="CheckCode" id="checkcode" name="checkcode"
 								type="text" class="validate">
+								</div>
 						</div>
+						
 						<div>
-							<img src="验证码" alt="">
+							<img src="/BadBanana/YanZhengMa" alt="验证码" >
 						</div>
 					</div>
-					<div class="text-right mt-4">
+					<div class="">
 						<button type="submit"
 							class="waves-effect btn-large btn-large-white px-4 black-text">注册</button>
 					</div>
@@ -152,13 +208,6 @@
 		<footer class="row tm-mt-big mb-3"> </footer>
 	</div>
 
-	<script src="js/jquery-3.2.1.slim.min.js"></script>
-	<script src="js/materialize.min.js"></script>
-	<script>
-		$(document).ready(function() {
-			$('select').formSelect();
-		});
-	</script>
 </body>
 
 </html>
