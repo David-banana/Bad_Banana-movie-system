@@ -1,16 +1,14 @@
 package service;
 
 import bean.Movie;
-import dao.SelectMovieInformationImpl;
+import dao.MovieImpl;
 
 public class FindMovieInformationImpl implements FindMovieInformationService {
 
 	@Override
 	public Movie FindMovieInformation(String moviename) {
-		SelectMovieInformationImpl sii = new SelectMovieInformationImpl();
+		MovieImpl sii = new MovieImpl();
 		Movie movie = sii.selectMovieInformation(moviename);
 		return movie;
 	}
-
-
 }

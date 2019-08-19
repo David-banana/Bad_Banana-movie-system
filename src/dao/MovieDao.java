@@ -2,6 +2,6 @@ package dao;
 
 import bean.Movie;
 
-public interface SelectMovieInformationDao {
+public interface MovieDao {
 	Movie selectMovieInformation(String moviename);
 }

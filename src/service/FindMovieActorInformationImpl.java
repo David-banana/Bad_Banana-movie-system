@@ -1,13 +1,13 @@
 package service;
 
 import bean.Actor;
-import dao.SelectMovieActorInformationImpl;
+import dao.ActorImpl;
 
 public class FindMovieActorInformationImpl implements FindMovieActorInformationService {
 
 	@Override
 	public Actor FindMovieActorInformation(String name) {
-		SelectMovieActorInformationImpl saii = new SelectMovieActorInformationImpl();
+		ActorImpl saii = new ActorImpl();
 		Actor actor = saii.selectMovieActorInformationDao(name);
 		return actor;
 	}
