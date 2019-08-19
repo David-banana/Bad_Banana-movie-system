@@ -2,6 +2,6 @@ package service;
 
 import bean.Movie;
 
-public interface FindMovieInformationService {
+public interface MovieService {
 	Movie FindMovieInformation(String moviename);
 }

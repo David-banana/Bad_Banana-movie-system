@@ -7,12 +7,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import service.FindMovieActorInformationImpl;
+import service.impl.ActorServiceImpl;
 @WebServlet("/FindMovieActorInformationServlet")
 public class FindMovieActorInformationServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		FindMovieActorInformationImpl faii = new FindMovieActorInformationImpl();
+		ActorServiceImpl as = new ActorServiceImpl();
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
