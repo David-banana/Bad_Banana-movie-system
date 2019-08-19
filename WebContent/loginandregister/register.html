@@ -1,87 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Register - Input Form by Tooplate</title>
-	
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/materialize.min.css">
-    <link rel="stylesheet" href="css/tooplate.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Register</title>
+
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/materialize.min.css">
+<link rel="stylesheet" href="css/tooplate.css">
 </head>
-
+<script>
+	$(function(){
+		$("#registForm").validate({
+			rules:{
+				username:{
+					required:true,
+					minlength:6,
+					maxlength:16
+				},
+				password:{
+					required:true,
+					digits:true,
+					minlength:6,
+					maxlength:20
+				},
+				passwordAgin:{
+					required:true,
+					digits:true,
+					equalTo:"[name='password']"
+				},
+				email:{
+					required:true,
+					email:true
+				},
+				phone:{
+					required:true,
+					digits:true,
+					minlength:11
+				},
+				sex:{
+					required:true
+				},
+				address:{
+					required:true
+				}
+			},
+			messages:{
+				username:{
+					required:"用户名不能为空",
+					minlength:"用户名最小长度不能少于6位",
+					maxlength:"用户名最大长度不能超过16位"
+				},
+				password:{
+					required:"密码不能为空",
+					digits:"密码只能为数字",
+					minlength:"密码最小长度不能少于6位",
+					maxlength:"密码用户名最大长度不能超过20位"
+				},
+				passwordAgin:{
+					required:"密码不能为空",
+					digits:"密码只能为数字",
+					equalTo:"两次密码不一致"
+				},
+				email:{
+					required:"邮箱不能为空",
+					email:"邮箱格式不对"
+				},
+				phone:{
+					required:"电话不能为空",
+					digits:"电话只能为数字",
+					minlength:"电话长度不能少于11位"
+				},
+				sex:{
+					required:"性别必须勾选"
+				},
+				address:{
+					required:"地址不能为空"
+				}
+			},
+		});
+	})
+</script>
 <body id="register">
-    <div class="container">
-        <div class="row tm-register-row">
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 tm-register-col-l">
-                <form action="" method="post">
-                    <div class="mb-2">
-                        <label class="mr-4">
-                            <input class="with-gap" name="title" type="radio" value="mr" />
-                            <span>Mr.</span>
-                        </label>
-                        <label class="mr-4">
-                            <input class="with-gap" name="title" type="radio" value="ms" />
-                            <span>Ms.</span>
-                        </label>
-                        <label>
-                            <input class="with-gap" name="title" type="radio" value="mrs" />
-                            <span>Mrs.</span>
-                        </label>
-                    </div>
+	<div class="container">
+		<div class="row tm-register-row">
+			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 tm-register-col-l">
+				<form action="" method="post" name="registForm">
+					<div class="mb-2">
+						<label class="mr-4"> <input class="with-gap" name="sex"
+							type="radio" value="mr" /> <span>Mr.</span>
+						</label> <label class="mr-4"> <input class="with-gap" name="sex"
+							type="radio" value="ms" /> <span>Ms.</span>
+						</label> <label> <input class="with-gap" name="sex" type="radio"
+							value="mrs" /> <span>Mrs.</span>
+						</label>
+					</div>
 
-                    <div class="input-field">
-                        <input placeholder="User Name" id="first_name" name="first_name" type="text" class="validate">
-                    </div>
-                    <div class="input-field">
-                        <input placeholder="Real Name" id="last_name" name="last_name" type="text" class="validate">
-                    </div>
-                    <div class="input-field">
-                        <input placeholder="Email" id="email" name="email" type="text" class="validate">
-                    </div>
-                    <div class="input-field">
-                        <input placeholder="Mobile" id="mobile" name="mobile" type="text" class="validate">
-                    </div>
-                    <div class="input-field">
-                        <input placeholder="Address" id="address" name="address" type="text" class="validate">
-                    </div>
-                    <div class="row">
-                        <div class="input-field">
-                            <input placeholder="CheckCode" id="checkcode" name="checkcode" type="text" class="validate" > 
-                        </div>
-                        <div> 
-                            <img src="验证码" alt="">
-                        </div>
-                    </div>
-                    <div class="text-right mt-4">
-                        <button type="submit" class="waves-effect btn-large btn-large-white px-4 black-text">注册</button>
-                    </div>
-                </form>
-            </div>
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 tm-register-col-r">
-                <header class="mb-5">
-                    <h3 class="mt-0 text-white">注册新用户</h3>
-                    <p class="grey-text">请输入您的完整资料进行注册</p>
-                  
-                </header>
+					<div class="input-field">
+						<input placeholder="User Name" id="username" name="username"
+							type="text" class="validate">
+					</div>
+					<div class="input-field">
+						<input placeholder="Password" id="password" name="password"
+							type="text" class="validate">
+					</div>
+					<div class="input-field">
+						<input placeholder="Password Agin" id="passwordAgin" name="passwordAgin"
+							type="text" class="validate">
+					</div>
+					<div class="input-field">
+						<input placeholder="Email" id="email" name="email" type="text"
+							class="validate">
+					</div>
+					<div class="input-field">
+						<input placeholder="Phone" id="phone" name="phone" type="text"
+							class="validate">
+					</div>
+					<div class="input-field">
+						<input placeholder="Address" id="address" name="address"
+							type="text" class="validate">
+					</div>
+					<div class="row">
+						<div class="input-field">
+							<input placeholder="CheckCode" id="checkcode" name="checkcode"
+								type="text" class="validate">
+						</div>
+						<div>
+							<img src="验证码" alt="">
+						</div>
+					</div>
+					<div class="text-right mt-4">
+						<button type="submit"
+							class="waves-effect btn-large btn-large-white px-4 black-text">注册</button>
+					</div>
+				</form>
+			</div>
+			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 tm-register-col-r">
+				<header class="mb-5">
+					<h3 class="mt-0 text-white">注册新用户</h3>
+					<p class="grey-text">请输入您的完整资料进行注册</p>
 
-            </div>
-        </div>
-        <footer class="row tm-mt-big mb-3">
-           
-        </footer>
-    </div>
+				</header>
 
-    <script src="js/jquery-3.2.1.slim.min.js"></script>
-    <script src="js/materialize.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('select').formSelect();
-        });
-    </script>
+			</div>
+		</div>
+		<footer class="row tm-mt-big mb-3"> </footer>
+	</div>
+
+	<script src="js/jquery-3.2.1.slim.min.js"></script>
+	<script src="js/materialize.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('select').formSelect();
+		});
+	</script>
 </body>
 
 </html>
