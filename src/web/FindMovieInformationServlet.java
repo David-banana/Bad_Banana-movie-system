@@ -21,7 +21,6 @@ public class FindMovieInformationServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String moviename = "哥斯拉";
 		MovieService ms = new MovieServiceImpl();
-		
 		Movie movie = ms.FindMovieInformation(moviename);
 		HttpSession session = request.getSession();
 		session.setAttribute("movie", movie);

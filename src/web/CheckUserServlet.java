@@ -8,7 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.impl.UserDaoImpl;
-import service.impl.UserNameServiceImpl;
+import service.UserService;
+import service.impl.UserServiceImpl;
 
 /**
  * Servlet implementation class CheckUserServlet
@@ -30,8 +31,8 @@ public class CheckUserServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username=request.getParameter("username");
-		UserNameServiceImpl usi=new UserNameServiceImpl();
-		boolean iscunzai = usi.register(username);
+		UserService usi=new UserServiceImpl();
+		boolean iscunzai = usi.usernameIsEixst(username);
 		response.setContentType("text/plain;charset=utf-8");
 		// {"isExists": isExists}
 		response.getWriter().write("{\"isExists\": "+iscunzai+"}");

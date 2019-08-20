@@ -32,9 +32,6 @@ public class UserDaoImpl implements UserDao {
 	}
 	@Override
 	public void addUser(User user) {
-
-	
-
 		String sql="insert into user values(null,?,?,?,?,?,?)";
 		try {
 			qu.update(sql,user.getUsername(),user.getSex(),user.getPassword(),user.getEmail(),user.getPhone(),user.getAddress());

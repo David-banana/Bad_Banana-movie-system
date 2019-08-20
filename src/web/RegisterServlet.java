@@ -13,7 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.beanutils.BeanUtils;
 
 import bean.User;
+import dao.UserDao;
 import dao.impl.UserDaoImpl;
+import service.UserService;
+import service.impl.UserServiceImpl;
 
 /**
  * Servlet implementation class RegistForm
@@ -41,15 +44,14 @@ public class RegisterServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		try {
 			BeanUtils.populate(user, request.getParameterMap());
-	
-			UserDaoImpl udi=new UserDaoImpl();
-			udi.addUser(user);
-			
+			UserService us=new UserServiceImpl();
+			us.register(user);
 		} catch (IllegalAccessException e) {
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
 			e.printStackTrace();
 		}
+		response.sendRedirect("/BadBanana");
 	}
 
 	/**

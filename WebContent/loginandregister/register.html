@@ -34,8 +34,9 @@
 					var pass = false;
 					// value: 输入内容，需要给数据库对比
 					$.ajax({
-						url: "/BadBanana/CheckUserServlet",
+						url: "/BadBanana/UserServlet",
 						data: {
+							"method":"checkUser",
 							"username":value
 						},
 						success:function(data){
@@ -58,8 +59,9 @@
 					var pas = false;
 					// value: 输入内容，需要给数据库对比
 					$.ajax({
-						url: "/BadBanana/CheckCode",
+						url: "/BadBanana/UserServlet",
 						data: {
+							"method":"checkCode",
 							"checkcode":value
 						},
 						success:function(data){
@@ -159,7 +161,8 @@
 	<div class="container">
 		<div class="row tm-register-row">
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 tm-register-col-l">
-				<form action="/BadBanana/RegisterServlet" method="post" id="registForm" id="registForm">
+				<form action="/BadBanana/UserServlet" method="post" id="registForm" id="registForm">
+				<input type="hidden" name="method" value="register">
 					<div class="mb-2">
 					
 						<label class="mr-4"> <input class="with-gap" name="sex"

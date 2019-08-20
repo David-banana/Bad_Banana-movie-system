@@ -45,7 +45,8 @@
     <div class="container">
         <div class="row tm-register-row tm-mb-35">
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 tm-login-l">
-                <form action="${pageContext.servletContext.contextPath }/LoginServlet" method="post" name = "loginForm" id="loginForm" class="tm-bg-black p-5 h-100">
+                <form action="${pageContext.servletContext.contextPath }/UserServlet" method="post" name = "loginForm" id="loginForm" class="tm-bg-black p-5 h-100">
+                    <input type="hidden" name="method" value="login">
                     <div class="input-field">
                         <div><input placeholder="Username" id="username" name="username" type="text" class="validate" value="${param.username }"></div>
                     </div>
