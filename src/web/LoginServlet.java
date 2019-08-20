@@ -1,6 +1,8 @@
 package web;
 
 import java.io.IOException;
+import java.util.Date;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,10 +33,20 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+		
 
 		UserService us = new UserServiceImpl();
 		try {
 		User user = us.login(username,password);
+		Date d = new Date();
+		int hours = d.getHours();
+		if(hours<12) {
+			request.getSession().setAttribute("time","上午好");		
+		}else if(hours<18){
+			request.getSession().setAttribute("time","下午好");	
+		}else {
+			request.getSession().setAttribute("time","晚上好");	
+		}
 		request.getSession().setAttribute("user",user);
 		response.sendRedirect("/BadBanana");
 		}catch (Exception e ){
