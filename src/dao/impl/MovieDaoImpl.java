@@ -1,9 +1,11 @@
 package dao.impl;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import bean.Movie;
 import dao.MovieDao;
@@ -22,6 +24,19 @@ public class MovieDaoImpl implements MovieDao {
 			e.printStackTrace();
 		}
 		
+		return null;
+	}
+
+	@Override
+	public List<Movie> selecctAllMovieInformation() {
+		QueryRunner qr = new QueryRunner(DataSourceUtils.getDataSource());
+		String sql = "select * from film_formation";
+		try {
+			List<Movie> list = qr.query(sql, new BeanListHandler<Movie>(Movie.class));
+			return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 	

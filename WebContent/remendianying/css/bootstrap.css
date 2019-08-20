@@ -1120,7 +1120,7 @@ img {
 .carousel-inner > .item > a > img {
   display: block;
   max-width: 100%;
-  height: auto;
+  height: 405px;
 }
 .img-rounded {
   border-radius: 6px;
@@ -1955,7 +1955,7 @@ pre code {
     width: 25%;
   }
   .col-md-2 {
-    width: 16.66666667%;
+    width: 25%;
   }
   .col-md-1 {
     width: 8.33333333%;
