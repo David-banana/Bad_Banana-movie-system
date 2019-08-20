@@ -13,54 +13,46 @@
     <link rel="stylesheet" href="/BadBanana/loginandregister/css/bootstrap.min.css">
     <link rel="stylesheet" href="/BadBanana/loginandregister/css/materialize.min.css">
     <link rel="stylesheet" href="/BadBanana/loginandregister/css/tooplate.css">
-    <script src="/BadBanana/js/jquery-3.2.1.min.js"></script>
-    <script src="/BadBanana/js/jquery.validate.min.js"></script>
-    
-    <script type="text/javascript">
-    	$(function(){
-    		$("#YanZhengMa").click(function(){
-    			$("#YanZhengMa").prop("src","/BadBanana/YanZhengMa?id="+new Date());
-    		});
-    		$("#checkcode").blur(function(){
-    			console.log(111);
-    			$.get(
-    					"/BadBanana/CheckCode",
-    					{
-    						"checkcode":$("#checkcode").val()
-    					},
-    					function(data){
-    						$("#massage").html(data.massage);
-    						console.log(data);
-    						$("#right").css("display","block")
-    					},
-    					"json");
-    		});
-    	});
-    </script>
-    
+ <script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/materialize.min.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script src="js/messages_zh.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$("#loginForm").validate({
+			rules:{
+				username:{
+					required:true
+				},
+				password:{
+					required:true
+				}
+			},
+			messages:{
+				username:{
+					required:"用户名不能为空"
+				},
+				password:{
+					required:"密码不能为空"
+				}
+			}
+		});
+	})
+	</script>
 </head>
 
 <body id="login">
     <div class="container">
         <div class="row tm-register-row tm-mb-35">
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 tm-login-l">
-                <form action="${pageContext.servletContext.contextPath }/LoginServlet" method="post" class="tm-bg-black p-5 h-100">
+                <form action="${pageContext.servletContext.contextPath }/LoginServlet" method="post" name = "loginForm" id="loginForm" class="tm-bg-black p-5 h-100">
                     <div class="input-field">
-                        <input placeholder="Username" id="username" name="username" type="text" class="validate" value="${param.username }">
+                        <div><input placeholder="Username" id="username" name="username" type="text" class="validate" value="${param.username }"></div>
                     </div>
                     <div class="input-field">
-                        <input placeholder="Password" id="password" name="password" type="password" class="validate">
-                    </div>
-                    <div class="input-field  mb-5">
-                        <input placeholder="CheckCode" id="checkcode" name="checkcode" type="text" class="validate">
-                    </div>
-                    
-                    
-                      <div  name="right" id="right"><span id="massage"></span></div>
-                    <div>
-                        <img src="/BadBanana/YanZhengMa" name="YanZhengMa" id="YanZhengMa">
-                    </div>
-                    
+                        <div><input placeholder="Password" id="password" name="password" type="password" class="validate"></div>
+                    </div>                   
+                      <div  name="right" id="right"><span id="message">${message }</span></div>
                     
                     <div class="tm-flex-lr">
                         <a href="#" class="white-text small">忘记密码？</a>
