@@ -55,8 +55,13 @@
                     </div>                   
                       <div  name="right" id="right"><span id="message">${message }</span></div>
                     
-                    <div class="tm-flex-lr">
-                        <a href="#" class="white-text small">忘记密码？</a>
+                    <div class="mb-2">
+                        
+                       	<label class="mr-4"> 
+                       	<input class="with-gap" name="autoLogin"
+							type="checkbox"/>
+							<span>自动登录</span>
+						</label> 
                         <button type="submit" class="waves-effect btn-large btn-large-white px-4 black-text rounded-0">登陆</button>
                     </div>
                 </form>
