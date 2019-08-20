@@ -35,6 +35,8 @@ public class UserServlet extends HttpServlet {
 			Register(request, response);
 		}else if("checkCode".equals(method)) {
 			checkCode(request,response);
+		}else if("userHome".equals(method)) {
+			userHome(request,response);
 		}
 		
 	}
@@ -125,7 +127,21 @@ public class UserServlet extends HttpServlet {
 		response.setContentType("text/plain;charset=utf-8");
 		// {"isExists": isExists}
 		response.getWriter().write("{\"isExists\": "+equals+"}");
-	
-		
 	}
+	//获取个人主页
+		private void userHome(HttpServletRequest request, HttpServletResponse response) {
+			String homeName = request.getParameter("homeName");
+			System.out.println(homeName);
+			UserService us=new UserServiceImpl();
+			User user = us.findUserHome(homeName);
+			System.out.println(user);
+			request.getSession().setAttribute("homeUser", user);
+				try {
+					response.sendRedirect("/BadBanana/personalHomepage/personalHome.jsp");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+		}
 }

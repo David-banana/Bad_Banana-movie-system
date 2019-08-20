@@ -52,6 +52,18 @@ public class UserDaoImpl implements UserDao {
 		return null;
 
 	}
+	@Override
+	public User findUserInformationByUsername(String username) {
+		String sql="select * from user where username=?";
+		try {
+			User user = qu.query(sql, new BeanHandler<User>(User.class),username);
+			return user;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	
+		return null;
+	}
 
 
 }
