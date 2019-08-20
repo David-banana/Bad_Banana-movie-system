@@ -38,7 +38,7 @@
             <li><a href="moviesingle.jsp">电影简介</a></li>
             <li><a href="portfolio.jsp">演职员表</a></li>
             <li class="active"><a href="services.jsp">评论</a></li>
-            <li><a href="/BadBanana/remendianying/remendianying.html">热门电影</a></li>
+            <li><a href="/BadBanana/FindAllMovieInformationServlet">热门电影</a></li>
             <li><a href="/BadBanana/loginandregister/login.jsp">登录</a></li>
          	<% session.getAttribute("MovieComment");%>
           <div class="extra-text visible-xs"> 

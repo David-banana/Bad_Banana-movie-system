@@ -48,7 +48,7 @@
                         <input type="checkbox" id="drop">
                         <ul class="menu mt-2">
                             <li class="mr-lg-4 mr-3 active"><a href="index.html">首页</a></li>
-                            <li class="mr-lg-4 mr-3"><a href="/BadBanana/remendianying/remendianying.html" class="scroll">热门电影</a></li>
+                            <li class="mr-lg-4 mr-3"><a href="/BadBanana/FindAllMovieInformationServlet" class="scroll">热门电影</a></li>
                             
 							
 						<c:if test="${empty user }">
