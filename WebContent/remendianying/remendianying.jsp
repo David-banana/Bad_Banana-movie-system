@@ -50,10 +50,10 @@
 
 <script>
 	$(function(){
-		$("#word").keyup(function(){
+		$("#moviename").keyup(function(){
 			$.get(
 			"/BadBanana/ReMenDianYingServlet",
-			{"word":$("#word").val()}
+			{"word":$("#moviename").val()}
 				,
 			function(data){
 					console.log(data);
@@ -70,7 +70,7 @@
 			"json"
 			)
 		})	
-		$("#word").focusout(function() {
+		$("#moviename").blur(function() {
 			$("#list").css("display","none");
 		});
 
@@ -82,7 +82,7 @@
 		obj.style.background="white"
 	}
 	function onck(obj){
-		$("#word").val($(obj).html());
+		$("#moviename").val($(obj).html());
 		$("#list").css("display","none");		
 	}
 
@@ -115,8 +115,8 @@
 				<a href="index.html"><h1>B-B<span>Bad_Banana</span></h1></a>
 			</div>
 			<div class="w3_search">
-				<form action="#" method="post">
-					<input type="text" name="Search" placeholder="Search" required="" id="word">
+				<form action="/BadBanana/FindMovieInformationServlet" method="post">
+					<input type="text" name="moviename" placeholder="Search" required="" id="moviename">
 					<input type="submit" value="Go">
 					<div id=list style="width:357px ;border:1px solid gray;background-color:white;position:absolute; z-index:1000;display:none"></div>
 				</form>

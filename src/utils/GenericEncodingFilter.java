@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequestWrapper;
  * 通用编码解决方案
  * 
  */
-//@WebFilter("/*")
+@WebFilter("/*")
 public class GenericEncodingFilter implements Filter {
 	@Override
 	public void destroy() {
