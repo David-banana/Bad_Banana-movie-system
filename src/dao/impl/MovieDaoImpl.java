@@ -39,5 +39,21 @@ public class MovieDaoImpl implements MovieDao {
 		}
 		return null;
 	}
+
+	@Override
+	public List<Movie> selectMovieByDimName(String DimName) {
+		QueryRunner qr = new QueryRunner(DataSourceUtils.getDataSource());
+		String sql = "select * from film_formation where moviename like ?";
+		List<Movie> list;
+		try {
+			list = qr.query(sql, new BeanListHandler<Movie>(Movie.class),"%"+DimName+"%");
+			return  list;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+		
+	}
 	
 }

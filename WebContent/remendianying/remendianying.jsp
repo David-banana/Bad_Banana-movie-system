@@ -47,6 +47,50 @@
 	 
 	}); 
 </script> 
+
+<script>
+	$(function(){
+		$("#word").keyup(function(){
+			$.get(
+			"/BadBanana/ReMenDianYingServlet",
+			{"word":$("#word").val()}
+				,
+			function(data){
+					console.log(data);
+				$("#list").empty();
+				for(var i=0;i<data.length;i++){
+					if(i>6){
+						break;
+					}
+					$("#list").append("<div onmouseover='on(this)' onmouseout='out(this)' onclick='onck(this)'>"+data[i].moviename+"</div>");
+					
+				}
+				$("#list").css("display","block");
+			},
+			"json"
+			)
+		})	
+		$("#word").focusout(function() {
+			$("#list").css("display","none");
+		});
+
+	})
+	function on(obj){
+		obj.style.background="RGB(232,232,232)"
+	}
+	function out(obj){
+		obj.style.background="white"
+	}
+	function onck(obj){
+		$("#word").val($(obj).html());
+		$("#list").css("display","none");		
+	}
+
+	
+	
+	
+	
+	</script>
 <!-- //banner-bottom-plugin -->
 <!---<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>--->
 <!-- start-smoth-scrolling -->
@@ -72,8 +116,9 @@
 			</div>
 			<div class="w3_search">
 				<form action="#" method="post">
-					<input type="text" name="Search" placeholder="Search" required="">
+					<input type="text" name="Search" placeholder="Search" required="" id="word">
 					<input type="submit" value="Go">
+					<div id=list style="width:357px ;border:1px solid gray;background-color:white;position:absolute; z-index:1000;display:none"></div>
 				</form>
 			</div>
 			<div class="w3l_sign_in_register">

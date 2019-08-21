@@ -7,4 +7,5 @@ import bean.Movie;
 public interface MovieDao {
 	Movie selectMovieInformation(String moviename);
 	List<Movie> selecctAllMovieInformation();
+	List<Movie> selectMovieByDimName(String DimName);
 }
