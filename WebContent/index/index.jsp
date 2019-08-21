@@ -52,11 +52,11 @@
                             
 							
 						<c:if test="${empty user }">
-						<li class="mr-lg-4 mr-3"><a href="/BadBanana/loginandregister/login.jsp" class="scroll">登录</a></li>
+						<li class="mr-lg-4 mr-3"><a href="/BadBanana/loginandregister/login.jsp?path=index/index.jsp" class="scroll">登录</a></li>
 						</c:if>
 						<c:if test="${!empty user }">
 						<li class="mr-lg-4 mr-3"><a href="/BadBanana/UserServlet?method=userHome&homeName=${user.username }" class="scroll">${user.username}</a><a>${time}!</a></li>
-						<li class="mr-lg-4 mr-3"><a href="/BadBanana/clearSessionServlet" class="scroll">退出</a></li>
+						<li class="mr-lg-4 mr-3"><a href="/BadBanana/clearSessionServlet?path=index/index.jsp" class="scroll">退出</a></li>
 						</c:if>
 						
                             <li class="mr-lg-4 mr-3"><a href="/BadBanana/aboutus/aboutus.html" class="scroll">关于我们</a></li>
