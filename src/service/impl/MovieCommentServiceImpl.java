@@ -27,4 +27,11 @@ public class MovieCommentServiceImpl implements MovieCommentService {
 		MovieCommentDao mcdi = new MovieCommentDaoImpl();
 		mcdi.addMovieComment(movieComment);
 	}
+
+	@Override
+	public MovieComment findMovieCommentbyid(int cid) {
+		MovieCommentDao mcdi = new MovieCommentDaoImpl();
+		MovieComment mc = mcdi.selectMovieCommentbyid(cid);
+		return mc;
+	}
 }

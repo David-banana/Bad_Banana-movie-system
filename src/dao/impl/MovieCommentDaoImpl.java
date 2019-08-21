@@ -61,6 +61,20 @@ public class MovieCommentDaoImpl implements MovieCommentDao {
 			e.printStackTrace();
 		}
 	}
+
+	@Override
+	public MovieComment selectMovieCommentbyid(int cid) {
+		QueryRunner qr = new QueryRunner(DataSourceUtils.getDataSource());
+		String sql = "select * from film_comment where cid = ?";
+		try {
+			MovieComment wc = qr.query(sql, new BeanHandler<MovieComment>(MovieComment.class),cid);
+			return wc;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+		
+	}
 	
 	
 	

@@ -67,7 +67,7 @@
               <h3 class="heading"> ${moviecomment.username}</h3>
               <p>${moviecomment.fileComment} </p>
               <p>${moviecomment.date}</p>
-               <p><a href="single-page.html">learn more</a></p>
+               <p><a href="/BadBanana/FindWriteBack?cid=${moviecomment.cid}">learn more</a></p>
             </div>
           </div>
         </div>
@@ -78,15 +78,15 @@
           <div class="service left-icon probootstrap-animate">
             <div class="text" border:1px solid black;>
             <c:if test="${empty user }">
-						<h3 class="heading">登录后，可以评论</h3>
+						<h3 text-align:center>登录后，可以评论</h3>
 			</c:if>
 			<c:if test="${!empty user }">
 					<h3 class="heading"> ${user.username}</h3>
 					<form action="/BadBanana/CommentServlet">
-					<input type="hidden" name="method" value="getMovieComment">
-              	<textarea name="myComment" rows="5" cols="30"></textarea>
+					<input placeholder = "您的评论" type="hidden" name="method" value="getMovieComment">
+              	<textarea name="myComment" rows="5" cols="30" placeholder="您的评论"  style="margin-left: 1.2em;"></textarea>
               	<br>
-              	<input type="submit" value="评论">
+              	<input  type="submit" value="评论" style="margin-left: 9.7em;margin-bottom: 1.0em;margin-top: 1.5em;">
               </form>
 			</c:if>
               
