@@ -36,11 +36,6 @@ public class clearSessionServlet extends HttpServlet {
 		cookie.setPath(request.getContextPath());
 		response.addCookie(cookie);
 		}
-		if(path==null) {
-			response.sendRedirect("/BadBanana/");
-		}else {
-		response.sendRedirect("/BadBanana/"+path);
-		}
 	}
 
 	/**
