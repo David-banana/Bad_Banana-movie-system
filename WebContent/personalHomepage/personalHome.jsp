@@ -59,8 +59,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<a class="scroll" href="#gallery"><i class="fa fa-picture-o"></i><span>照片墙</span></a>
 							<a class="scroll" href="#education"><i class="fa fa-book"></i><span>我的足迹</span></a>
 							<a class="scroll" href="#stats"><i class="fa fa-laptop"></i><span>我的成长</span></a>
-							<a class="scroll" href="#contact"><i class="fa fa-phone"></i><span>联系我</span></a>
-						</div>
+							</div>
 					</nav>
 					<button class="close-button" id="close-button">Close Menu</button>
 				</div>
@@ -70,10 +69,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<p>MENU</p>
 			</div>
 			<div class="aitslogow3ls">
-					<a href="index.html"><div class="agilelogo">我的小屋</div></a>
+					<a href="#"><div class="agilelogo">我的小屋</div></a>
 			</div>
 			<div class="wthreecontact">
-				<p><a class="scroll" href="#contact"><i class="fa fa-envelope-o" aria-hidden="true"></i> 联系我</a></p>
+				<p><a  href="/BadBanana/FindAllMovieInformationServlet"><i class="fa fa-envelope-o" aria-hidden="true"></i> 返回热门电影</a></p>
 			</div>
 			<div class="clearfix"></div>
 		</div>
