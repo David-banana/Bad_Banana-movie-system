@@ -27,7 +27,7 @@ public class clearSessionServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		String path = request.getParameter("path");
 		request.getSession().removeAttribute("user");
 		Cookie[] cookies=request.getCookies();
 
@@ -36,7 +36,6 @@ public class clearSessionServlet extends HttpServlet {
 		cookie.setPath(request.getContextPath());
 		response.addCookie(cookie);
 		}
-		response.sendRedirect("/BadBanana");
 	}
 
 	/**

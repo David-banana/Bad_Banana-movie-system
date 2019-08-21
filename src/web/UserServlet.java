@@ -51,6 +51,7 @@ public class UserServlet extends HttpServlet {
 
 	//登录
 	protected void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String path = request.getParameter("path");//发送请求的地址
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 
@@ -84,7 +85,11 @@ public class UserServlet extends HttpServlet {
 				response.addCookie(pwdCookie);
 			}
 			request.getSession().setAttribute("user", user);
-			response.sendRedirect("/BadBanana");
+			if(path==null) {
+				response.sendRedirect("/BadBanana/");
+			}else {
+			response.sendRedirect("/BadBanana/"+path);
+			}
 		} catch (Exception e) {
 			request.setAttribute("message", e.getMessage());
 			request.getRequestDispatcher("/loginandregister/login.jsp").forward(request, response);

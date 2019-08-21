@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,12 +53,12 @@
 <script type="text/javascript" src="js/move-top.js"></script>
 <script type="text/javascript" src="js/easing.js"></script>
 <script type="text/javascript">
-	jQuery(document).ready(function($) {
+/* 	jQuery(document).ready(function($) {
 		$(".scroll").click(function(event){		
 			event.preventDefault();
 			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 		});
-	});
+	}); */
 </script>
 <!-- start-smoth-scrolling -->
 </head>
@@ -156,7 +157,13 @@
 						<ul class="nav navbar-nav">
 							<li class="active"><a href="/BadBanana">首页</a></li>
 							
-							<li><a href="/BadBanana/loginandregister/login.html">登录</a></li>
+						<c:if test="${empty user }">
+						<li class="mr-lg-4 mr-3"><a href="/BadBanana/loginandregister/login.jsp" class="scroll">登录</a></li>
+						</c:if>
+						<c:if test="${!empty user }">
+						<li class="mr-lg-4 mr-3"><a href="/BadBanana/UserServlet?method=userHome&homeName=${user.username }" class="scroll">${user.username}${time}!</a></li>
+						<li class="mr-lg-4 mr-3"><a href="/BadBanana/clearSessionServlet" class="scroll">退出</a></li>
+						</c:if>
 							<li><a href="/BadBanana/aboutus/aboutus.html">关于我们</a></li>
 							<li><a href="/BadBanana/contactus/contactus.html">联系我们</a></li>
 						</ul>
