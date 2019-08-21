@@ -490,7 +490,6 @@ li > a:only-child:after {
 }
 /* what */
 .what {
-    background: url(../images/bg1.jpg) no-repeat;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;

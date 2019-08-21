@@ -5,7 +5,7 @@
 
 <html lang="zxx">
 <head>
-	<title>Home</title>
+	<title>首页</title>
 	<!-- Meta tag Keywords -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8" />
@@ -78,6 +78,8 @@
 			</div>
 		</div>
 	</div>
+	<%session.getAttribute("indexmovieOne");
+	session.getAttribute("indexmovieTwo");%>
 	<!-- //banner -->
 </div>
  <section class="diam" id="about">
@@ -85,14 +87,14 @@
 		<div class="container py-lg-5">
 			<div class="row about-info-diam">
 					<div class="col-md-4 about-diam about-diam1">
-						<h4>Integer porttitor mollisar lorem molestie</h4>
-						<p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit </p>
+						<h4>Bad-Banana电影鉴赏网站</h4>
+						<p class="mt-3">鹏程 大卫 露丹 嘉成 </p>
 					</div>
 					<div class="col-md-4 about-diam about-diam2">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.Nulla pellentesque mi non laoreet eleifend. Integer porttitor mollisar lorem, at molestie arcu pulvinar ut. Proin ac fermentum est.  </p>
+						<p>我们的网站专注于电影点评，是一家专业级别非常高的电影点评网站，每条评论都由专业的影评人评写</p>
 					</div>
 					<div class="col-md-4 about-diam about-diam3">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.Nulla pellentesque mi non laoreet eleifend. Integer porttitor mollisar lorem, at molestie arcu pulvinar ut. Proin ac fermentum est.  </p>
+						<p>Our website focuses on film reviews. It is a highly professional film reviews website. Every review is written by a professional film reviewer.</p>
 					</div>
 			</div>
 		</div>	
@@ -100,22 +102,22 @@
 </section>
 
 	<!-- what -->
-	<section class="what right" id="news">
+	<section class="what right" style="background-image: url(${indexmovieOne.imgPathThree})" id="news">
 		<div class="what_top">
-			<h3>Fusce blandit ultrices in accumsan orci </h3>
-			<h6 class="mt-3"> Sapien sed elementum egestas dolore condimentum. </h6>
-			<p class="wtp mt-3">Lorem ipsum dolor sit amet et sapien sed elementum egestas dolore condimentum. Fusce blandit ultrices sapien, in accumsan orci rhoncus eu. Sed sodales venenatis arcu, id varius justo euismod in. Curabitur egestas consectetur magna.</p>
-			<a href="#" class="btn button-style-1 mt-sm-5 mt-4 scroll">Learn More</a>
+			<h3>${indexmovieOne.moviename}  </h3>
+			<h6 class="mt-3"> ${indexmovieOne.daoyanname} </h6>
+			<p class="wtp mt-3">${indexmovieOne.generalizeOne} </p>
+			<a href="/BadBanana/FindMovieInformationServlet?moviename=${indexmovieOne.moviename}" class="btn button-style-1 mt-sm-5 mt-4 scroll">了解更多 </a>
 		</div>
 	</section>
 	<!-- //what -->
 	<!-- who -->
-	<section class="who left">
+	<section class="who left" style="background-image: url(${indexmovieTwo.imgPathThree})">
 		<div class="who_top">
-			<h3>Fusce blandit ultrices in accumsan orci </h3>
-			<h6 class="mt-3"> Sapien sed elementum egestas dolore condimentum. </h6>
-			<p class="wtp mt-3">Lorem ipsum dolor sit amet et sapien sed elementum egestas dolore condimentum. Fusce blandit ultrices sapien, in accumsan orci rhoncus eu. Sed sodales venenatis arcu, id varius justo euismod in. Curabitur egestas consectetur magna.</p>
-			<a href="#" class="btn button-style-1 mt-sm-5 mt-4 scroll">Learn More</a>
+			<h3>${indexmovieTwo.moviename}</h3>
+			<h6 class="mt-3">${indexmovieTwo.daoyanname}  </h6>
+			<p class="wtp mt-3">${indexmovieTwo.generalizeOne}  </p>
+			<a href="/BadBanana/FindMovieInformationServlet?moviename=${indexmovieTwo.moviename}" class="btn button-style-1 mt-sm-5 mt-4 scroll">了解更多 </a>
 		</div>
 	</section>
 	<!-- //what -->
@@ -123,69 +125,13 @@
 	 <div style="position:relative;display:block;">
 <section class="what_you py-5" id="services">
 	<div class="container py-lg-5">
-	<h4 class="agile-ser_bot text-capitalize text-white text-center">Services</h4>
-	<h6 class="mt-3 text-center"> Ante metus praesent faucibus ante integer id accumsan eleifend </h6>
-		<div class="row about-info-grids text-center mt-3 py-md-5">
-				<div class="col-lg-4 col-md-6 about-info about-info1">
-					<span class="fa fa-area-chart"></span>
-					<h4>Sit amet</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-				</div>
-				<div class="col-lg-4 col-md-6 about-info about-info2">
-					<span class="fa fa-comment"></span>
-					<h4>Adipisicing</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-				</div>
-				<div class="col-lg-4 col-md-6 about-info about-info3">
-					<span class="fa fa-paper-plane"></span>
-					<h4>Dolor sit</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-				</div>
-				<div class="col-lg-4 col-md-6 about-info about-info4 mt-5">
-					<span class="fa fa-file"></span>
-					<h4>Sit amet</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-				</div>
-				<div class="col-lg-4 col-md-6 about-info about-info5 mt-5">
-					<span class="fa fa-lock"></span>
-					<h4>Adipisicing</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-				</div>
-				<div class="col-lg-4 col-md-6 about-info about-info6 mt-5">
-					<span class="fa fa-flask"></span>
-					<h4>Dolor sit</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-				</div>
+			
 				
 		</div>
 	</div>		
 </section>
-<div class="tlinks">Collect from <a href="http://www.cssmoban.com/"  title="网站模板">网站模板</a></div>
-</div>
-	 <!-- what we do -->
-<!-- services bottom -->
-	<section class="serv_bottom py-5">
-		<div class="container py-md-4 mt-md-3">
-			<h4 class="agile-ser_bot text-capitalize text-white text-center">Subscribe For New Updates</h4>
-			<h6 class="mt-3 text-center"> Ante metus praesent faucibus ante integer id accumsan eleifend </h6>	
-				<div class="newsright mt-md-3 pt-5">
-					<form action="#" method="post">
-						<input type="email" placeholder="Enter your email..." name="email" required="">
-						<button class="btn" type="submit">Subscribe</button>
-					</form>
-				</div>
-		</div>
-	</section>
-<!-- //services bottom -->
-	<div class="cpy-right text-center py-5">
-		<ul class="social_section_1info pt-lg-4 mb-lg-4">
-			<li><a href="#"><span class="fa fa-facebook"></span></a></li>
-			<li><a href="#"><span class="fa fa-twitter"></span></a></li>
-			<li><a href="#"><span class="fa fa-google"></span></a></li>
-			<li><a href="#"><span class="fa fa-linkedin"></span></a></li>
-		</ul>
-        <p>Copyright &copy; 2019.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
-        </p>
-    </div>
+
+	
+	
 </body>
 </html>

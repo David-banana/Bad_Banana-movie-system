@@ -7,7 +7,7 @@ public class MovieComment {
 	private int fid;
 	private String filmname;
 	private String date;
-	private String comment;
+	private String fileComment;
 	private int click;
 	public int getCid() {
 		return cid;
@@ -33,11 +33,11 @@ public class MovieComment {
 	public void setFid(int fid) {
 		this.fid = fid;
 	}
-	public String getComment() {
-		return comment;
+	public String getFileComment() {
+		return fileComment;
 	}
-	public void setComment(String comment) {
-		this.comment = comment;
+	public void setFileComment(String fileComment) {
+		this.fileComment = fileComment;
 	}
 	public String getFilmname() {
 		return filmname;
@@ -60,7 +60,7 @@ public class MovieComment {
 	@Override
 	public String toString() {
 		return "MovieComment [cid=" + cid + ", userid=" + userid + ", username=" + username + ", fid=" + fid
-				+ ", filmname=" + filmname + ", date=" + date + ", comment=" + comment + ", click=" + click + "]";
+				+ ", filmname=" + filmname + ", date=" + date + ", fileComment=" + fileComment + ", click=" + click + "]";
 	}
 	
 	

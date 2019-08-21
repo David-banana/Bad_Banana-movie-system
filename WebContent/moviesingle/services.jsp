@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Connect</title>
+    <title>电影评论</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
     
@@ -65,7 +65,7 @@
           <div class="service left-icon probootstrap-animate">
             <div class="text" border:1px solid black;>
               <h3 class="heading"> ${moviecomment.username}</h3>
-              <p>${moviecomment.comment} </p>
+              <p>${moviecomment.fileComment} </p>
               <p>${moviecomment.date}</p>
                <p><a href="single-page.html">learn more</a></p>
             </div>

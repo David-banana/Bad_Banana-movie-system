@@ -9,18 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import bean.Movie;
 import service.impl.MovieServiceImpl;
-@WebServlet("/FindAllMovieInformationServlet")
-public class FindAllMovieInformationServlet extends HttpServlet {
+@WebServlet("/IndexMovieInformationIndexServlet")
+public class IndexMovieInformationServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MovieServiceImpl msi = new MovieServiceImpl();
 		List<Movie> list = msi.FindAllMovieInformation();
 		HttpSession session = request.getSession();
-		session.setAttribute("allmovie", list);
-		response.sendRedirect("/BadBanana/remendianying/remendianying.jsp");
+		int a = (int) (Math.random() * 11);
+		int b = (int) (Math.random() * 11 + 12);
+		session.setAttribute("indexmovieOne", list.get(a));
+		session.setAttribute("indexmovieTwo", list.get(b));
+		response.sendRedirect("/BadBanana/index/index.jsp");
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

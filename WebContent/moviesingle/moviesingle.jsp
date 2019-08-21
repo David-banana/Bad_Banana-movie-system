@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home</title>
+    <title>演职员表</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
     <script src="js/jquery-3.2.1.slim.min.js"></script>
