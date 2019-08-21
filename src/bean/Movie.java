@@ -1,6 +1,7 @@
 package bean;
 
 public class Movie {
+	private Integer movieid;
 	private String moviename;
 	private String actorone;
 	private String movietype;
@@ -13,6 +14,13 @@ public class Movie {
 	private String generalizeOne;
 	private String generalizeTwo;
 	private String generalizeThree;
+	
+	public Integer getMovieid() {
+		return movieid;
+	}
+	public void setMovieid(Integer movieid) {
+		this.movieid = movieid;
+	}
 	public String getMoviename() {
 		return moviename;
 	}
@@ -87,8 +95,13 @@ public class Movie {
 	}
 	@Override
 	public String toString() {
-		return "Movie [moviename=" + moviename + ", actorone=" + actorone + ", movietype=" + movietype + "]";
+		return "Movie [movieid=" + movieid + ", moviename=" + moviename + ", actorone=" + actorone + ", movietype="
+				+ movietype + ", actortwo=" + actortwo + ", actorthree=" + actorthree + ", daoyanname=" + daoyanname
+				+ ", imgPathOne=" + imgPathOne + ", imgPathTwo=" + imgPathTwo + ", imgPathThree=" + imgPathThree
+				+ ", generalizeOne=" + generalizeOne + ", generalizeTwo=" + generalizeTwo + ", generalizeThree="
+				+ generalizeThree + "]";
 	}
+
 	
 	
 }

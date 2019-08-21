@@ -9,4 +9,5 @@ public interface MovieCommentService {
 	List<MovieComment> findMovieComment(String moviename);
 
 	List<HomeUser> findUserByHomename(String homeName);
+	void addMovieComment(MovieComment movieComment);
 }

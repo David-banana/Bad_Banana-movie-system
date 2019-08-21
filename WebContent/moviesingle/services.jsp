@@ -72,7 +72,29 @@
           </div>
         </div>
 			</c:forEach>
-      
+			
+      <!-- zld测试写评论 -->
+		<div class="col-md-4">
+          <div class="service left-icon probootstrap-animate">
+            <div class="text" border:1px solid black;>
+            <c:if test="${empty user }">
+						<h3 class="heading">登录后，可以评论</h3>
+			</c:if>
+			<c:if test="${!empty user }">
+					<h3 class="heading"> ${user.username}</h3>
+					<form action="/BadBanana/CommentServlet">
+					<input type="hidden" name="method" value="getMovieComment">
+              	<textarea name="myComment" rows="5" cols="30"></textarea>
+              	<br>
+              	<input type="submit" value="评论">
+              </form>
+			</c:if>
+              
+               
+            </div>
+          </div>
+        </div>
+<!-- 测试结束 -->
 
       </div>
     </div>

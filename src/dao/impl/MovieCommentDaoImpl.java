@@ -50,7 +50,17 @@ public class MovieCommentDaoImpl implements MovieCommentDao {
 		return null;
 	}
 
-	
+	@Override
+	public void addMovieComment(MovieComment movieComment) {
+		QueryRunner qr = new QueryRunner(DataSourceUtils.getDataSource());
+		String sql="insert into film_comment values(null,?,?,?,?,?,?,?)";
+		try {
+			qr.update(sql,movieComment.getUserid(),movieComment.getUsername(),movieComment.getFid(),movieComment.getFilmname(),movieComment.getDate(),movieComment.getFileComment(),movieComment.getClick());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	
 	

@@ -22,5 +22,9 @@ public class MovieCommentServiceImpl implements MovieCommentService {
 		List<HomeUser> list = mcdi.findUserByHomename(homeName);
 		return list;
 	}
-
+	@Override
+	public void addMovieComment(MovieComment movieComment) {
+		MovieCommentDao mcdi = new MovieCommentDaoImpl();
+		mcdi.addMovieComment(movieComment);
+	}
 }

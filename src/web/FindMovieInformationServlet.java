@@ -38,7 +38,7 @@ public class FindMovieInformationServlet extends HttpServlet {
 		session.setAttribute("actor3", actor3);
 		MovieCommentService mcs = new MovieCommentServiceImpl();
 		List<MovieComment> list = mcs.findMovieComment(movie.getMoviename());
-		System.out.println(list);
+		//System.out.println(list);
 		session.setAttribute("MovieComment", list);
 		response.sendRedirect("/BadBanana/moviesingle/moviesingle.jsp");
 	}
