@@ -39,7 +39,13 @@
             <li><a href="portfolio.jsp">演职员表</a></li>
             <li class="active"><a href="services.jsp">评论</a></li>
             <li><a href="/BadBanana/FindAllMovieInformationServlet">热门电影</a></li>
-            <li><a href="/BadBanana/loginandregister/login.jsp">登录</a></li>
+            <c:if test="${empty user }">
+						<li class="mr-lg-4 mr-3"><a href="/BadBanana/loginandregister/login.jsp" class="scroll">登录</a></li>
+						</c:if>
+						<c:if test="${!empty user }">
+						<li class="mr-lg-4 mr-3"><a href="/BadBanana/UserServlet?method=userHome&homeName=${user.username }" class="scroll">${user.username}</a><a>${time}!</a></li>
+						<li class="mr-lg-4 mr-3"><a href="/BadBanana/clearSessionServlet" class="scroll">退出</a></li>
+						</c:if>
          	<% session.getAttribute("MovieComment");%>
           <div class="extra-text visible-xs"> 
             <a href="#" class="probootstrap-burger-menu"><i>Menu</i></a>
