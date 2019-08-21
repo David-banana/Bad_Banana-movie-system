@@ -4,9 +4,12 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
+import bean.HomeUser;
 import bean.MovieComment;
+import bean.User;
 import dao.MovieCommentDao;
 import utils.DataSourceUtils;
 
@@ -25,4 +28,41 @@ public class MovieCommentDaoImpl implements MovieCommentDao {
 		return null;
 	}
 
+	@Override
+	public List<HomeUser> findUserByHomename(String homeName) {
+		System.out.println("进来了");
+		QueryRunner qr = new QueryRunner(DataSourceUtils.getDataSource());
+		String sql="select username,filmname,fileComment,imgPathOne,date "
+				+ "from(select username,filmname,fileComment,date "
+				+ "from film_comment "
+				+ "where username=?) a "
+				+ "join film_formation b "
+				+ "on a.filmname=b.moviename";
+	
+		try {
+			List<HomeUser> list = qr.query(sql, new BeanListHandler<HomeUser>(HomeUser.class),homeName);
+			System.out.println("---"+list+"---");
+			return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

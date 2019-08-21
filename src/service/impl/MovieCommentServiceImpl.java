@@ -2,15 +2,24 @@ package service.impl;
 
 import java.util.List;
 
+import bean.HomeUser;
 import bean.MovieComment;
+import dao.MovieCommentDao;
 import dao.impl.MovieCommentDaoImpl;
 import service.MovieCommentService;
 
 public class MovieCommentServiceImpl implements MovieCommentService {
 	@Override
 	public List<MovieComment> findMovieComment(String moviename) {
-		MovieCommentDaoImpl mcdi = new MovieCommentDaoImpl();
+		MovieCommentDao mcdi = new MovieCommentDaoImpl();
 		List<MovieComment> list = mcdi.selectMovieComment(moviename);
+		return list;
+	}
+
+	@Override
+	public List<HomeUser> findUserByHomename(String homeName) {
+		MovieCommentDao mcdi = new MovieCommentDaoImpl();
+		List<HomeUser> list = mcdi.findUserByHomename(homeName);
 		return list;
 	}
 

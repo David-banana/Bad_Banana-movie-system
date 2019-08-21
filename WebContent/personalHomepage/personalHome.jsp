@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <title>Home </title>
+
+
 <!-- custom-theme -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -83,18 +86,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="container">
 			<div class="w3_banner_info">
 				<div class="w3_banner_info_grid">
-					<h1>${homeUser.username }</h1>
+					<h1>${HomeList[0].username }</h1>
 					<h2 class="rw-sentence">
-					<span>个人标签</span>
+					<span>My Lover</span>
 					<div class="rw-words rw-words-1">
-						<span>UI/UX Designer.</span>
-						<span>Web Developer</span>
-						<span>App Developer</span>
-						<span>Graphic Designer</span>
-						<span>Team Leader</span>
-						<span>Programmer</span>
+					<c:forEach items="${HomeList }" var="str">
+						<span>${str.filmname }</span>
+					</c:forEach>
+					
 					</div>
 					</h2>
+					
 					<ul class="social-nav model-3d-0 footer-social w3_agile_social">
 						<li><a href="#" class="facebook">
 							<div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
@@ -125,66 +127,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div id="gallery" class="gallery">
 		<h3 class="heading">照片墙</h3>
 			<div class="gallery-info">
+			
+			<c:forEach items="${HomeList }" var="str"  >
 				<div class="col-md-3 gallery-grids">
-					<a href="images/gallery1.jpg" class="gallery-box" data-lightbox="example-set" data-title="">
-						<img src="images/gallery1.jpg" alt="" class="img-responsive zoom-img">
+					<a href="${str.imgPathOne}" class="gallery-box" data-lightbox="example-set" data-title="">
+						<img src="${str.imgPathOne}" alt="" class="img-responsive zoom-img">
 					</a>
 				</div>
-				<div class="col-md-3 gallery-grids">
-					<a href="images/gallery2.jpg" class="gallery-box" data-lightbox="example-set" data-title="">
-						<img src="images/gallery2.jpg" alt="" class="img-responsive zoom-img">
-					</a>
-				</div>
-				<div class="col-md-3 gallery-grids">
-					<a href="images/gallery3.jpg" class="gallery-box" data-lightbox="example-set" data-title="">
-						<img src="images/gallery3.jpg" alt="" class="img-responsive zoom-img">
-					</a>
-				</div>
-				<div class="col-md-3 gallery-grids">
-					<a href="images/gallery4.jpg" class="gallery-box" data-lightbox="example-set" data-title="">
-						<img src="images/gallery4.jpg" alt="" class="img-responsive zoom-img">
-					</a>
-				</div>
-				<div class="col-md-3 gallery-grids grid-mdl">
-					<a href="images/gallery5.jpg" class="gallery-box" data-lightbox="example-set" data-title="">
-						<img src="images/gallery5.jpg" alt="" class="img-responsive zoom-img">
-					</a>
-				</div>
-				<div class="col-md-3 gallery-grids grid-mdl">
-					<a href="images/gallery6.jpg" class="gallery-box" data-lightbox="example-set" data-title="">
-						<img src="images/gallery6.jpg" alt="" class="img-responsive zoom-img">
-					</a>
-				</div>
-				<div class="col-md-3 gallery-grids grid-mdl">
-					<a href="images/gallery7.jpg" class="gallery-box" data-lightbox="example-set" data-title="">
-						<img src="images/gallery7.jpg" alt="" class="img-responsive zoom-img">
-					</a>
-				</div>
-				<div class="col-md-3 gallery-grids grid-mdl">
-					<a href="images/gallery8.jpg" class="gallery-box" data-lightbox="example-set" data-title="">
-						<img src="images/gallery8.jpg" alt="" class="img-responsive zoom-img">
-					</a>
-				</div>
-				<div class="col-md-3 gallery-grids grid-mdl">
-					<a href="images/gallery9.jpg" class="gallery-box" data-lightbox="example-set" data-title="">
-						<img src="images/gallery9.jpg" alt="" class="img-responsive zoom-img">
-					</a>
-				</div>
-				<div class="col-md-3 gallery-grids grid-mdl">
-					<a href="images/gallery10.jpg" class="gallery-box" data-lightbox="example-set" data-title="">
-						<img src="images/gallery10.jpg" alt="" class="img-responsive zoom-img">
-					</a>
-				</div>
-				<div class="col-md-3 gallery-grids grid-mdl">
-					<a href="images/gallery11.jpg" class="gallery-box" data-lightbox="example-set" data-title="">
-						<img src="images/gallery11.jpg" alt="" class="img-responsive zoom-img">
-					</a>
-				</div>
-				<div class="col-md-3 gallery-grids grid-mdl">
-					<a href="images/gallery5.jpg" class="gallery-box" data-lightbox="example-set" data-title="">
-						<img src="images/gallery5.jpg" alt="" class="img-responsive zoom-img">
-					</a>
-				</div>
+				</c:forEach>
+				
+				
 				<div class="clearfix"> </div>	
 			</div>
 		<script src="js/lightbox-plus-jquery.min.js"></script>
@@ -195,49 +147,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="education" id="education">
 	<div class="container">
 			<h3 class="heading">我的足迹</h3>
+			
+	<c:forEach items="${HomeList }" var="str"  >
+
 		<div class="col-md-6">
 			<div class="grid1">
-				<h3>电影名称</h3>
-				<p>影评...Dignissim elit at ligula laoreet iaculis. Sed urna purus, 
-					convallis sedrhon cus eget, bibendum idtortor. Donec libero tellus, 
-					feugiat ut felis ac, commodo pharetra massa</p>
-				<h4><b>时间</b> : 2011-2013</h4>
+				<h3>${str.filmname}</h3>
+				<p>${str.fileComment}</p>
+				<h4><b>时间</b> : ${str.date }</h4>
 			</div>
 		</div>
-		<div class="col-md-6">
-			<div class="grid1">
-				<h3>Bachelor Degree of education</h3>
-				<p>Dignissim elit at ligula laoreet iaculis. Sed urna purus, 
-					convallis sedrhon cus eget, bibendum idtortor. Donec libero tellus, 
-					feugiat ut felis ac, commodo pharetra massa</p>
-				<h4><b>Year</b> : 2011-2013</h4>
-			</div>
-		</div>
-		<div class='clearfix'></div>
-		<div class="educationbottom">
-			<div class="col-md-6">
-				<div class="grid1">
-					<h3>Bachelor Degree of education</h3>
-					<p>Dignissim elit at ligula laoreet iaculis. Sed urna purus, 
-						convallis sedrhon cus eget, bibendum idtortor. Donec libero tellus, 
-						feugiat ut felis ac, commodo pharetra massa</p>
-					<h4><b>Year</b> : 2011-2013</h4>
-					
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="grid1 lastgrid">
-					<h3>Bachelor Degree of education</h3>
-					<p>Dignissim elit at ligula laoreet iaculis. Sed urna purus, 
-						convallis sedrhon cus eget, bibendum idtortor. Donec libero tellus, 
-						feugiat ut felis ac, commodo pharetra massa</p>
-					<h4><b>Year</b> : 2011-2013</h4>
-				</div>
-			</div>
+
+	</c:forEach>
+		
+		
+		
+			
 			<div class='clearfix'></div>
 		</div>
 	</div>
-</div>
+
 
 
 <!-- Technical Skills -->
@@ -282,71 +211,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!-- Technical Skills -->
 
-<!-- contact -->
-<div class="contact" id="contact">
-	<div class="container">
-		<h3 class="heading">联系我</h3>
-		<div class="col-md-4 address">
-			<h3>这是我的</h3>
-			<div class="mail-agileits-w3layouts">
-				<i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>
-				<div class="contact-right">
-					<p>联系方式</p><span>+1(01) 24-212-5665</span>
-				</div>
-				<div class="clear"></div>
-			</div>
-			<div class="mail-agileits-w3layouts">
-				<i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>
-				<div class="contact-right">
-					<p>邮箱</p><a href="mailto:info@example.com">info@example.com</a>
-				</div>
-				<div class="clear"></div>
-			</div>
-			<div class="mail-agileits-w3layouts">
-				<i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>
-				<div class="contact-right">
-					<p>地址</p><span>10 Eunos Road 8, Mandalay </span> 
-					<p><span>Towers, Singapore.</span></p>
-				</div>
-				<div class="clear"></div>
-			</div>
-			<div class="clear"></div>
-		</div>
-		<div class="col-md-4 form">
-			<form action="#" method="post">
-				<div class="fields-grid">
-					<div class="styled-input agile-styled-input-top">
-						<input type="text" name="First name" required=""> 
-						<label>你的名字</label>
-						<span></span>
-					</div>
-					<div class="styled-input">
-						<input type="email" name="Email" required="">
-						<label>你的邮箱</label>
-						<span></span>
-					</div>
-					<div class="styled-input">
-						<input type="tel" name="Phone" required="">
-						<label>告诉我你的电话</label>
-						<span></span>
-					</div>
-					<div class="styled-input">
-						<textarea name="Message" required></textarea>
-						<label>小声对我说</label>
-						<span></span>
-					</div>
-					<div class="clear"> </div>
-				</div>
-				<input type="submit" value="SEND">
-			</form>
 
-		</div>
-		<!---<div class="col-md-4 map">
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31909.33437743319!2d103.8212862717648!3d1.3766002857431643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da16c40ac82661%3A0x500f7acaedaa550!2sAng+Mo+Kio%2C+Singapore!5e0!3m2!1sen!2sin!4v1497852510740"></iframe>
-		</div>--->
-		<div class="clearfix"></div>
-	</div>
-</div>
 <!-- //contact -->
 
 <!-- footer -->
