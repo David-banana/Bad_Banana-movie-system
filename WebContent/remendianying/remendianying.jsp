@@ -174,14 +174,15 @@
 	</div>
 <!-- //nav -->
 <!-- banner -->
+<% session.getAttribute("allmovie");%>
 	<div id="slidey" style="display:none;">
 		<ul>
-			<li><img src="images/5.jpg" alt=" "><p class='title'>Tarzan</p><p class='description'> Tarzan, having acclimated to life in London, is called back to his former home in the jungle to investigate the activities at a mining encampment.</p></li>
-			<li><img src="images/2.jpg" alt=" "><p class='title'>Maximum Ride</p><p class='description'>Six children, genetically cross-bred with avian DNA, take flight around the country to discover their origins. Along the way, their mysterious past is ...</p></li>
-			<li><img src="images/3.jpg" alt=" "><p class='title'>Independence</p><p class='description'>The fate of humanity hangs in the balance as the U.S. President and citizens decide if these aliens are to be trusted ...or feared.</p></li>
-			<li><img src="images/4.jpg" alt=" "><p class='title'>Central Intelligence</p><p class='description'>Bullied as a teen for being overweight, Bob Stone (Dwayne Johnson) shows up to his high school reunion looking fit and muscular. Claiming to be on a top-secret ...</p></li>
-			<li><img src="images/6.jpg" alt=" "><p class='title'>Ice Age</p><p class='description'>In the film's epilogue, Scrat keeps struggling to control the alien ship until it crashes on Mars, destroying all life on the planet.</p></li>
-			<li><img src="images/7.jpg" alt=" "><p class='title'>X - Man</p><p class='description'>In 1977, paranormal investigators Ed (Patrick Wilson) and Lorraine Warren come out of a self-imposed sabbatical to travel to Enfield, a borough in north ...</p></li>
+			<li><img src="${allmovie[1].imgPathThree}" alt=" "><p class='title'>${allmovie[1].moviename}</p><p class='description'>${allmovie[1].generalizeOne}</p></li>
+			<li><img src="${allmovie[2].imgPathThree}" alt=" "><p class='title'>${allmovie[2].moviename}</p><p class='description'>${allmovie[2].generalizeOne}</p></li>
+			<li><img src="${allmovie[3].imgPathThree}" alt=" "><p class='title'>${allmovie[3].moviename}</p><p class='description'>${allmovie[3].generalizeOne}</p></li>
+			<li><img src="${allmovie[4].imgPathThree}" alt=" "><p class='title'>${allmovie[4].moviename}</p><p class='description'>${allmovie[4].generalizeOne}</p></li>
+			<li><img src="${allmovie[5].imgPathThree}" alt=" "><p class='title'>${allmovie[5].moviename}</p><p class='description'>${allmovie[5].generalizeOne}</p></li>
+			<li><img src="${allmovie[6].imgPathThree}" alt=" "><p class='title'>${allmovie[6].moviename}</p><p class='description'>${allmovie[6].generalizeOne}</p></li>
 		</ul>   	
     </div>
     <script src="js/jquery.slidey.js"></script>
@@ -194,7 +195,7 @@
 				showList: true
 			});
 			$(".slidey-list-description").dotdotdot();
-			<% session.getAttribute("allmovie");%>
+			
 		</script>
 <!-- //banner -->
 <!-- general -->
@@ -202,12 +203,7 @@
 		<h4 class="latest-text w3_latest_text">热门电影</h4>
 		<div class="container">
 			<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-				<ul id="myTab" class="nav nav-tabs" role="tablist">
-					<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">1</a></li>
-					<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">2</a></li>
-					<li role="presentation"><a href="#rating" id="rating-tab" role="tab" data-toggle="tab" aria-controls="rating" aria-expanded="true">3</a></li>
-					<li role="presentation"><a href="#imdb" role="tab" id="imdb-tab" data-toggle="tab" aria-controls="imdb" aria-expanded="false">4</a></li>
-				</ul>
+				
 				<div id="myTabContent" class="tab-content">
 					<div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
 						<div class="w3_agile_featured_movies">
@@ -855,6 +851,12 @@
 			</div>
 		</div>
 	</div>
+				<ul id="myTab" class="nav nav-tabs" role="tablist">
+					<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">1</a></li>
+					<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">2</a></li>
+					<li role="presentation"><a href="#rating" id="rating-tab" role="tab" data-toggle="tab" aria-controls="rating" aria-expanded="true">3</a></li>
+					<li role="presentation"><a href="#imdb" role="tab" id="imdb-tab" data-toggle="tab" aria-controls="imdb" aria-expanded="false">4</a></li>
+				</ul>
 <!-- //general -->
 	
 		<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
