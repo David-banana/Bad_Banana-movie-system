@@ -115,7 +115,7 @@
 				<a href="index.html"><h1>B-B<span>Bad_Banana</span></h1></a>
 			</div>
 			<div class="w3_search">
-				<form action="/BadBanana/FindMovieInformationServlet" method="post">
+				<form action="/BadBanana/FindMovieInformationServlet" method="get">
 					<input type="text" name="moviename" placeholder="Search" required="" id="moviename">
 					<input type="submit" value="Go">
 					<div id=list style="width:357px ;border:1px solid gray;background-color:white;position:absolute; z-index:1000;display:none"></div>
