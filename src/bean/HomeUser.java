@@ -1,6 +1,7 @@
 package bean;
 
 public class HomeUser {
+	private int cid;
 	private String username;
 	private String filmname;
 	private String fileComment;
@@ -10,6 +11,17 @@ public class HomeUser {
 	public HomeUser() {
 		super();
 	}
+
+	
+	public int getCid() {
+		return cid;
+	}
+
+
+	public void setCid(int cid) {
+		this.cid = cid;
+	}
+
 
 	public String getUsername() {
 		return username;
@@ -51,11 +63,14 @@ public class HomeUser {
 		this.date = date;
 	}
 
+
 	@Override
 	public String toString() {
-		return "HomeUser [username=" + username + ", filmname=" + filmname + ", fileComment=" + fileComment
-				+ ", imgPathOne=" + imgPathOne + ", date=" + date + "]";
+		return "HomeUser [cid=" + cid + ", username=" + username + ", filmname=" + filmname + ", fileComment="
+				+ fileComment + ", imgPathOne=" + imgPathOne + ", date=" + date + "]";
 	}
+
+	
 
 	
 

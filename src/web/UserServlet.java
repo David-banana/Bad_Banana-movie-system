@@ -128,18 +128,15 @@ public class UserServlet extends HttpServlet {
 		response.getWriter().write("{\"isExists\": "+equals+"}");
 	}
 	//获取个人主页
-		private void userHome(HttpServletRequest request, HttpServletResponse response) {
-			String homeName = request.getParameter("homeName");
-			System.out.println(homeName);
-			UserService us=new UserServiceImpl();
-			User user = us.findUserHome(homeName);
-			System.out.println(user);
-			request.getSession().setAttribute("homeUser", user);
-				try {
-					response.sendRedirect("/BadBanana/personalHomepage/personalHome.jsp");
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-
+	private void userHome(HttpServletRequest request, HttpServletResponse response) {
+		String user = request.getParameter("homeName");	
+//		System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+		System.out.println("UserServlet"+user);
+		try {
+			response.sendRedirect("/BadBanana/CommentServlet?method=HomeUser&homeName="+user);
+			//request.getRequestDispatcher("/CommentServlet?method=HomeUser&homeName="+user).forward(request, response);
+		} catch (IOException e1) {
+			e1.printStackTrace();
 		}
+	}
 }

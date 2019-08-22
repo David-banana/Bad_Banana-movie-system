@@ -32,8 +32,8 @@ public class MovieCommentDaoImpl implements MovieCommentDao {
 	public List<HomeUser> findUserByHomename(String homeName) {
 		System.out.println("进来了");
 		QueryRunner qr = new QueryRunner(DataSourceUtils.getDataSource());
-		String sql="select username,filmname,fileComment,imgPathOne,date "
-				+ "from(select username,filmname,fileComment,date "
+		String sql="select cid,username,filmname,fileComment,imgPathOne,date "
+				+ "from(select cid,username,filmname,fileComment,date "
 				+ "from film_comment "
 				+ "where username=?) a "
 				+ "join film_formation b "
@@ -74,6 +74,18 @@ public class MovieCommentDaoImpl implements MovieCommentDao {
 		}
 		return null;
 		
+	}
+
+	@Override
+	public void deleteCommentByCid(String cid) {
+		QueryRunner qr = new QueryRunner(DataSourceUtils.getDataSource());
+		String sql="delete from film_comment where cid=?";
+		try {
+			qr.update(sql,cid);
+			System.out.println("ddddddddddddddddddddddddddddd删除完成！");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	

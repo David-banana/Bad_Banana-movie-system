@@ -64,7 +64,7 @@
 			 <div class="col-md-4">
           <div class="service left-icon probootstrap-animate">
             <div class="text" border:1px solid black;>
-              <h3 class="heading"> ${moviecomment.username}</h3>
+              <a href="/BadBanana/CommentServlet?method=HomeUser&homeName=${moviecomment.username}"><h3 class="heading"> ${moviecomment.username}</h3></a>
               <p>${moviecomment.fileComment} </p>
               <p>${moviecomment.date}</p>
                <p><a href="/BadBanana/FindWriteBack?cid=${moviecomment.cid}">learn more</a></p>

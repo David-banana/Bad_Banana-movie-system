@@ -10,4 +10,5 @@ public interface MovieCommentService {
 	List<HomeUser> findUserByHomename(String homeName);
 	void addMovieComment(MovieComment movieComment);
 	MovieComment findMovieCommentbyid(int cid);
+	void deleteCommentByCid(String cid);
 }

@@ -1,6 +1,7 @@
 package web;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -26,18 +27,33 @@ public class CommentServlet extends HttpServlet {
 		String method = request.getParameter("method");
 		if("HomeUser".equals(method)) {
 			HomeUser(request,response);
-		}if("getMovieComment".equals(method)){
+		}else if("getMovieComment".equals(method)){
 			getMovieComment(request,response);
+		}else if("deleteComment".equals(method)) {
+			deleteComment(request,response);
 		}
-		response.getWriter().write("hello Bonnie...");
+		response.getWriter().write("你好");
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
 	
-	public void HomeUser(HttpServletRequest request,HttpServletResponse response) {
-		String homeName = request.getParameter("homeName");
+	public void HomeUser(HttpServletRequest request,HttpServletResponse response) { 
+		
+		String homeName = request.getParameter("homeName");		
+		System.out.println("???????"+homeName);
+		User LoginUser = (User) request.getSession().getAttribute("user");
+		System.out.println("!!!!!!!!!"+LoginUser);
+		boolean judge=false;
+		request.getSession().setAttribute("judge", judge);
+		
+		if(LoginUser!=null) {
+			if(homeName.equals(LoginUser.getUsername())) {
+				judge=true;
+				request.getSession().setAttribute("judge", judge);
+			}
+		}
 		System.out.println("homeName"+homeName);
 		MovieCommentService mcs=new MovieCommentServiceImpl();
 		List<HomeUser> list = mcs.findUserByHomename(homeName);
@@ -48,11 +64,9 @@ public class CommentServlet extends HttpServlet {
 			response.sendRedirect("/BadBanana/personalHomepage/personalHome.jsp");
 		}  catch (IOException e) {
 			e.printStackTrace();
-		} 
-		
-		
-		
+		} 	
 	}
+	
 	
 	protected void getMovieComment(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
@@ -80,6 +94,24 @@ public class CommentServlet extends HttpServlet {
 //		System.out.println(comment);
 	}
 	
-	
+	public void deleteComment(HttpServletRequest request,HttpServletResponse response){
+		String cid = request.getParameter("cid");
+		String homeName = request.getParameter("username");
+		
+		MovieCommentService mcs=new MovieCommentServiceImpl();
+		mcs.deleteCommentByCid(cid);
+		
+			System.out.println("欧力给！");
+			//request.getRequestDispatcher("/personalHome.jsp").forward(request, response);
+			try {
+				System.out.println("kaikaiakiakiakaikaiakiakia");
+				response.sendRedirect("/BadBanana/CommentServlet?method=HomeUser&homeName="+homeName);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		
+		
+		
+	}
 	
 }

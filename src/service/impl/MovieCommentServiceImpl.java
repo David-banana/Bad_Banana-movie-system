@@ -34,4 +34,10 @@ public class MovieCommentServiceImpl implements MovieCommentService {
 		MovieComment mc = mcdi.selectMovieCommentbyid(cid);
 		return mc;
 	}
+
+	@Override
+	public void deleteCommentByCid(String cid) {
+		MovieCommentDao mcd=new MovieCommentDaoImpl();
+		mcd.deleteCommentByCid(cid);
+	}
 }

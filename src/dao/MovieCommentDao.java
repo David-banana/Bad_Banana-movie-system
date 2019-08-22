@@ -10,4 +10,5 @@ public interface MovieCommentDao {
 	List<HomeUser> findUserByHomename(String homeName);
 	void addMovieComment(MovieComment movieComment);
 	MovieComment selectMovieCommentbyid(int cid);
+	void deleteCommentByCid(String cid);
 }
