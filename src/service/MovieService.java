@@ -5,6 +5,6 @@ import java.util.List;
 import bean.Movie;
 
 public interface MovieService {
-	Movie FindMovieInformation(String moviename);
+	Movie FindMovieInformation(int movieid);
 	List<Movie> FindAllMovieInformation();
 }

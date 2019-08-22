@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.beanutils.BeanUtils;
 
+import bean.Movie;
 import bean.User;
 import service.UserService;
 import service.impl.UserServiceImpl;
@@ -51,6 +52,8 @@ public class UserServlet extends HttpServlet {
 
 	//登录
 	protected void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String loginPath = request.getParameter("loginPath");
+		System.out.println("loginPath"+loginPath);
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		UserService us = new UserServiceImpl();
@@ -83,10 +86,21 @@ public class UserServlet extends HttpServlet {
 				response.addCookie(pwdCookie);
 			}
 			request.getSession().setAttribute("user", user);
-			response.sendRedirect("/BadBanana");
+			if("remendianying".equals(loginPath)) {
+				response.sendRedirect("/BadBanana/FindAllMovieInformationServlet");
+			}else if("index".equals(loginPath)){
+				response.sendRedirect("/BadBanana/IndexMovieInformationIndexServlet");
+			}else if("moviesingle".equals(loginPath)){
+				Movie movie = (Movie) request.getSession().getAttribute("movie");
+				request.getRequestDispatcher("/FindMovieInformationServlet?movieid="+movie.getMovieid()).forward(request, response);
+			}else {
+				response.sendRedirect("/BadBanana/IndexMovieInformationIndexServlet");
+			}
+			return;
 		} catch (Exception e) {
-			request.setAttribute("message", e.getMessage());
+			request.getSession().setAttribute("message", e.getMessage());
 			request.getRequestDispatcher("/loginandregister/login.jsp").forward(request, response);
+			return;
 		}
 	}
 	//注册

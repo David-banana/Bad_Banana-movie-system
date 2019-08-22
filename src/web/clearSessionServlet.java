@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.Movie;
+
 /**
  * Servlet implementation class clearSessionServlet
  */
@@ -27,14 +29,23 @@ public class clearSessionServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String path = request.getParameter("path");
+		String path = request.getParameter("quitPath");
 		request.getSession().removeAttribute("user");
 		Cookie[] cookies=request.getCookies();
-
 		for(Cookie cookie: cookies){
 		cookie.setMaxAge(0);
 		cookie.setPath(request.getContextPath());
 		response.addCookie(cookie);
+		if("remendianying".equals(path)) {
+			response.sendRedirect("/BadBanana/FindAllMovieInformationServlet");
+		}else if("index".equals(path)) {
+			response.sendRedirect("/BadBanana/IndexMovieInformationIndexServlet");
+		}else if("moviesingle".equals(path)) {
+			Movie movie = (Movie) request.getSession().getAttribute("movie");
+			System.out.println(movie);
+			response.sendRedirect("/BadBanana/FindMovieInformationServlet?movieid="+movie.getMovieid());
+		}
+		
 		}
 	}
 

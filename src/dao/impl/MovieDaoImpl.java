@@ -14,11 +14,11 @@ import utils.DataSourceUtils;
 public class MovieDaoImpl implements MovieDao {
 
 	@Override
-	public Movie selectMovieInformation(String moviename) {
+	public Movie selectMovieInformation(int movieid) {
 		QueryRunner qr = new QueryRunner(DataSourceUtils.getDataSource());
-		String sql = "select * from film_formation where moviename = ?";
+		String sql = "select * from film_formation where movieid = ?";
 		try {
-			Movie movie = qr.query(sql, new BeanHandler<Movie>(Movie.class),moviename);
+			Movie movie = qr.query(sql, new BeanHandler<Movie>(Movie.class),movieid);
 			return movie;
 		} catch (SQLException e) {
 			e.printStackTrace();
