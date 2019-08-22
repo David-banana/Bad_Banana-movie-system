@@ -151,7 +151,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 		<div class="col-md-6">
 			<div class="grid1">
-				<h3>${str.filmname}</h3>
+				<a href="/BadBanana/FindMovieInformationServlet?moviename=${str.filmname}&search=search"><h3>${str.filmname}</h3></a>
 				<p>${str.fileComment}</p>
 				<h4><b>时间</b> : ${str.date }</h4>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
