@@ -6,4 +6,5 @@ import bean.WriteBack;
 
 public interface WriteBackService {
 	List<WriteBack> findWriteback(int cid);
+	void addNewWriteback(WriteBack writeback);
 }

@@ -55,21 +55,35 @@
             <!-- Main content area -->
             <main>
                 <article>
-                    <h2 class="article-title">${moviecomment.username}</h2>
+                    <h3 class="article-title">${moviecomment.username}</h3>
                     <p>${moviecomment.fileComment}</p>
-                    <p>${moviecomment.date} </p>	
-					<p>${moviecomment.date} </p>
+                    <p style="margin-left: 27em;">${moviecomment.date} </p>	
+					<p style="margin-left: 27em;">有<a style="color: blue;"> ${moviecomment.click} </a>  个人觉得很赞 </p>
                 </article>
 
 
 			<c:forEach items="${writeback}" var="writeback">
  			<article>
-			<h2 class="article-title">${writeback.username }</h2>
+			<h3 class="article-title">${writeback.username }</h3>
                     <p>${writeback.writeText }</p>
                     <p>${writeback.date }</p>
                     </article>
 			</c:forEach>
- 			      
+			
+			   <c:if test="${empty user }">
+					<h4>登录后，可以评论</h4>
+					<a href= "/BadBanana/loginandregister/login.jsp?path=index/index.jsp"><input  type="button" value="登录" /></a>
+			</c:if>
+			<c:if test="${!empty user }">
+ 			     <article>
+ 			     <h3>您的评论</h3>
+ 			     	<form action="/BadBanana/SaveNewWriteBackServlet">
+                    <p><input placeholder = "您的评论" type="hidden" name="method" value="getMovieComment">
+              		<textarea name="myWriteBack" rows="5" cols="69" placeholder="您的评论"  style="margin-left: 1.2em;resize:none;"></textarea></p>
+              		<input  type="submit" value="回复" style="margin-left: 16em;margin-bottom: 0.5em;margin-top: 0.5em;resize: none">
+					 </form>
+					  </article>
+					 </c:if>
             </main>
             
             

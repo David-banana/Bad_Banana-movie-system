@@ -16,4 +16,10 @@ public class WriteBackServiceImpl implements WriteBackService {
 		return list;
 	}
 
+	@Override
+	public void addNewWriteback(WriteBack writeback) {
+		WriteBackDaoImpl wbd = new WriteBackDaoImpl();
+		wbd.addNewWriteBack(writeback);	
+	}
+
 }

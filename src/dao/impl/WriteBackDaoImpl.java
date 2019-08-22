@@ -25,4 +25,16 @@ public class WriteBackDaoImpl implements WriteBackDao {
 		return null;
 	}
 
+	@Override
+	public void addNewWriteBack(WriteBack writeback) {
+		QueryRunner qr = new QueryRunner(DataSourceUtils.getDataSource());
+		String sql = "insert into writeback(cid,writetext,date,userid,username) values(?,?,?,?,?)";
+		try {
+			qr.update(sql,writeback.getCid(),writeback.getWriteText(),writeback.getDate(),writeback.getUserid(),writeback.getUsername());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
 }

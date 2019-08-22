@@ -79,12 +79,13 @@
             <div class="text" border:1px solid black;>
             <c:if test="${empty user }">
 						<h3 text-align:center>登录后，可以评论</h3>
+							<a href= "/BadBanana/loginandregister/login.jsp?path=index/index.jsp"><input  type="button" value="登录" /></a>
 			</c:if>
 			<c:if test="${!empty user }">
 					<h3 class="heading"> ${user.username}</h3>
 					<form action="/BadBanana/CommentServlet">
 					<input placeholder = "您的评论" type="hidden" name="method" value="getMovieComment">
-              	<textarea name="myComment" rows="5" cols="30" placeholder="您的评论"  style="margin-left: 1.2em;"></textarea>
+              	<textarea name="myComment" rows="5" cols="30" placeholder="您的评论"  style="margin-left: 1.2em; resize:none"></textarea>
               	<br>
               	<input  type="submit" value="评论" style="margin-left: 9.7em;margin-bottom: 1.0em;margin-top: 1.5em;">
               </form>
