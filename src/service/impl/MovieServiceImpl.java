@@ -10,9 +10,8 @@ import service.MovieService;
 public class MovieServiceImpl implements MovieService {
 	MovieDao md = new MovieDaoImpl();
 	@Override
-	public Movie FindMovieInformation(String moviename) {
-		
-		Movie movie = md.selectMovieInformation(moviename);
+	public Movie FindMovieInformation(int movieid) {
+		Movie movie = md.selectMovieInformation(movieid);
 		return movie;
 	}
 

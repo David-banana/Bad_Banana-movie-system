@@ -24,11 +24,9 @@ public class FindMovieInformationServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String moviename = request.getParameter("moviename");
-		moviename=new String(moviename.getBytes(), "UTF-8");
-		System.out.println(moviename);
+		int movieid = Integer.valueOf(request.getParameter("movieid"));
 		MovieService ms = new MovieServiceImpl();
-		Movie movie = ms.FindMovieInformation(moviename);
+		Movie movie = ms.FindMovieInformation(movieid);
 		HttpSession session = request.getSession();
 		session.setAttribute("movie", movie);
 		ActorService as = new ActorServiceImpl();

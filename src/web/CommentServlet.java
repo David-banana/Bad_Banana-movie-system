@@ -42,9 +42,7 @@ public class CommentServlet extends HttpServlet {
 	public void HomeUser(HttpServletRequest request,HttpServletResponse response) { 
 		
 		String homeName = request.getParameter("homeName");		
-		System.out.println("???????"+homeName);
 		User LoginUser = (User) request.getSession().getAttribute("user");
-		System.out.println("!!!!!!!!!"+LoginUser);
 		boolean judge=false;
 		request.getSession().setAttribute("judge", judge);
 		
@@ -89,7 +87,7 @@ public class CommentServlet extends HttpServlet {
 		movieComment.setFileComment(comment);
 		MovieCommentService msc = new MovieCommentServiceImpl();
 		msc.addMovieComment(movieComment);
-		response.sendRedirect("/BadBanana");
+		response.sendRedirect("/BadBanana/FindMovieInformationServlet?movieid=" + movie.getMovieid());
 		}
 //		System.out.println(comment);
 	}

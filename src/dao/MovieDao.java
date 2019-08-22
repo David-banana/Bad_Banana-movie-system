@@ -5,7 +5,7 @@ import java.util.List;
 import bean.Movie;
 
 public interface MovieDao {
-	Movie selectMovieInformation(String moviename);
+	Movie selectMovieInformation(int movieid);
 	List<Movie> selecctAllMovieInformation();
 	List<Movie> selectMovieByDimName(String DimName);
 }

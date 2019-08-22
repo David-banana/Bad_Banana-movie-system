@@ -253,7 +253,7 @@
 					<div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
 						<div class="w3_agile_featured_movies">
 							<div class="col-md-2 w3l-movie-gride-agile">
-								<a href="/BadBanana/FindMovieInformationServlet?moviename=${allmovie[0].moviename}" class="hvr-shutter-out-horizontal"><img src="${allmovie[0].imgPathTwo}" title="album-name" class="img-responsive" alt=" " />
+								<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[0].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[0].imgPathTwo}" title="album-name" class="img-responsive" alt=" " />
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 								</a>
 								<div class="mid-1 agileits_w3layouts_mid_1_home">
@@ -279,7 +279,7 @@
 								</div>
 							</div>
 							<div class="col-md-2 w3l-movie-gride-agile">
-								<a href="/BadBanana/FindMovieInformationServlet?moviename=${allmovie[1].moviename}" class="hvr-shutter-out-horizontal"><img src="${allmovie[1].imgPathOne}" title="album-name" class="img-responsive" alt=" "  />
+								<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[1].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[1].imgPathOne}" title="album-name" class="img-responsive" alt=" "  />
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 								</a>
 								<div class="mid-1 agileits_w3layouts_mid_1_home">
@@ -305,7 +305,7 @@
 								</div>
 							</div>
 							<div class="col-md-2 w3l-movie-gride-agile">
-								<a href="/BadBanana/FindMovieInformationServlet?moviename=${allmovie[2].moviename}" class="hvr-shutter-out-horizontal"><img src="${allmovie[2].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
+								<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[2].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[2].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 								</a>
 								<div class="mid-1 agileits_w3layouts_mid_1_home">
@@ -331,7 +331,7 @@
 								</div>
 							</div>
 							<div class="col-md-2 w3l-movie-gride-agile">
-								<a href="/BadBanana/FindMovieInformationServlet?moviename=${allmovie[3].moviename}" class="hvr-shutter-out-horizontal"><img src="${allmovie[3].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
+								<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[3].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[3].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 								</a>
 								<div class="mid-1 agileits_w3layouts_mid_1_home">
@@ -357,7 +357,7 @@
 								</div>
 							</div>
 							<div class="col-md-2 w3l-movie-gride-agile">
-								<a href="/BadBanana/FindMovieInformationServlet?moviename=${allmovie[4].moviename}" class="hvr-shutter-out-horizontal"><img src="${allmovie[4].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
+								<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[4].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[4].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 								</a>
 								<div class="mid-1 agileits_w3layouts_mid_1_home">
@@ -383,7 +383,7 @@
 								</div>
 							</div>
 							<div class="col-md-2 w3l-movie-gride-agile">
-								<a href="/BadBanana/FindMovieInformationServlet?moviename=${allmovie[5].moviename}" class="hvr-shutter-out-horizontal"><img src="${allmovie[5].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
+								<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[5].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[5].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 								</a>
 								<div class="mid-1 agileits_w3layouts_mid_1_home">
@@ -409,7 +409,7 @@
 								</div>
 							</div>
 							<div class="col-md-2 w3l-movie-gride-agile">
-								<a href="/BadBanana/FindMovieInformationServlet?moviename=${allmovie[6].moviename}" class="hvr-shutter-out-horizontal"><img src="${allmovie[6].imgPathTwo}" title="album-name" class="img-responsive" alt=" " />
+								<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[6].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[6].imgPathTwo}" title="album-name" class="img-responsive" alt=" " />
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 								</a>
 								<div class="mid-1 agileits_w3layouts_mid_1_home">
@@ -435,7 +435,7 @@
 								</div>
 							</div>
 							<div class="col-md-2 w3l-movie-gride-agile">
-								<a href="/BadBanana/FindMovieInformationServlet?moviename=${allmovie[7].moviename}" class="hvr-shutter-out-horizontal"><img src="${allmovie[7].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
+								<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[7].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[7].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 								</a>
 								<div class="mid-1 agileits_w3layouts_mid_1_home">
@@ -461,7 +461,7 @@
 								</div>
 							</div>
 							<div class="col-md-2 w3l-movie-gride-agile">
-								<a href="/BadBanana/FindMovieInformationServlet?moviename=${allmovie[8].moviename}" class="hvr-shutter-out-horizontal"><img src="${allmovie[8].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
+								<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[8].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[8].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 								</a>
 								<div class="mid-1 agileits_w3layouts_mid_1_home">
@@ -487,7 +487,7 @@
 								</div>
 							</div>
 							<div class="col-md-2 w3l-movie-gride-agile">
-								<a href="/BadBanana/FindMovieInformationServlet?moviename=${allmovie[9].moviename}" class="hvr-shutter-out-horizontal"><img src="${allmovie[9].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
+								<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[9].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[9].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 								</a>
 								<div class="mid-1 agileits_w3layouts_mid_1_home">
@@ -513,7 +513,7 @@
 								</div>
 							</div>
 							<div class="col-md-2 w3l-movie-gride-agile">
-								<a href="/BadBanana/FindMovieInformationServlet?moviename=${allmovie[10].moviename}" class="hvr-shutter-out-horizontal"><img src="${allmovie[10].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
+								<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[10].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[10].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 								</a>
 								<div class="mid-1 agileits_w3layouts_mid_1_home">
@@ -539,7 +539,7 @@
 								</div>
 							</div>
 							<div class="col-md-2 w3l-movie-gride-agile">
-								<a href="/BadBanana/FindMovieInformationServlet?moviename=${allmovie[11].moviename}" class="hvr-shutter-out-horizontal"><img src="${allmovie[11].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
+								<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[11].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[11].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 								</a>
 								<div class="mid-1 agileits_w3layouts_mid_1_home">
@@ -569,7 +569,7 @@
 					</div>
 					<div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
 						<div class="col-md-2 w3l-movie-gride-agile">
-							<a href="/BadBanana/FindMovieInformationServlet?moviename=${allmovie[12].moviename}" class="hvr-shutter-out-horizontal"><img src="${allmovie[12].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
+							<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[12].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[12].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
 							<div class="mid-1 agileits_w3layouts_mid_1_home">
@@ -595,7 +595,7 @@
 							</div>
 						</div>
 						<div class="col-md-2 w3l-movie-gride-agile">
-							<a href="/BadBanana/FindMovieInformationServlet?moviename=${allmovie[13].moviename}" class="hvr-shutter-out-horizontal"><img src="${allmovie[13].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
+							<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[13].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[13].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
 							<div class="mid-1 agileits_w3layouts_mid_1_home">
@@ -621,7 +621,7 @@
 							</div>
 						</div>
 						<div class="col-md-2 w3l-movie-gride-agile">
-							<a href="/BadBanana/FindMovieInformationServlet?moviename=${allmovie[14].moviename}" class="hvr-shutter-out-horizontal"><img src="${allmovie[14].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
+							<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[14].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[14].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
 							<div class="mid-1 agileits_w3layouts_mid_1_home">
@@ -647,7 +647,7 @@
 							</div>
 						</div>
 						<div class="col-md-2 w3l-movie-gride-agile">
-							<a href="/BadBanana/FindMovieInformationServlet?moviename=${allmovie[15].moviename}" class="hvr-shutter-out-horizontal"><img src="${allmovie[15].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
+							<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[15].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[15].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
 							<div class="mid-1 agileits_w3layouts_mid_1_home">
@@ -673,7 +673,7 @@
 							</div>
 						</div>
 						<div class="col-md-2 w3l-movie-gride-agile">
-							<a href="/BadBanana/FindMovieInformationServlet?moviename=${allmovie[16].moviename}" class="hvr-shutter-out-horizontal"><img src="${allmovie[16].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
+							<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[16].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[16].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
 							<div class="mid-1 agileits_w3layouts_mid_1_home">
@@ -699,7 +699,7 @@
 							</div>
 						</div>
 						<div class="col-md-2 w3l-movie-gride-agile">
-							<a href="/BadBanana/FindMovieInformationServlet?moviename=${allmovie[17].moviename}" class="hvr-shutter-out-horizontal"><img src="${allmovie[17].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
+							<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[17].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[17].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
 							<div class="mid-1 agileits_w3layouts_mid_1_home">
@@ -725,7 +725,7 @@
 							</div>
 						</div>
 						<div class="col-md-2 w3l-movie-gride-agile">
-							<a href="/BadBanana/FindMovieInformationServlet?moviename=${allmovie[18].moviename}" class="hvr-shutter-out-horizontal"><img src="${allmovie[18].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
+							<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[18].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[18].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
 							<div class="mid-1 agileits_w3layouts_mid_1_home">
@@ -751,7 +751,7 @@
 							</div>
 						</div>
 						<div class="col-md-2 w3l-movie-gride-agile">
-							<a href="/BadBanana/FindMovieInformationServlet?moviename=${allmovie[19].moviename}" class="hvr-shutter-out-horizontal"><img src="${allmovie[19].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
+							<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[19].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[19].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
 							<div class="mid-1 agileits_w3layouts_mid_1_home">
@@ -777,7 +777,7 @@
 							</div>
 						</div>
 						<div class="col-md-2 w3l-movie-gride-agile">
-							<a href="/BadBanana/FindMovieInformationServlet?moviename=${allmovie[20].moviename}" class="hvr-shutter-out-horizontal"><img src="${allmovie[20].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
+							<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[20].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[20].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
 							<div class="mid-1 agileits_w3layouts_mid_1_home">
@@ -803,7 +803,7 @@
 							</div>
 						</div>
 						<div class="col-md-2 w3l-movie-gride-agile">
-							<a href="/BadBanana/FindMovieInformationServlet?moviename=${allmovie[21].moviename}" class="hvr-shutter-out-horizontal"><img src="${allmovie[21].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
+							<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[21].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[21].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
 							<div class="mid-1 agileits_w3layouts_mid_1_home">
@@ -829,7 +829,7 @@
 							</div>
 						</div>
 						<div class="col-md-2 w3l-movie-gride-agile">
-							<a href="/BadBanana/FindMovieInformationServlet?moviename=${allmovie[22].moviename}" class="hvr-shutter-out-horizontal"><img src="${allmovie[22].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
+							<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[22].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[22].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
 							<div class="mid-1 agileits_w3layouts_mid_1_home">
@@ -855,7 +855,7 @@
 							</div>
 						</div>
 						<div class="col-md-2 w3l-movie-gride-agile">
-							<a href="/BadBanana/FindMovieInformationServlet?moviename=${allmovie[23].moviename}" class="hvr-shutter-out-horizontal"><img src="${allmovie[23].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
+							<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[23].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[23].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
 							<div class="mid-1 agileits_w3layouts_mid_1_home">
