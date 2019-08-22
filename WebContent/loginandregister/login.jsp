@@ -47,6 +47,7 @@
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 tm-login-l">
                 <form action="${pageContext.servletContext.contextPath }/UserServlet" method="post" name = "loginForm" id="loginForm" class="tm-bg-black p-5 h-100">
                     <input type="hidden" name="method" value="login">
+                    <input type="hidden" name="loginPath" value="${param.loginPath }">
                     <div class="input-field">
                         <div><input placeholder="Username" id="username" name="username" type="text" class="validate" value="${param.username }"></div>
                     </div>
@@ -63,6 +64,7 @@
 							<span>自动登录</span>
 						</label> 
                         <button type="submit" class="waves-effect btn-large btn-large-white px-4 black-text rounded-0">登陆</button>
+                        
                     </div>
                 </form>
             </div>

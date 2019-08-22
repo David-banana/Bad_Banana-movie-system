@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.beanutils.BeanUtils;
 
+import bean.Movie;
 import bean.User;
 import service.UserService;
 import service.impl.UserServiceImpl;
@@ -51,6 +52,7 @@ public class UserServlet extends HttpServlet {
 
 	//登录
 	protected void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String loginPath = request.getParameter("loginPath");
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		UserService us = new UserServiceImpl();
@@ -83,7 +85,20 @@ public class UserServlet extends HttpServlet {
 				response.addCookie(pwdCookie);
 			}
 			request.getSession().setAttribute("user", user);
-			response.sendRedirect("/BadBanana");
+			if("remendianying".equals(loginPath)) {
+				response.sendRedirect("/BadBanana/FindAllMovieInformationServlet");
+			}else if("index".equals(loginPath)){
+				response.sendRedirect("/BadBanana/IndexMovieInformationIndexServlet");
+			}else if("moviesingle".equals(loginPath)){
+//				Movie movie = (Movie) request.getSession().getAttribute("movie");
+				//System.out.println("User" + movie.getMoviename());
+//			response.setContentType("text/html;charset=UTF-8");
+//				response.sendRedirect("/BadBanana/FindMovieInformationServlet?moviename="+movie.getMoviename());
+//				request.getRequestDispatcher("/FindMovieInformationServlet?moviename="+movie.getMoviename()).forward(request, response);
+				response.sendRedirect("/BadBanana/IndexMovieInformationIndexServlet");
+			}else {
+				response.sendRedirect("/BadBanana/IndexMovieInformationIndexServlet");
+			}
 		} catch (Exception e) {
 			request.setAttribute("message", e.getMessage());
 			request.getRequestDispatcher("/loginandregister/login.jsp").forward(request, response);

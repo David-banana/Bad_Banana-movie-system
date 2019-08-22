@@ -112,7 +112,7 @@
 	<div class="header">
 		<div class="container">
 			<div class="w3layouts_logo">
-				<a href="index.html"><h1>B-B<span>Bad_Banana</span></h1></a>
+				<a href="index.jsp"><h1>B-B<span>Bad_Banana</span></h1></a>
 			</div>
 			<div class="w3_search">
 				<form action="/BadBanana/FindMovieInformationServlet" method="get">
@@ -200,14 +200,14 @@
 				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
 					<nav>
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="/BadBanana">首页</a></li>
+							<li class="active"><a href="/BadBanana/index/index.jsp">首页</a></li>
 							
 						<c:if test="${empty user }">
-						<li class="mr-lg-4 mr-3"><a href="/BadBanana/loginandregister/login.jsp" class="scroll">登录</a></li>
+						<li class="mr-lg-4 mr-3"><a href="/BadBanana/loginandregister/login.jsp?loginPath=remendianying" class="scroll">登录</a></li>
 						</c:if>
 						<c:if test="${!empty user }">
 						<li class="mr-lg-4 mr-3"><a href="/BadBanana/UserServlet?method=userHome&homeName=${user.username }" class="scroll">${user.username}${time}!</a></li>
-						<li class="mr-lg-4 mr-3"><a href="/BadBanana/clearSessionServlet" class="scroll">退出</a></li>
+						<li class="mr-lg-4 mr-3"><a href="/BadBanana/clearSessionServlet?quitPath=remendianying" class="scroll">退出</a></li>
 						</c:if>
 							<li><a href="/BadBanana/aboutus/aboutus.html">关于我们</a></li>
 							<li><a href="/BadBanana/contactus/contactus.html">联系我们</a></li>

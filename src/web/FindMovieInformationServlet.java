@@ -23,7 +23,9 @@ import service.impl.MovieServiceImpl;
 public class FindMovieInformationServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String moviename = request.getParameter("moviename");
+		moviename=new String(moviename.getBytes(), "UTF-8");
 		System.out.println(moviename);
 		MovieService ms = new MovieServiceImpl();
 		Movie movie = ms.FindMovieInformation(moviename);
