@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.Movie;
+
 /**
  * Servlet implementation class clearSessionServlet
  */
@@ -38,6 +40,10 @@ public class clearSessionServlet extends HttpServlet {
 			response.sendRedirect("/BadBanana/FindAllMovieInformationServlet");
 		}else if("index".equals(path)) {
 			response.sendRedirect("/BadBanana/IndexMovieInformationIndexServlet");
+		}else if("moviesingle".equals(path)) {
+			Movie movie = (Movie) request.getSession().getAttribute("movie");
+			System.out.println(movie);
+			response.sendRedirect("/BadBanana/FindMovieInformationServlet?movieid="+movie.getMovieid());
 		}
 		
 		}

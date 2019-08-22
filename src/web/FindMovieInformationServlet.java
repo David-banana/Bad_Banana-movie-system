@@ -25,6 +25,7 @@ public class FindMovieInformationServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int movieid = Integer.valueOf(request.getParameter("movieid"));
+		System.out.println("FindMovie"+movieid);
 		MovieService ms = new MovieServiceImpl();
 		Movie movie = ms.FindMovieInformation(movieid);
 		HttpSession session = request.getSession();
@@ -41,6 +42,7 @@ public class FindMovieInformationServlet extends HttpServlet {
 		//System.out.println(list);
 		session.setAttribute("MovieComment", list);
 		response.sendRedirect("/BadBanana/moviesingle/moviesingle.jsp");
+		return;
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -53,6 +53,7 @@ public class UserServlet extends HttpServlet {
 	//登录
 	protected void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String loginPath = request.getParameter("loginPath");
+		System.out.println("loginPath"+loginPath);
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		UserService us = new UserServiceImpl();
@@ -90,18 +91,16 @@ public class UserServlet extends HttpServlet {
 			}else if("index".equals(loginPath)){
 				response.sendRedirect("/BadBanana/IndexMovieInformationIndexServlet");
 			}else if("moviesingle".equals(loginPath)){
-//				Movie movie = (Movie) request.getSession().getAttribute("movie");
-				//System.out.println("User" + movie.getMoviename());
-//			response.setContentType("text/html;charset=UTF-8");
-//				response.sendRedirect("/BadBanana/FindMovieInformationServlet?moviename="+movie.getMoviename());
-//				request.getRequestDispatcher("/FindMovieInformationServlet?moviename="+movie.getMoviename()).forward(request, response);
-				response.sendRedirect("/BadBanana/IndexMovieInformationIndexServlet");
+				Movie movie = (Movie) request.getSession().getAttribute("movie");
+				request.getRequestDispatcher("/FindMovieInformationServlet?movieid="+movie.getMovieid()).forward(request, response);
 			}else {
 				response.sendRedirect("/BadBanana/IndexMovieInformationIndexServlet");
 			}
+			return;
 		} catch (Exception e) {
-			request.setAttribute("message", e.getMessage());
+			request.getSession().setAttribute("message", e.getMessage());
 			request.getRequestDispatcher("/loginandregister/login.jsp").forward(request, response);
+			return;
 		}
 	}
 	//注册

@@ -37,7 +37,7 @@
 						</c:if>
 						<c:if test="${!empty user }">
 						<li class="mr-lg-4 mr-3"><a href="/BadBanana/UserServlet?method=userHome&homeName=${user.username }" class="scroll">${user.username}</a><a>${time}!</a></li>
-						<li class="mr-lg-4 mr-3"><a href="/BadBanana/clearSessionServlet" class="scroll">退出</a></li>
+						<li class="mr-lg-4 mr-3"><a href="/BadBanana/clearSessionServlet?quitPath=moviesingle" class="scroll">退出</a></li>
 						</c:if>
           </ul>
           <div class="extra-text visible-xs"> 

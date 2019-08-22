@@ -39,11 +39,11 @@
             <li><a href="services.jsp">评论</a></li>
             <li><a href="/BadBanana/FindAllMovieInformationServlet">热门电影</a></li>
             <c:if test="${empty user }">
-						<li class="mr-lg-4 mr-3"><a href="/BadBanana/loginandregister/login.jsp" class="scroll">登录</a></li>
+						<li class="mr-lg-4 mr-3"><a href="/BadBanana/loginandregister/login.jsp?loginPath=moviesingle" class="scroll">登录</a></li>
 						</c:if>
 						<c:if test="${!empty user }">
 						<li class="mr-lg-4 mr-3"><a href="/BadBanana/UserServlet?method=userHome&homeName=${user.username }" class="scroll">${user.username}</a><a>${time}!</a></li>
-						<li class="mr-lg-4 mr-3"><a href="/BadBanana/clearSessionServlet" class="scroll">退出</a></li>
+						<li class="mr-lg-4 mr-3"><a href="/BadBanana/clearSessionServlet?quitPath=moviesingle" class="scroll">退出</a></li>
 						</c:if>
           </ul>
           <%session.getAttribute("actor1");%>
