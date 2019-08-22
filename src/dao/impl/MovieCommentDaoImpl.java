@@ -82,7 +82,7 @@ public class MovieCommentDaoImpl implements MovieCommentDao {
 		String sql="delete from film_comment where cid=?";
 		try {
 			qr.update(sql,cid);
-			System.out.println("ddddddddddddddddddddddddddddd删除完成！");
+			//System.out.println("ddddddddddddddddddddddddddddd删除完成！");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

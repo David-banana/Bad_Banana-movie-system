@@ -151,7 +151,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 		<div class="col-md-6">
 			<div class="grid1">
-				<h3>${str.filmname}</h3>
+				<a href="/BadBanana/FindMovieInformationServlet?moviename=${str.filmname}"><h3>${str.filmname}</h3></a>
 				<p>${str.fileComment}</p>
 				<h4><b>时间</b> : ${str.date }</h4>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -197,47 +197,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
-<!-- Technical Skills -->
-<div class="count-agileits" id="stats">
-	<div class="container">
-		<h3 class="heading">我的成长</h3>
-					<div class="count-grids">
-					<div class="count-bgcolor-w3ls">
-						<div class="col-md-3 count-grid">
-							<div class="count hvr-bounce-to-bottom">
-								<div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='120' data-delay='1' data-increment="1">120</div>
-									<span></span>
-									<h5>我已经看过这么多电影</h5>
-							</div>
-						</div>
-						<div class="col-md-3 count-grid">
-							<div class="count hvr-bounce-to-bottom">
-								<div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='172' data-delay='1' data-increment="1">172</div>
-									<span></span>
-									<h5>我有这么多点评</h5>
-							</div>
-						</div>
-						<div class="col-md-3 count-grid">
-							<div class="count hvr-bounce-to-bottom">
-								<div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='102' data-delay='1' data-increment="1">102</div>
-									<span></span>
-									<h5>我来到Banana已经</h5>
-							</div>
-						</div>
-						<div class="col-md-3 count-grid">
-							<div class="count hvr-bounce-to-bottom">
-								<div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='156' data-delay='1' data-increment="1">156</div>
-									<span></span>
-									<h5>我还想看这么多电影</h5>
-								</div>
-						</div>
-						<div class="clearfix"></div>
-						</div>
-					</div>
-	</div>
-</div>
 
-<!-- Technical Skills -->
 
 
 <!-- //contact -->
