@@ -53,14 +53,14 @@ public class UserServlet extends HttpServlet {
 	//登录
 	protected void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String loginPath = request.getParameter("loginPath");
-		System.out.println("loginPath"+loginPath);
+//		System.out.println("loginPath"+loginPath);
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		UserService us = new UserServiceImpl();
 		//判断时间
 		Date d = new Date();
 		int hours = d.getHours();
-		System.out.println(hours);
+//		System.out.println(hours);
 		if (hours < 12) {
 			request.getSession().setAttribute("time", "上午好");
 		} else if (hours < 18) {

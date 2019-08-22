@@ -38,7 +38,7 @@ public class DianZanServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String filmcid = request.getParameter("filmcid");
-		System.out.println(filmcid);
+//		System.out.println(filmcid);
 		int cid = Integer.valueOf(filmcid);
 		MovieCommentDao mcd=new MovieCommentDaoImpl();
 		mcd.addDianZan(cid);	
