@@ -60,7 +60,7 @@
 						</c:if>
 						
                             <li class="mr-lg-4 mr-3"><a href="/BadBanana/aboutus/aboutus.html" class="scroll">关于我们</a></li>
-                            <li><a href="/BadBanana/contactus/contactus.html">联系我们</a></li>
+                            <li><a href="/BadBanana/contactus/contactus.jsp">联系我们</a></li>
                         </ul>
                     </nav>
 		</div>

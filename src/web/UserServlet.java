@@ -93,6 +93,8 @@ public class UserServlet extends HttpServlet {
 			}else if("moviesingle".equals(loginPath)){
 				Movie movie = (Movie) request.getSession().getAttribute("movie");
 				request.getRequestDispatcher("/FindMovieInformationServlet?movieid="+movie.getMovieid()).forward(request, response);
+			}else if("contactus".equals(loginPath)){
+				request.getRequestDispatcher("/contactus/contactus.jsp").forward(request, response);
 			}else {
 				response.sendRedirect("/BadBanana/IndexMovieInformationIndexServlet");
 			}

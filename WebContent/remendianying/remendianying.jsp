@@ -211,7 +211,7 @@
 						<li class="mr-lg-4 mr-3"><a href="/BadBanana/clearSessionServlet?quitPath=remendianying" class="scroll">退出</a></li>
 						</c:if>
 							<li><a href="/BadBanana/aboutus/aboutus.html">关于我们</a></li>
-							<li><a href="/BadBanana/contactus/contactus.html">联系我们</a></li>
+							<li><a href="/BadBanana/contactus/contactus.jsp">联系我们</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -950,7 +950,7 @@
 			<div class="col-md-5 w3ls_footer_grid1_left">
 			
 			</div>
-			<div class="col-md-7 w3ls_footer_grid1_right">
+			<!-- <div class="col-md-7 w3ls_footer_grid1_right">
 				<ul>
 					<li>
 						<a href="../index/index.html">首页</a>
@@ -965,10 +965,10 @@
 						<a href="../aboutus/aboutus.html">关于我们</a>
 					</li>
 					<li>
-						<a href="../contactus/contactus.html">联系我们</a>
+						<a href="../contactus/contactus.jsp">联系我们</a>
 					</li>
 				</ul>
-			</div>
+			</div> -->
 			<div class="clearfix"> </div>
 		</div>
 	</div>
