@@ -31,7 +31,7 @@ public class FindMovieInformationServlet extends HttpServlet {
 			 movie = ms.FindMovieInformation(moviename);
 		}else {
 		int movieid = Integer.valueOf(request.getParameter("movieid"));
-		System.out.println("FindMovie"+movieid);
+//		System.out.println("FindMovie"+movieid);
 		 movie = ms.FindMovieInformation(movieid);
 		}
 		HttpSession session = request.getSession();

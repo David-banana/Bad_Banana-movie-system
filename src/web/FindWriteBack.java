@@ -21,7 +21,7 @@ public class FindWriteBack extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String strcid = request.getParameter("cid");
 		int cid = Integer.valueOf(strcid);
-		System.out.println(cid);
+//		System.out.println(cid);
 		WriteBackServiceImpl wbi = new WriteBackServiceImpl();
 		List<WriteBack> list = wbi.findWriteback(cid);
 		MovieCommentService mcs = new MovieCommentServiceImpl();
