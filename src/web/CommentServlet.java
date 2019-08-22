@@ -52,10 +52,10 @@ public class CommentServlet extends HttpServlet {
 				request.getSession().setAttribute("judge", judge);
 			}
 		}
-		System.out.println("homeName"+homeName);
+//		System.out.println("homeName"+homeName);
 		MovieCommentService mcs=new MovieCommentServiceImpl();
 		List<HomeUser> list = mcs.findUserByHomename(homeName);
-		System.out.println("homeUser "+list);
+//		System.out.println("homeUser "+list);
 		request.getSession().setAttribute("HomeList", list);
 		try {
 			//request.getRequestDispatcher("/personalHomepage/personalHome.jsp").forward(request, response);
@@ -99,10 +99,10 @@ public class CommentServlet extends HttpServlet {
 		MovieCommentService mcs=new MovieCommentServiceImpl();
 		mcs.deleteCommentByCid(cid);
 		
-			System.out.println("欧力给！");
+//			System.out.println("欧力给！");
 			//request.getRequestDispatcher("/personalHome.jsp").forward(request, response);
 			try {
-				System.out.println("kaikaiakiakiakaikaiakiakia");
+//				System.out.println("kaikaiakiakiakaikaiakiakia");
 				response.sendRedirect("/BadBanana/CommentServlet?method=HomeUser&homeName="+homeName);
 			} catch (IOException e) {
 				e.printStackTrace();

@@ -42,7 +42,7 @@ public class clearSessionServlet extends HttpServlet {
 			response.sendRedirect("/BadBanana/IndexMovieInformationIndexServlet");
 		}else if("moviesingle".equals(path)) {
 			Movie movie = (Movie) request.getSession().getAttribute("movie");
-			System.out.println(movie);
+//			System.out.println(movie);
 			response.sendRedirect("/BadBanana/FindMovieInformationServlet?movieid="+movie.getMovieid());
 		}
 		
