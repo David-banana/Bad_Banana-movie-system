@@ -55,10 +55,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<nav class="menu">
 						<div class="icon-list">
 							<a class="scroll active" href="#agilehome"><i class="fa fa-home"></i><span>Home</span></a>
-							<a class="scroll" href="#about"><i class="fa fa-info"></i><span>关于我</span></a>
 							<a class="scroll" href="#gallery"><i class="fa fa-picture-o"></i><span>照片墙</span></a>
 							<a class="scroll" href="#education"><i class="fa fa-book"></i><span>我的足迹</span></a>
-							<a class="scroll" href="#stats"><i class="fa fa-laptop"></i><span>我的成长</span></a>
 							</div>
 					</nav>
 					<button class="close-button" id="close-button">Close Menu</button>
@@ -201,7 +199,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- footer -->
 <div class="footer">
 	<div class="container">
-		<h3><a href="index.html">My Career</a></h3>
+		<h3><a href="#">My Career</a></h3>
 		<p>Copyright &copy; 2017.Company name All rights reserved.From Bad-Banana </p>
 					<ul class="social-nav model-3d-0 footer-social w3_agile_social">
 						<li><a href="#" class="facebook">
