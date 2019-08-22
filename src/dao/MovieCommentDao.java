@@ -11,4 +11,5 @@ public interface MovieCommentDao {
 	void addMovieComment(MovieComment movieComment);
 	MovieComment selectMovieCommentbyid(int cid);
 	void deleteCommentByCid(String cid);
+	void addDianZan(int cid);
 }

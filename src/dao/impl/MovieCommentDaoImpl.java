@@ -87,6 +87,16 @@ public class MovieCommentDaoImpl implements MovieCommentDao {
 			e.printStackTrace();
 		}
 	}
+	@Override
+	public void addDianZan(int cid) {
+		QueryRunner qr = new QueryRunner(DataSourceUtils.getDataSource());
+		String sql="update film_comment set click=click+1 where cid=?";
+		try {
+			qr.update(sql,cid);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	
 	
