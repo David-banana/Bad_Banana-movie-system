@@ -85,7 +85,7 @@
 					<h3 class="heading"> ${user.username}</h3>
 					<form action="/BadBanana/CommentServlet">
 					<input placeholder = "您的评论" type="hidden" name="method" value="getMovieComment">
-              	<textarea name="myComment" rows="5" cols="30" placeholder="您的评论"  style="margin-left: 1.2em; resize:none"></textarea>
+              	<textarea style="resize:none" name="myComment" rows="5" cols="30" placeholder="您的评论"  style="margin-left: 1.2em; resize:none"></textarea>
               	<br>
               	<input  type="submit" value="评论" style="margin-left: 9.7em;margin-bottom: 1.0em;margin-top: 1.5em;">
               </form>

@@ -117,6 +117,7 @@
 			<div class="w3_search">
 				<form action="/BadBanana/FindMovieInformationServlet" method="get">
 					<input type="text" name="moviename" placeholder="Search" required="" id="moviename">
+					<input type="hidden" name="search" value="search">
 					<input type="submit" value="Go">
 					<div id=list style="width:357px ;border:1px solid gray;background-color:white;position:absolute; z-index:1000;display:none"></div>
 				</form>

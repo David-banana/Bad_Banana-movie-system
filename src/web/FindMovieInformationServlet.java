@@ -23,11 +23,17 @@ import service.impl.MovieServiceImpl;
 public class FindMovieInformationServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		String method = request.getParameter("search");
+		MovieService ms = new MovieServiceImpl();
+		Movie movie=null;
+		if("search".equals(method)) {
+			String moviename = request.getParameter("moviename");
+			 movie = ms.FindMovieInformation(moviename);
+		}else {
 		int movieid = Integer.valueOf(request.getParameter("movieid"));
 		System.out.println("FindMovie"+movieid);
-		MovieService ms = new MovieServiceImpl();
-		Movie movie = ms.FindMovieInformation(movieid);
+		 movie = ms.FindMovieInformation(movieid);
+		}
 		HttpSession session = request.getSession();
 		session.setAttribute("movie", movie);
 		ActorService as = new ActorServiceImpl();

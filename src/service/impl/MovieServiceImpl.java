@@ -21,4 +21,10 @@ public class MovieServiceImpl implements MovieService {
 		return list;
 	}
 
+	@Override
+	public Movie FindMovieInformation(String moviename) {
+		Movie movie = md.selectMovieInformation(moviename);
+		return movie;
+	}
+
 }
