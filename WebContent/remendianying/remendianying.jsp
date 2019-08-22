@@ -70,7 +70,7 @@
 			"json"
 			)
 		})	
-		$("#moviename").blur(function() {
+		$("#moviename").mouseout(function() {
 			$("#list").css("display","none");
 		});
 
