@@ -30,7 +30,7 @@ public class MovieCommentDaoImpl implements MovieCommentDao {
 
 	@Override
 	public List<HomeUser> findUserByHomename(String homeName) {
-		System.out.println("进来了");
+//		System.out.println("进来了");
 		QueryRunner qr = new QueryRunner(DataSourceUtils.getDataSource());
 		String sql="select cid,username,filmname,fileComment,imgPathOne,date "
 				+ "from(select cid,username,filmname,fileComment,date "

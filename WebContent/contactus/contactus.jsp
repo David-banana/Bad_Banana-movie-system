@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +32,7 @@
                         </div>
                         <div class="form-group mb-5">
                             <label for="email" class="black-text mb-4 big">您的邮箱</label>
-                            <input id="email" name="email" type="email" class="validate tm-input-white-bg">
+                            <input id="email" name="email" type="email" class="validate tm-input-white-bg" >
                         </div>
                         <div class="form-group mb-5">
                             <label for="address" class="black-text mb-4 big">您的通讯地址</label>
@@ -70,14 +73,24 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="message" class="black-text mb-4 big">您的建议</label>
+                            <label for="message"  style="color:white;font-size:larger">您的建议</label>
                             <textarea class="p-3" name="advice" id="advice" cols="30" rows="4"></textarea>
                         </div>
 
                     </div>
-                    <div class="text-center mt-5">
+<!--                     <div class="text-center mt-5">
                         <button type="submit" class="waves-effect btn-large btn-large-white">提交</button>
-                    </div>
+                    </div> -->
+                    <!-- 测试 -->
+                    <c:if test="${empty user }">
+						<li style="color:darkgrey;font-size:larger"><a href="/BadBanana/loginandregister/login.jsp?loginPath=contactus" class="scroll" style="color:white">登录</a>后才可以提建议哦！</li>
+					</c:if>
+						<c:if test="${!empty user }">
+							<div class="text-center mt-5">
+	                        <button type="submit" class="waves-effect btn-large btn-large-white">提交</button>
+	                    	</div>
+						</c:if>
+                    <!-- 测试结束 -->
                 </form>
             </div>
         </div>

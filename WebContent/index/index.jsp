@@ -60,7 +60,7 @@
 						</c:if>
 						
                             <li class="mr-lg-4 mr-3"><a href="/BadBanana/aboutus/aboutus.html" class="scroll">关于我们</a></li>
-                            <li><a href="/BadBanana/contactus/contactus.html">联系我们</a></li>
+                            <li><a href="/BadBanana/contactus/contactus.jsp">联系我们</a></li>
                         </ul>
                     </nav>
 		</div>
@@ -107,7 +107,7 @@
 			<h3>${indexmovieOne.moviename}  </h3>
 			<h6 class="mt-3"> ${indexmovieOne.daoyanname} </h6>
 			<p class="wtp mt-3">${indexmovieOne.generalizeOne} </p>
-			<a href="/BadBanana/FindMovieInformationServlet?moviename=${indexmovieOne.moviename}" class="btn button-style-1 mt-sm-5 mt-4 scroll">了解更多 </a>
+			<a href="/BadBanana/FindMovieInformationServlet?movieid=${indexmovieOne.movieid}" class="btn button-style-1 mt-sm-5 mt-4 scroll">了解更多 </a>
 		</div>
 	</section>
 	<!-- //what -->
@@ -117,7 +117,7 @@
 			<h3>${indexmovieTwo.moviename}</h3>
 			<h6 class="mt-3">${indexmovieTwo.daoyanname}  </h6>
 			<p class="wtp mt-3">${indexmovieTwo.generalizeOne}  </p>
-			<a href="/BadBanana/FindMovieInformationServlet?moviename=${indexmovieTwo.moviename}" class="btn button-style-1 mt-sm-5 mt-4 scroll">了解更多 </a>
+			<a href="/BadBanana/FindMovieInformationServlet?movieid=${indexmovieTwo.movieid}" class="btn button-style-1 mt-sm-5 mt-4 scroll">了解更多 </a>
 		</div>
 	</section>
 	<!-- //what -->
