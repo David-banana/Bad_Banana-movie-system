@@ -14,7 +14,8 @@
 			$.ajax({
 				url : "/BadBanana/DianZanServlet",
 				data : {
-					"filmcid" : "${moviecomment.cid}"
+					"filmcid" : "${moviecomment.cid}",
+					"userid":"${user.userid}"
 				},
 				success : function(data) {
 					console.log(data.dianzanshu);
@@ -26,6 +27,9 @@
 		}
 
 	}
+	function backZhuye(){
+		 window.location.href="/BadBanana/";
+		}
 </script>
 <html lang="en">
 <head>
@@ -55,7 +59,8 @@
 		<!-- Header navigation -->
 		<header>
 			<div class="headers d-none d-md-block">
-				<h1>评论详情</h1>
+				<div><a a style=" color:#666; font-size:40px;">评论详情</a> <input type="button" value="返回首页"
+						style="margin-left:26em" onclick="backZhuye()"></div>
 				<h2>Details of comments</h2>
 			</div>
 
@@ -124,6 +129,7 @@
 					</p>
 					<input type="submit" value="回复"
 						style="margin-left: 16em; margin-bottom: 0.5em; margin-top: 0.5em; resize: none">
+						
 				</form>
 			</article>
 		</c:if> </main>
@@ -135,6 +141,7 @@
 		<!-- Footer -->
 
 		<p class="text-center">
+		
 			<a href="#">Back to top</a>
 		</p>
 

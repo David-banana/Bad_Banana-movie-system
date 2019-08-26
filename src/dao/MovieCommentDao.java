@@ -12,4 +12,6 @@ public interface MovieCommentDao {
 	MovieComment selectMovieCommentbyid(int cid);
 	void deleteCommentByCid(String cid);
 	void addDianZan(int cid);
+	//在点赞表中添加点赞
+	void addDianZanInDianZanBiao(String userid,String commentid);
 }

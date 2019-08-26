@@ -13,7 +13,9 @@ import javax.servlet.http.HttpSession;
 import bean.MovieComment;
 import bean.WriteBack;
 import dao.MovieCommentDao;
+import dao.UserDao;
 import dao.impl.MovieCommentDaoImpl;
+import dao.impl.UserDaoImpl;
 import service.MovieCommentService;
 import service.impl.MovieCommentServiceImpl;
 import service.impl.WriteBackServiceImpl;
@@ -27,11 +29,18 @@ public class DianZanServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		UserDao ud=new UserDaoImpl();
 		String filmcid = request.getParameter("filmcid");
-//		System.out.println(filmcid);
+		String userid = request.getParameter("userid");
+		String commentid=filmcid;
 		int cid = Integer.valueOf(filmcid);
-		MovieCommentDao mcd=new MovieCommentDaoImpl();
-		mcd.addDianZan(cid);	
+		boolean checkDianZan = ud.checkDianZan(userid, commentid);
+		if(checkDianZan==false) {
+			MovieCommentDao mcd=new MovieCommentDaoImpl();
+			mcd.addDianZanInDianZanBiao(userid, commentid);
+//		System.out.println(filmcid);
+			mcd.addDianZan(cid);	
+		}		
 		MovieCommentService mcs = new MovieCommentServiceImpl();
 		MovieComment mc = mcs.findMovieCommentbyid(cid);
 		int click = mc.getClick();

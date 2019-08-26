@@ -97,6 +97,18 @@ public class MovieCommentDaoImpl implements MovieCommentDao {
 			e.printStackTrace();
 		}
 	}
+
+	@Override
+	public void addDianZanInDianZanBiao(String userid, String commentid) {
+		QueryRunner qr = new QueryRunner(DataSourceUtils.getDataSource());
+		String sql="insert into dianzanbiao values(?,?)";
+		try {
+			qr.update(sql, userid,commentid);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
 	
 	
 	
