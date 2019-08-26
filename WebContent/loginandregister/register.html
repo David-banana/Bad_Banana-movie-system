@@ -82,10 +82,10 @@
 		$("#registForm").validate({
 			rules:{
 				username:{
+					checkUser:true,
 					required:true,
 					minlength:6,
-					maxlength:16,
-					checkUser:true
+					maxlength:16
 	
 				},
 				password:{

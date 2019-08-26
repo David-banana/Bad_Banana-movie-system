@@ -18,24 +18,14 @@ import service.MovieCommentService;
 import service.impl.MovieCommentServiceImpl;
 import service.impl.WriteBackServiceImpl;
 
-/**
- * Servlet implementation class DianZanServlet
- */
 @WebServlet("/DianZanServlet")
 public class DianZanServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public DianZanServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String filmcid = request.getParameter("filmcid");
 //		System.out.println(filmcid);
@@ -51,11 +41,6 @@ public class DianZanServlet extends HttpServlet {
 
 	}
 	
-	
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
