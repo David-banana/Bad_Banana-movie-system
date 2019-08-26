@@ -67,7 +67,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<p>MENU</p>
 			</div>
 			<div class="aitslogow3ls">
-					<a href="#"><div class="agilelogo">我的小屋</div></a>
+					<a href="#"><div class="agilelogo">${HomeList[0].username }的小屋</div></a>
 			</div>
 			<div class="wthreecontact">
 				<p><a  href="/BadBanana/FindAllMovieInformationServlet"><i class="fa fa-envelope-o" aria-hidden="true"></i> 返回热门电影</a></p>
@@ -150,7 +150,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="col-md-6">
 			<div class="grid1">
 				<a href="/BadBanana/FindMovieInformationServlet?moviename=${str.filmname}&search=search"><h3>${str.filmname}</h3></a>
-				<p>${str.fileComment}</p>
+				<a href="/BadBanana/FindWriteBack?cid=${str.cid}"><p>${str.fileComment}</p></a>
 				<h4><b>时间</b> : ${str.date }</h4>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
