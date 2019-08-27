@@ -10,7 +10,9 @@ import bean.MovieComment;
 import dao.UserDao;
 import dao.impl.UserDaoImpl;
 import service.MovieCommentService;
+import service.UserService;
 import service.impl.MovieCommentServiceImpl;
+import service.impl.UserServiceImpl;
 
 @WebServlet("/DianZanServlet")
 public class DianZanServlet extends HttpServlet {
@@ -21,18 +23,18 @@ public class DianZanServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		UserDao ud=new UserDaoImpl();
+		UserService us=new UserServiceImpl();
 		String filmcid = request.getParameter("filmcid");
 		String userid = request.getParameter("userid");
 		String commentid=filmcid;
 		int cid = Integer.valueOf(filmcid);
-		boolean checkDianZan = ud.checkDianZan(userid, commentid);
+		boolean checkDianZan = us.checkDianZan(userid, commentid);
 		if(checkDianZan==false) {
 			MovieCommentService mcs=new MovieCommentServiceImpl();
 			mcs.addDianZanInDianZanBiao(userid, commentid);
 //		System.out.println(filmcid);
 			mcs.addDianZan(cid);	
-		}		
+		}	
 		MovieCommentService mcs = new MovieCommentServiceImpl();
 		MovieComment mc = mcs.findMovieCommentbyid(cid);
 		int click = mc.getClick();
