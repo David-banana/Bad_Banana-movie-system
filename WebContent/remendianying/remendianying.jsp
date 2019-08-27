@@ -202,7 +202,25 @@
 					<nav>
 						<ul class="nav navbar-nav">
 							<li class="active"><a href="/BadBanana/index/index.jsp">首页</a></li>
-							
+								<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">电影类别 <b class="caret"></b></a>
+								<ul class="dropdown-menu multi-column columns-3">
+									<li>
+									<div class="col-sm-4">
+										<ul class="multi-column-dropdown">
+											<li><a href="genres.html">科幻</a></li>
+											<li><a href="genres.html">纪实</a></li>
+											<li><a href="genres.html">喜剧</a></li>
+											<li><a href="genres.html">恐怖</a></li>
+											<li><a href="horror.html">战争</a></li>
+											<li><a href="genres.html">爱情</a></li>
+										</ul>
+									</div>
+									
+									<div class="clearfix"></div>
+									</li>
+								</ul>
+							</li>
 						<c:if test="${empty user }">
 						<li class="mr-lg-4 mr-3"><a href="/BadBanana/loginandregister/login.jsp?loginPath=remendianying" class="scroll">登录</a></li>
 						</c:if>
