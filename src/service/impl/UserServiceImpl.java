@@ -35,10 +35,14 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User findUserHome(String username) {
-		UserDao ud=new UserDaoImpl();
 		User user = ud.findUserInformationByUsername(username);
 		
 		return user;
+	}
+
+	@Override
+	public boolean checkDianZan(String userid, String commentid) {
+		return ud.checkDianZan(userid, commentid);
 	}
 
 

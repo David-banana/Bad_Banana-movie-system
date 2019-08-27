@@ -75,7 +75,7 @@ public class UserDaoImpl implements UserDao {
 		List<Object> list=new ArrayList<Object>();
 		try {
 			list = qu.query(sql, new ColumnListHandler(),userid);
-			System.out.println(list);
+//			System.out.println(list);
 			if(list.size()==0) {
 				return false;
 			}
@@ -91,7 +91,7 @@ public class UserDaoImpl implements UserDao {
 			}
 		}
 		
-		System.out.println(contains);
+//		System.out.println(contains);
 		return  contains;
 	}
 

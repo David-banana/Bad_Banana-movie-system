@@ -9,35 +9,41 @@ import dao.impl.MovieCommentDaoImpl;
 import service.MovieCommentService;
 
 public class MovieCommentServiceImpl implements MovieCommentService {
+	private MovieCommentDao mcd=new MovieCommentDaoImpl();
 	@Override
 	public List<MovieComment> findMovieComment(String moviename) {
-		MovieCommentDao mcdi = new MovieCommentDaoImpl();
-		List<MovieComment> list = mcdi.selectMovieComment(moviename);
+		List<MovieComment> list = mcd.selectMovieComment(moviename);
 		return list;
 	}
 
 	@Override
 	public List<HomeUser> findUserByHomename(String homeName) {
-		MovieCommentDao mcdi = new MovieCommentDaoImpl();
-		List<HomeUser> list = mcdi.findUserByHomename(homeName);
+		List<HomeUser> list = mcd.findUserByHomename(homeName);
 		return list;
 	}
 	@Override
 	public void addMovieComment(MovieComment movieComment) {
-		MovieCommentDao mcdi = new MovieCommentDaoImpl();
-		mcdi.addMovieComment(movieComment);
+		mcd.addMovieComment(movieComment);
 	}
 
 	@Override
 	public MovieComment findMovieCommentbyid(int cid) {
-		MovieCommentDao mcdi = new MovieCommentDaoImpl();
-		MovieComment mc = mcdi.selectMovieCommentbyid(cid);
+		MovieComment mc = mcd.selectMovieCommentbyid(cid);
 		return mc;
 	}
 
 	@Override
 	public void deleteCommentByCid(String cid) {
-		MovieCommentDao mcd=new MovieCommentDaoImpl();
 		mcd.deleteCommentByCid(cid);
+	}
+
+	@Override
+	public void addDianZanInDianZanBiao(String userid, String commentid) {
+		mcd.addDianZanInDianZanBiao(userid, commentid);
+	}
+
+	@Override
+	public void addDianZan(int cid) {
+		mcd.addDianZan(cid);
 	}
 }

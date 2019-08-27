@@ -1,24 +1,16 @@
 package web;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import bean.MovieComment;
-import bean.WriteBack;
-import dao.MovieCommentDao;
 import dao.UserDao;
-import dao.impl.MovieCommentDaoImpl;
 import dao.impl.UserDaoImpl;
 import service.MovieCommentService;
 import service.impl.MovieCommentServiceImpl;
-import service.impl.WriteBackServiceImpl;
 
 @WebServlet("/DianZanServlet")
 public class DianZanServlet extends HttpServlet {
@@ -36,10 +28,10 @@ public class DianZanServlet extends HttpServlet {
 		int cid = Integer.valueOf(filmcid);
 		boolean checkDianZan = ud.checkDianZan(userid, commentid);
 		if(checkDianZan==false) {
-			MovieCommentDao mcd=new MovieCommentDaoImpl();
-			mcd.addDianZanInDianZanBiao(userid, commentid);
+			MovieCommentService mcs=new MovieCommentServiceImpl();
+			mcs.addDianZanInDianZanBiao(userid, commentid);
 //		System.out.println(filmcid);
-			mcd.addDianZan(cid);	
+			mcs.addDianZan(cid);	
 		}		
 		MovieCommentService mcs = new MovieCommentServiceImpl();
 		MovieComment mc = mcs.findMovieCommentbyid(cid);

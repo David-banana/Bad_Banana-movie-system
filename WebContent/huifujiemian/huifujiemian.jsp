@@ -98,7 +98,7 @@
 			<p>${moviecomment.fileComment}</p>
 			<label id="dianzan" name="dianzan" onclick="zengjia()"><img
 				src="img/dianzan.jpg" alt="点赞图" id="dianzanimg"
-				style="margin-right: 4em;"></label>
+				style="margin-right: 4em;cursor:pointer"></label>
 			<p style="margin-left: 27em;" id="">${moviecomment.date}</p>
 			<p style="margin-left: 27em;">
 				有<span style="color: blue" id="dianzanshu">

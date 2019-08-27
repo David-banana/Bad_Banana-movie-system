@@ -11,4 +11,6 @@ public interface MovieCommentService {
 	void addMovieComment(MovieComment movieComment);
 	MovieComment findMovieCommentbyid(int cid);
 	void deleteCommentByCid(String cid);
+	void addDianZan(int cid);
+	void addDianZanInDianZanBiao(String userid,String commentid);
 }

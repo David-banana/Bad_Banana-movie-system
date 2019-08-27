@@ -8,4 +8,5 @@ public interface UserService {
 	void register(User user);
 	boolean usernameIsEixst(String username);
 	User findUserHome(String username);
+	boolean checkDianZan(String userid,String commentid);
 }
