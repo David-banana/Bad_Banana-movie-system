@@ -79,6 +79,7 @@ sub {
 }
 img {
   border: 0;
+
 }
 svg:not(:root) {
   overflow: hidden;
@@ -1112,6 +1113,8 @@ figure {
 }
 img {
   vertical-align: middle;
+    width:100%;
+    height:410px;
 }
 .img-responsive,
 .thumbnail > img,

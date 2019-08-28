@@ -208,12 +208,12 @@
 									<li>
 									<div class="col-sm-4">
 										<ul class="multi-column-dropdown">
-											<li><a href="genres.html">科幻</a></li>
-											<li><a href="genres.html">纪实</a></li>
-											<li><a href="genres.html">喜剧</a></li>
-											<li><a href="genres.html">恐怖</a></li>
-											<li><a href="horror.html">战争</a></li>
-											<li><a href="genres.html">爱情</a></li>
+											<li><a href="${pageContext.request.contextPath}/TypeMovieServlet?movietype=科幻">科幻</a></li>
+											<li><a href="${pageContext.request.contextPath}/TypeMovieServlet?movietype=纪实"">纪实</a></li>
+											<li><a href="${pageContext.request.contextPath}/TypeMovieServlet?movietype=喜剧"">喜剧</a></li>
+											<li><a href="${pageContext.request.contextPath}/TypeMovieServlet?movietype=恐怖"">恐怖</a></li>
+											<li><a href="${pageContext.request.contextPath}/TypeMovieServlet?movietype=战争"">战争</a></li>
+											<li><a href="${pageContext.request.contextPath}/TypeMovieServlet?movietype=爱情"">爱情</a></li>
 										</ul>
 									</div>
 									

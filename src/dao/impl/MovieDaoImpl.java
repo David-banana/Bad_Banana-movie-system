@@ -70,5 +70,20 @@ public class MovieDaoImpl implements MovieDao {
 		return null;
 	}
 
+	@Override
+	public List<Movie> selectMovieInformationByType(String movietype) {
+		QueryRunner qr = new QueryRunner(DataSourceUtils.getDataSource());
+		String sql = "select * from film_formation where movietype = ?";
+		try {
+			System.out.println(movietype);
+			List<Movie> list = qr.query(sql, new BeanListHandler<Movie>(Movie.class),movietype);
+			return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
 	
 }
