@@ -6,6 +6,7 @@ import bean.Movie;
 import dao.MovieDao;
 import dao.impl.MovieDaoImpl;
 import service.MovieService;
+import service.UserService;
 
 public class MovieServiceImpl implements MovieService {
 	MovieDao md = new MovieDaoImpl();
@@ -37,6 +38,12 @@ public class MovieServiceImpl implements MovieService {
 	public List<Movie> FindHotMovieInformation() {
 		List<Movie> list = md.selectHotMovieInformation();
 		return list;
+	}
+	@Override
+	public boolean checkMovieIsCollection(Integer userid, Integer movieid) {
+		UserService us =new UserServiceImpl();
+		boolean isCollection = us.checkIsCollection(userid, movieid);
+		return isCollection;
 	}
 	
 	

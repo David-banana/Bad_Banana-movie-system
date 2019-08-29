@@ -10,4 +10,5 @@ public interface MovieService {
 	Movie FindMovieInformation(String moviename);
 	List<Movie> FindMovieInformationByType(String movietype);
 	List<Movie> FindHotMovieInformation();
+	boolean checkMovieIsCollection(Integer userid,Integer movieid);
 }

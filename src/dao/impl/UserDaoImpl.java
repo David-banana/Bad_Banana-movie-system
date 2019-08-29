@@ -3,16 +3,14 @@ package dao.impl;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 import javax.sql.DataSource;
 
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
-import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ColumnListHandler;
-import org.eclipse.jdt.internal.compiler.ast.ArrayAllocationExpression;
 
+import bean.MovieCollections;
 import bean.User;
 import dao.UserDao;
 import utils.DataSourceUtils;
@@ -93,6 +91,35 @@ public class UserDaoImpl implements UserDao {
 		
 //		System.out.println(contains);
 		return  contains;
+	}
+	@Override
+	public void addCollection(String userid, String movieid) {
+		String sql = "insert into collections values(?,?)";
+		try {
+			qu.update(sql,Integer.valueOf(userid),Integer.valueOf(movieid));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	@Override
+	public MovieCollections findCollectionByUseridAndMovieid(Integer userid, Integer movieid) {
+		String sql = "select * from collections where userid=? and movieid=?";
+		try {
+			MovieCollections collection = qu.query(sql, new BeanHandler<MovieCollections>(MovieCollections.class),userid,movieid);
+			return collection;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	@Override
+	public void deleteCollectionByUserIdAndMovieId(String userid, String movieid) {
+		String sql = "delete from collections where userid=? and movieid=?";
+		try {
+			qu.update(sql,userid,movieid);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 

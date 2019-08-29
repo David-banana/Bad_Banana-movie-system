@@ -7,8 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import bean.MovieComment;
-import dao.UserDao;
-import dao.impl.UserDaoImpl;
 import service.MovieCommentService;
 import service.UserService;
 import service.impl.MovieCommentServiceImpl;
@@ -43,7 +41,6 @@ public class DianZanServlet extends HttpServlet {
 		response.getWriter().write("{\"dianzanshu\": "+click+"}");
 
 	}
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

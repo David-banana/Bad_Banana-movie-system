@@ -147,7 +147,7 @@ public class UserServlet extends HttpServlet {
 	private void userHome(HttpServletRequest request, HttpServletResponse response) {
 		String user = request.getParameter("homeName");	
 //		System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-		System.out.println("UserServlet"+user);
+//		System.out.println("UserServlet"+user);
 		try {
 			response.sendRedirect("/BadBanana/CommentServlet?method=HomeUser&homeName="+user);
 			//request.getRequestDispatcher("/CommentServlet?method=HomeUser&homeName="+user).forward(request, response);

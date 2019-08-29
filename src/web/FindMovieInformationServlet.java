@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import bean.Actor;
 import bean.Movie;
 import bean.MovieComment;
+import bean.User;
 import service.ActorService;
 import service.MovieCommentService;
 import service.MovieService;
@@ -46,6 +47,12 @@ public class FindMovieInformationServlet extends HttpServlet {
 		MovieCommentService mcs = new MovieCommentServiceImpl();
 		List<MovieComment> list = mcs.findMovieComment(movie.getMoviename());
 		//System.out.println(list);
+		User user = (User) session.getAttribute("user");
+		if(user != null) {
+			boolean isCollection = ms.checkMovieIsCollection(user.getUserid(),movie.getMovieid());
+			//System.out.println(isCollection);
+			request.getSession().setAttribute("isCollection", isCollection);
+		}
 		session.setAttribute("MovieComment", list);
 		response.sendRedirect("/BadBanana/moviesingle/moviesingle.jsp");
 		return;

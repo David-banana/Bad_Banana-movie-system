@@ -45,6 +45,29 @@
           </div>
         </nav>
     </div>
+    <script type="text/javascript">
+   	 var col=[  "<a href='#' onclick='collection(0)'>收藏该电影</a>",
+   		 		"<a href='#' onclick='collection(1)'>取消收藏</a>"]; 
+   	 var method=["collection","cancelCollection"];
+    	function collection(index) {
+    		console.log(index);
+    		$.ajax({
+				url : "/BadBanana/CollectionServlet",
+				data : {
+					"movieid" : "${movie.movieid}",
+					"userid":"${user.userid}",
+					"method":method[index%2]
+				},
+				success : function(data) {
+  			  		$("#collection").html(col[data.meth]);
+  			  		console.log("success");
+				},
+				dataType : "json",
+				async : false
+			});
+    		
+    	}
+    </script>
   </header>
   <!-- END: header -->
 
@@ -56,7 +79,24 @@
         <div class="probootstrap-inner probootstrap-animate">
           <h1 class="heading"> ${movie.moviename}</h1>
           <p>${movie.generalizeOne}</p>
-          <p><a href="https://baike.baidu.com" class="btn btn-primary">了解更多</a></p>
+          <p><a href="https://baike.baidu.com" class="btn btn-primary">了解更多</a>
+          		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          		
+                    <label id="collection" name="collection" >
+                	    <c:if test="${empty user }">
+							<a href="#" onclick="alert('请先登录')" class="scroll">收藏该电影</a>
+						</c:if>
+						<c:if test="${!empty user }">
+							<c:if test="${isCollection }">
+								<a href='#' onclick='collection(1)'>取消收藏</a>
+							</c:if>
+							<c:if test="${!isCollection }">
+								<a href='#' onclick='collection(0)'>收藏该电影</a>
+							</c:if>
+						</c:if>
+                    </label>
+          </p>
+
         </div>
       </div>
     </section>

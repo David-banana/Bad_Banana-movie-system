@@ -1,5 +1,6 @@
 package service.impl;
 
+import bean.MovieCollections;
 import bean.User;
 import dao.UserDao;
 import dao.impl.UserDaoImpl;
@@ -36,13 +37,33 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User findUserHome(String username) {
 		User user = ud.findUserInformationByUsername(username);
-		
 		return user;
 	}
 
 	@Override
 	public boolean checkDianZan(String userid, String commentid) {
 		return ud.checkDianZan(userid, commentid);
+	}
+
+	@Override
+	public void collection(String userid, String movieid) {
+		ud.addCollection(userid, movieid);
+	}
+
+	@Override
+	public boolean checkIsCollection(Integer userid, Integer movieid) {
+		MovieCollections collection = ud.findCollectionByUseridAndMovieid(userid, movieid);
+//		System.out.println(collection);
+		if(collection == null) {
+			return false;
+		}else {
+			return true;
+		}
+	}
+
+	@Override
+	public void cancelCollection(String userid, String movieid) {
+		ud.deleteCollectionByUserIdAndMovieId(userid,movieid);
 	}
 
 

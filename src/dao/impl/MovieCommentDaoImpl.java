@@ -9,7 +9,6 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import bean.HomeUser;
 import bean.MovieComment;
-import bean.User;
 import dao.MovieCommentDao;
 import utils.DataSourceUtils;
 
@@ -41,7 +40,7 @@ public class MovieCommentDaoImpl implements MovieCommentDao {
 	
 		try {
 			List<HomeUser> list = qr.query(sql, new BeanListHandler<HomeUser>(HomeUser.class),homeName);
-			System.out.println("---"+list+"---");
+//			System.out.println("---"+list+"---");
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
