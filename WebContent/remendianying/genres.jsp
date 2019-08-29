@@ -123,12 +123,12 @@
 									<li>
 									<div class="col-sm-4">
 										<ul class="multi-column-dropdown">
-											<li><a href="genres.html">科幻</a></li>
-											<li><a href="genres.html">纪实</a></li>
-											<li><a href="genres.html">喜剧</a></li>
-											<li><a href="genres.html">恐怖</a></li>
-											<li><a href="horror.html">战争</a></li>
-											<li><a href="genres.html">爱情</a></li>
+										<li><a href="${pageContext.request.contextPath}/TypeMovieServlet?movietype=科幻">科幻</a></li>
+											<li><a href="${pageContext.request.contextPath}/TypeMovieServlet?movietype=纪实"">纪实</a></li>
+											<li><a href="${pageContext.request.contextPath}/TypeMovieServlet?movietype=喜剧"">喜剧</a></li>
+											<li><a href="${pageContext.request.contextPath}/TypeMovieServlet?movietype=恐怖"">恐怖</a></li>
+											<li><a href="${pageContext.request.contextPath}/TypeMovieServlet?movietype=战争"">战争</a></li>
+											<li><a href="${pageContext.request.contextPath}/TypeMovieServlet?movietype=爱情"">爱情</a></li>
 										</ul>
 									</div>
 									
@@ -137,7 +137,7 @@
 								</ul>
 							</li>
 						<c:if test="${empty user }">
-						<li class="mr-lg-4 mr-3"><a href="/BadBanana/loginandregister/login.jsp?loginPath=remendianying" class="scroll">登录</a></li>
+						<li class="mr-lg-4 mr-3"><a href="/BadBanana/loginandregister/login.jsp?loginPath=genres" class="scroll">登录</a></li>
 						</c:if>
 						<c:if test="${!empty user }">
 						<li class="mr-lg-4 mr-3"><a href="/BadBanana/UserServlet?method=userHome&homeName=${user.username }" class="scroll">${user.username}${time}!</a></li>
@@ -168,7 +168,7 @@
 										<div class="agileits-single-top">
 											<ol class="breadcrumb">
 											  <li><a href="/BadBanana/FindAllMovieInformationServlet">首页</a></li>
-											  <li class="active">Genres</li>
+											  <li class="active">${typemovie[0].movietype}</li>
 											</ol>
 										</div>
 									</div>
@@ -249,19 +249,19 @@
 			<div class="col-md-7 w3ls_footer_grid1_right">
 				<ul>
 					<li>
-						<a href="horror.html">科幻</a>
+						<a href="${pageContext.request.contextPath}/TypeMovieServlet?movietype=科幻">科幻</a>
 					</li>
 					<li>
-						<a href="genres.html">纪实</a>
+						<a href="${pageContext.request.contextPath}/TypeMovieServlet?movietype=纪实">纪实</a>
 					</li>
 					<li>
-						<a href="comedy.html">恐怖</a>
+						<a href="${pageContext.request.contextPath}/TypeMovieServlet?movietype=恐怖">恐怖</a>
 					</li>
 					<li>
-						<a href="icons.html">战争</a>
+						<a href="${pageContext.request.contextPath}/TypeMovieServlet?movietype=战争">战争</a>
 					</li>
 					<li>
-						<a href="contact.html">爱情</a>
+						<a href="${pageContext.request.contextPath}/TypeMovieServlet?movietype=爱情">爱情</a>
 					</li>
 				</ul>
 			</div>
