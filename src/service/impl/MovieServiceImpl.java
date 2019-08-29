@@ -33,4 +33,12 @@ public class MovieServiceImpl implements MovieService {
 		return list;
 	}
 
+	@Override
+	public List<Movie> FindHotMovieInformation() {
+		List<Movie> list = md.selectHotMovieInformation();
+		return list;
+	}
+	
+	
+
 }

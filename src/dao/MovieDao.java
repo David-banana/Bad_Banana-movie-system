@@ -10,4 +10,5 @@ public interface MovieDao {
 	List<Movie> selectMovieByDimName(String DimName);
 	Movie selectMovieInformation(String moviename);
 	List<Movie> selectMovieInformationByType(String movietype);
+	List<Movie> selectHotMovieInformation();
 }

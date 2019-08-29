@@ -18,10 +18,8 @@ public class IndexMovieInformationServlet extends HttpServlet {
 		MovieServiceImpl msi = new MovieServiceImpl();
 		List<Movie> list = msi.FindAllMovieInformation();
 		HttpSession session = request.getSession();
-		int a = (int) (Math.random() * 11);
-		int b = (int) (Math.random() * 11 + 12);
-		session.setAttribute("indexmovieOne", list.get(a));
-		session.setAttribute("indexmovieTwo", list.get(b));
+		session.setAttribute("indexmovieOne", list.get(0));
+		session.setAttribute("indexmovieTwo", list.get(1));
 		response.sendRedirect("/BadBanana/index/index.jsp");
 	}
 

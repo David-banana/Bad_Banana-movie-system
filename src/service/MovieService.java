@@ -9,4 +9,5 @@ public interface MovieService {
 	List<Movie> FindAllMovieInformation();
 	Movie FindMovieInformation(String moviename);
 	List<Movie> FindMovieInformationByType(String movietype);
+	List<Movie> FindHotMovieInformation();
 }
