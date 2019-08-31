@@ -6,6 +6,9 @@ import java.util.List;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
+
+import com.sun.org.apache.bcel.internal.generic.NEW;
 
 import bean.Movie;
 import dao.MovieDao;
@@ -96,6 +99,34 @@ public class MovieDaoImpl implements MovieDao {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	@Override
+	public List<Movie> selectMovieByPage(int currentPage, int pageSize) {
+		QueryRunner qr = new QueryRunner(DataSourceUtils.getDataSource());
+		String sql = "select * from film_formation limit ?,?";
+		int startRow = (currentPage - 1)* pageSize;
+		try {
+			return qr.query(sql, new BeanListHandler<Movie>(Movie.class),startRow,pageSize);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+		
+	}
+
+	@Override
+	public int getCount() {
+		QueryRunner qr = new QueryRunner(DataSourceUtils.getDataSource());
+		String sql = "select count(1) from film_formation";
+		try {
+			long count = (long) qr.query(sql, new ScalarHandler());
+			return (int)count;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
 	}
 
 	

@@ -7,6 +7,7 @@ import dao.MovieDao;
 import dao.impl.MovieDaoImpl;
 import service.MovieService;
 import service.UserService;
+import utils.PageBean;
 
 public class MovieServiceImpl implements MovieService {
 	MovieDao md = new MovieDaoImpl();
@@ -44,6 +45,28 @@ public class MovieServiceImpl implements MovieService {
 		UserService us =new UserServiceImpl();
 		boolean isCollection = us.checkIsCollection(userid, movieid);
 		return isCollection;
+	}
+
+	@Override
+	public PageBean findMoviePageBean(String currentPagestr, String pageSizestr) {
+		int currentPage = 0;
+		int pageSize = 0;
+		if(currentPagestr == null) {
+			currentPage = 1;
+		}else {
+			currentPage = Integer.valueOf(currentPagestr);
+		}
+		
+		if(pageSizestr == null) {
+			pageSize = 12;
+		}else {
+			pageSize = Integer.valueOf(pageSizestr);
+		}
+		int totalCount = md.getCount();
+		List<Movie> list = md.selectMovieByPage(currentPage, pageSize);
+		PageBean pageBean = new PageBean(totalCount, currentPage, pageSize);
+		pageBean.setList(list);
+		return pageBean;
 	}
 	
 	

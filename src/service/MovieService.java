@@ -3,6 +3,7 @@ package service;
 import java.util.List;
 
 import bean.Movie;
+import utils.PageBean;
 
 public interface MovieService {
 	Movie FindMovieInformation(int movieid);
@@ -11,4 +12,5 @@ public interface MovieService {
 	List<Movie> FindMovieInformationByType(String movietype);
 	List<Movie> FindHotMovieInformation();
 	boolean checkMovieIsCollection(Integer userid,Integer movieid);
+	PageBean findMoviePageBean(String currentPage, String pageSize);
 }

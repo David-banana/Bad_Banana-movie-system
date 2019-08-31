@@ -11,4 +11,6 @@ public interface MovieDao {
 	Movie selectMovieInformation(String moviename);
 	List<Movie> selectMovieInformationByType(String movietype);
 	List<Movie> selectHotMovieInformation();
+	List<Movie> selectMovieByPage(int currentPage,int pageSize);
+	int getCount();
 }

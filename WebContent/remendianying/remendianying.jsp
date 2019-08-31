@@ -84,8 +84,27 @@
 	function onck(obj){
 		$("#moviename").val($(obj).html());
 		$("#list").css("display","none");		
-	}
-
+	}	
+	
+	$(function(){
+		$("#xiayiye").click(function(){
+			$("#fenye").val(parseInt($("#fenye").val()) + 1);
+			if($("#fenye").val() > $("#zongyeshu").val()){
+				$("#fenye").val(parseInt($("#fenye").val()) - 1);
+			}
+			$("#pagego").submit();
+		})
+	});
+	
+	$(function(){
+		$("#shangyiye").click(function(){
+			$("#fenye").val(parseInt($("#fenye").val()) - 1);
+			if($("#fenye").val() < 1){
+				$("#fenye").val(parseInt($("#fenye").val()) + 1);
+			}
+			$("#pagego").submit();
+		})
+	});
 	
 	
 	
@@ -183,6 +202,8 @@
 			opacity: "toggle"
 		  }, "slow");
 		});
+		
+		
 	</script>
 <!-- //bootstrap-pop-up -->
 <!-- nav -->
@@ -241,12 +262,12 @@
 <% session.getAttribute("allmovie");%>
 	<div id="slidey" style="display:none;">
 		<ul>
-			<li><img src="${allmovie[1].imgPathThree}" alt=" "><p class='title'>${allmovie[1].moviename}</p><p class='description'>${allmovie[1].generalizeOne}</p></li>
-			<li><img src="${allmovie[2].imgPathThree}" alt=" "><p class='title'>${allmovie[2].moviename}</p><p class='description'>${allmovie[2].generalizeOne}</p></li>
-			<li><img src="${allmovie[3].imgPathThree}" alt=" "><p class='title'>${allmovie[3].moviename}</p><p class='description'>${allmovie[3].generalizeOne}</p></li>
-			<li><img src="${allmovie[4].imgPathThree}" alt=" "><p class='title'>${allmovie[4].moviename}</p><p class='description'>${allmovie[4].generalizeOne}</p></li>
-			<li><img src="${allmovie[5].imgPathThree}" alt=" "><p class='title'>${allmovie[5].moviename}</p><p class='description'>${allmovie[5].generalizeOne}</p></li>
-			<li><img src="${allmovie[6].imgPathThree}" alt=" "><p class='title'>${allmovie[6].moviename}</p><p class='description'>${allmovie[6].generalizeOne}</p></li>
+			<li><img src="${allmovie.list[1].imgPathThree}" alt=" "><p class='title'>${allmovie.list[1].moviename}</p><p class='description'>${allmovie.list[1].generalizeOne}</p></li>
+			<li><img src="${allmovie.list[2].imgPathThree}" alt=" "><p class='title'>${allmovie.list[2].moviename}</p><p class='description'>${allmovie.list[2].generalizeOne}</p></li>
+			<li><img src="${allmovie.list[3].imgPathThree}" alt=" "><p class='title'>${allmovie.list[3].moviename}</p><p class='description'>${allmovie.list[3].generalizeOne}</p></li>
+			<li><img src="${allmovie.list[4].imgPathThree}" alt=" "><p class='title'>${allmovie.list[4].moviename}</p><p class='description'>${allmovie.list[4].generalizeOne}</p></li>
+			<li><img src="${allmovie.list[5].imgPathThree}" alt=" "><p class='title'>${allmovie.list[5].moviename}</p><p class='description'>${allmovie.list[5].generalizeOne}</p></li>
+			<li><img src="${allmovie.list[6].imgPathThree}" alt=" "><p class='title'>${allmovie.list[6].moviename}</p><p class='description'>${allmovie.list[6].generalizeOne}</p></li>
 		</ul>   	
     </div>
     <script src="js/jquery.slidey.js"></script>
@@ -269,658 +290,49 @@
 			<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
 				
 				<div id="myTabContent" class="tab-content">
-					<div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
-						<div class="w3_agile_featured_movies">
+				
+				<c:forEach items="${allmovie.list}" var = "allmovie">	
+									<div class="w3_agile_featured_movies">
 							<div class="col-md-2 w3l-movie-gride-agile">
-								<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[0].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[0].imgPathTwo}" title="album-name" class="img-responsive" alt=" " />
+								<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie.movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie.imgPathOne}" title="album-name" class="img-responsive" alt=" " />
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 								</a>
 								<div class="mid-1 agileits_w3layouts_mid_1_home">
 									<div class="w3l-movie-text">
-										<h6><a href="single.html">${allmovie[0].moviename}</a></h6>							
-									</div>
-									<div class="mid-2 agile_mid_2_home">
-										<p>2016</p>
-										<div class="block-stars">
-											<ul class="w3l-ratings">
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											</ul>
-										</div>
-										<div class="clearfix"></div>
-									</div>
+										<h6><a href="single.html">${allmovie.moviename}</a></h6>							
+									</div>	
 								</div>
 								<div class="ribben">
-									<p>NEW</p>
+									<p>HOT</p>
 								</div>
-							</div>
-							<div class="col-md-2 w3l-movie-gride-agile">
-								<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[1].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[1].imgPathOne}" title="album-name" class="img-responsive" alt=" "  />
-									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-								</a>
-								<div class="mid-1 agileits_w3layouts_mid_1_home">
-									<div class="w3l-movie-text">
-										<h6><a href="single.html">${allmovie[1].moviename}</a></h6>							
-									</div>
-									<div class="mid-2 agile_mid_2_home">
-										<p>2016</p>
-										<div class="block-stars">
-											<ul class="w3l-ratings">
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											</ul>
-										</div>
-										<div class="clearfix"></div>
-									</div>
-								</div>
-								<div class="ribben">
-									<p>NEW</p>
-								</div>
-							</div>
-							<div class="col-md-2 w3l-movie-gride-agile">
-								<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[2].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[2].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
-									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-								</a>
-								<div class="mid-1 agileits_w3layouts_mid_1_home">
-									<div class="w3l-movie-text">
-										<h6><a href="single.html">${allmovie[2].moviename}</a></h6>							
-									</div>
-									<div class="mid-2 agile_mid_2_home">
-										<p>2016</p>
-										<div class="block-stars">
-											<ul class="w3l-ratings">
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											</ul>
-										</div>
-										<div class="clearfix"></div>
-									</div>
-								</div>
-								<div class="ribben">
-									<p>NEW</p>
-								</div>
-							</div>
-							<div class="col-md-2 w3l-movie-gride-agile">
-								<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[3].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[3].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
-									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-								</a>
-								<div class="mid-1 agileits_w3layouts_mid_1_home">
-									<div class="w3l-movie-text">
-										<h6><a href="single.html">${allmovie[3].moviename}</a></h6>							
-									</div>
-									<div class="mid-2 agile_mid_2_home">
-										<p>2016</p>
-										<div class="block-stars">
-											<ul class="w3l-ratings">
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											</ul>
-										</div>
-										<div class="clearfix"></div>
-									</div>
-								</div>
-								<div class="ribben">
-									<p>NEW</p>
-								</div>
-							</div>
-							<div class="col-md-2 w3l-movie-gride-agile">
-								<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[4].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[4].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
-									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-								</a>
-								<div class="mid-1 agileits_w3layouts_mid_1_home">
-									<div class="w3l-movie-text">
-										<h6><a href="single.html">${allmovie[4].moviename}</a></h6>							
-									</div>
-									<div class="mid-2 agile_mid_2_home">
-										<p>2016</p>
-										<div class="block-stars">
-											<ul class="w3l-ratings">
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											</ul>
-										</div>
-										<div class="clearfix"></div>
-									</div>
-								</div>
-								<div class="ribben">
-									<p>NEW</p>
-								</div>
-							</div>
-							<div class="col-md-2 w3l-movie-gride-agile">
-								<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[5].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[5].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
-									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-								</a>
-								<div class="mid-1 agileits_w3layouts_mid_1_home">
-									<div class="w3l-movie-text">
-										<h6><a href="single.html">${allmovie[5].moviename}</a></h6>							
-									</div>
-									<div class="mid-2 agile_mid_2_home">
-										<p>2016</p>
-										<div class="block-stars">
-											<ul class="w3l-ratings">
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											</ul>
-										</div>
-										<div class="clearfix"></div>
-									</div>
-								</div>
-								<div class="ribben">
-									<p>NEW</p>
-								</div>
-							</div>
-							<div class="col-md-2 w3l-movie-gride-agile">
-								<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[6].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[6].imgPathTwo}" title="album-name" class="img-responsive" alt=" " />
-									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-								</a>
-								<div class="mid-1 agileits_w3layouts_mid_1_home">
-									<div class="w3l-movie-text">
-										<h6><a href="single.html">${allmovie[6].moviename}</a></h6>							
-									</div>
-									<div class="mid-2 agile_mid_2_home">
-										<p>2016</p>
-										<div class="block-stars">
-											<ul class="w3l-ratings">
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											</ul>
-										</div>
-										<div class="clearfix"></div>
-									</div>
-								</div>
-								<div class="ribben">
-									<p>NEW</p>
-								</div>
-							</div>
-							<div class="col-md-2 w3l-movie-gride-agile">
-								<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[7].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[7].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
-									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-								</a>
-								<div class="mid-1 agileits_w3layouts_mid_1_home">
-									<div class="w3l-movie-text">
-										<h6><a href="single.html">${allmovie[7].moviename}</a></h6>							
-									</div>
-									<div class="mid-2 agile_mid_2_home">
-										<p>2016</p>
-										<div class="block-stars">
-											<ul class="w3l-ratings">
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											</ul>
-										</div>
-										<div class="clearfix"></div>
-									</div>
-								</div>
-								<div class="ribben">
-									<p>NEW</p>
-								</div>
-							</div>
-							<div class="col-md-2 w3l-movie-gride-agile">
-								<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[8].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[8].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
-									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-								</a>
-								<div class="mid-1 agileits_w3layouts_mid_1_home">
-									<div class="w3l-movie-text">
-										<h6><a href="single.html">${allmovie[8].moviename}</a></h6>							
-									</div>
-									<div class="mid-2 agile_mid_2_home">
-										<p>2016</p>
-										<div class="block-stars">
-											<ul class="w3l-ratings">
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											</ul>
-										</div>
-										<div class="clearfix"></div>
-									</div>
-								</div>
-								<div class="ribben">
-									<p>NEW</p>
-								</div>
-							</div>
-							<div class="col-md-2 w3l-movie-gride-agile">
-								<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[9].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[9].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
-									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-								</a>
-								<div class="mid-1 agileits_w3layouts_mid_1_home">
-									<div class="w3l-movie-text">
-										<h6><a href="single.html">${allmovie[9].moviename}</a></h6>							
-									</div>
-									<div class="mid-2 agile_mid_2_home">
-										<p>2016</p>
-										<div class="block-stars">
-											<ul class="w3l-ratings">
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											</ul>
-										</div>
-										<div class="clearfix"></div>
-									</div>
-								</div>
-								<div class="ribben">
-									<p>NEW</p>
-								</div>
-							</div>
-							<div class="col-md-2 w3l-movie-gride-agile">
-								<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[10].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[10].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
-									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-								</a>
-								<div class="mid-1 agileits_w3layouts_mid_1_home">
-									<div class="w3l-movie-text">
-										<h6><a href="single.html">${allmovie[10].moviename}</a></h6>							
-									</div>
-									<div class="mid-2 agile_mid_2_home">
-										<p>2016</p>
-										<div class="block-stars">
-											<ul class="w3l-ratings">
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											</ul>
-										</div>
-										<div class="clearfix"></div>
-									</div>
-								</div>
-								<div class="ribben">
-									<p>NEW</p>
-								</div>
-							</div>
-							<div class="col-md-2 w3l-movie-gride-agile">
-								<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[11].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[11].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
-									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-								</a>
-								<div class="mid-1 agileits_w3layouts_mid_1_home">
-									<div class="w3l-movie-text">
-										<h6><a href="single.html">${allmovie[11].moviename}</a></h6>							
-									</div>
-									<div class="mid-2 agile_mid_2_home">
-										<p>2016</p>
-										<div class="block-stars">
-											<ul class="w3l-ratings">
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											</ul>
-										</div>
-										<div class="clearfix"></div>
-									</div>
-								</div>
-								<div class="ribben">
-									<p>NEW</p>
-								</div>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
+							</div>					
 					</div>
-					<div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
-						<div class="col-md-2 w3l-movie-gride-agile">
-							<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[12].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[12].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
-								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
-								<div class="w3l-movie-text">
-									<h6><a href="single.html">${allmovie[12].moviename}</a></h6>							
-								</div>
-								<div class="mid-2 agile_mid_2_home">
-									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-							<div class="ribben">
-								<p>NEW</p>
-							</div>
-						</div>
-						<div class="col-md-2 w3l-movie-gride-agile">
-							<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[13].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[13].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
-								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
-								<div class="w3l-movie-text">
-									<h6><a href="single.html">${allmovie[13].moviename}</a></h6>							
-								</div>
-								<div class="mid-2 agile_mid_2_home">
-									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-							<div class="ribben">
-								<p>NEW</p>
-							</div>
-						</div>
-						<div class="col-md-2 w3l-movie-gride-agile">
-							<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[14].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[14].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
-								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
-								<div class="w3l-movie-text">
-									<h6><a href="single.html">${allmovie[14].moviename}</a></h6>							
-								</div>
-								<div class="mid-2 agile_mid_2_home">
-									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-							<div class="ribben">
-								<p>NEW</p>
-							</div>
-						</div>
-						<div class="col-md-2 w3l-movie-gride-agile">
-							<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[15].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[15].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
-								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
-								<div class="w3l-movie-text">
-									<h6><a href="single.html">${allmovie[15].moviename}</a></h6>							
-								</div>
-								<div class="mid-2 agile_mid_2_home">
-									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-							<div class="ribben">
-								<p>NEW</p>
-							</div>
-						</div>
-						<div class="col-md-2 w3l-movie-gride-agile">
-							<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[16].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[16].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
-								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
-								<div class="w3l-movie-text">
-									<h6><a href="single.html">${allmovie[16].moviename}</a></h6>							
-								</div>
-								<div class="mid-2 agile_mid_2_home">
-									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-							<div class="ribben">
-								<p>NEW</p>
-							</div>
-						</div>
-						<div class="col-md-2 w3l-movie-gride-agile">
-							<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[17].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[17].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
-								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
-								<div class="w3l-movie-text">
-									<h6><a href="single.html">${allmovie[17].moviename}</a></h6>							
-								</div>
-								<div class="mid-2 agile_mid_2_home">
-									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-							<div class="ribben">
-								<p>NEW</p>
-							</div>
-						</div>
-						<div class="col-md-2 w3l-movie-gride-agile">
-							<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[18].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[18].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
-								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
-								<div class="w3l-movie-text">
-									<h6><a href="single.html">${allmovie[18].moviename}</a></h6>							
-								</div>
-								<div class="mid-2 agile_mid_2_home">
-									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-							<div class="ribben">
-								<p>NEW</p>
-							</div>
-						</div>
-						<div class="col-md-2 w3l-movie-gride-agile">
-							<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[19].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[19].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
-								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
-								<div class="w3l-movie-text">
-									<h6><a href="single.html">${allmovie[19].moviename}</a></h6>							
-								</div>
-								<div class="mid-2 agile_mid_2_home">
-									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-							<div class="ribben">
-								<p>NEW</p>
-							</div>
-						</div>
-						<div class="col-md-2 w3l-movie-gride-agile">
-							<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[20].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[20].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
-								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
-								<div class="w3l-movie-text">
-									<h6><a href="single.html">${allmovie[20].moviename}</a></h6>							
-								</div>
-								<div class="mid-2 agile_mid_2_home">
-									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-							<div class="ribben">
-								<p>NEW</p>
-							</div>
-						</div>
-						<div class="col-md-2 w3l-movie-gride-agile">
-							<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[21].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[21].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
-								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
-								<div class="w3l-movie-text">
-									<h6><a href="single.html">${allmovie[21].moviename}</a></h6>							
-								</div>
-								<div class="mid-2 agile_mid_2_home">
-									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-							<div class="ribben">
-								<p>NEW</p>
-							</div>
-						</div>
-						<div class="col-md-2 w3l-movie-gride-agile">
-							<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[22].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[22].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
-								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
-								<div class="w3l-movie-text">
-									<h6><a href="single.html">${allmovie[22].moviename}</a></h6>							
-								</div>
-								<div class="mid-2 agile_mid_2_home">
-									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-							<div class="ribben">
-								<p>NEW</p>
-							</div>
-						</div>
-						<div class="col-md-2 w3l-movie-gride-agile">
-							<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie[23].movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie[23].imgPathOne}" title="album-name" class="img-responsive" alt=" " />
-								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
-								<div class="w3l-movie-text">
-									<h6><a href="single.html">${allmovie[23].moviename}</a></h6>							
-								</div>
-								<div class="mid-2 agile_mid_2_home">
-									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-							<div class="ribben">
-								<p>NEW</p>
-							</div>
-						</div>
-					</div>
-					<div role="tabpanel" class="tab-pane fade" id="rating" aria-labelledby="rating-tab">
+					</c:forEach>
+					
 						
 						
-						
-						
-					</div>
-					<div role="tabpanel" class="tab-pane fade" id="imdb" aria-labelledby="imdb-tab">
 						
 						</div>
 						<div class="clearfix"> </div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-				<ul id="myTab" class="nav nav-tabs" role="tablist">
-					<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">1</a></li>
-					<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">2</a></li>
-					<li role="presentation"><a href="#rating" id="rating-tab" role="tab" data-toggle="tab" aria-controls="rating" aria-expanded="true">3</a></li>
-					<li role="presentation"><a href="#imdb" role="tab" id="imdb-tab" data-toggle="tab" aria-controls="imdb" aria-expanded="false">4</a></li>
-				</ul>
+
+	
+	
+	<form id="pagego" action="${pageContext.request.contextPath }/FindAllMovieInformationServlet">
+				<div class="blog-pagenat-wthree">
+							<ul>
+								<li><a href="javascript:void(0)" id = "shangyiye"class="frist" >上一页</a></li>
+								<li id="zongyeshu"  value = "${allmovie.totalPage}"></li> 
+								<li><a href="javascript:void(0)" id = "xiayiye"   class="last" >下一页</a></li>
+								<input id="fenye" name = "currentPage" value = "${allmovie.currentPage}" type = "hidden"></input> 
+								
+							</ul>
+						</div>	
+								</form>
+								
+								
 <!-- //general -->
 	
 		<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
