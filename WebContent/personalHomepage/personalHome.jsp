@@ -125,10 +125,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<h3 class="heading">照片墙</h3>
 			<div class="gallery-info">
 			
-			<c:forEach items="${HomeList }" var="str"  >
+			<c:forEach items="${MoviePath }" var="str"  >
 				<div class="col-md-3 gallery-grids">
 					<a href="${str.imgPathOne}" class="gallery-box" data-lightbox="example-set" data-title="">
-						<img src="${str.imgPathOne}" alt="" class="img-responsive zoom-img">
+						<img src="${str.imgPathOne}" alt="" class="img-responsive zoom-img">				
+						<c:if test="${judge eq 'true' }">
+							<a href="${pageContext.request.contextPath }/CollectionServlet?movieid=${str.movieid}&userid=${HomeList[0].userid}&method=cancelCollection&method2=Home&username=${HomeList[0].username}">取消收藏</a>
+						</c:if>
 					</a>
 				</div>
 				</c:forEach>

@@ -1,7 +1,6 @@
 package web;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -13,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import bean.CollectionsMoviePath;
 import bean.HomeUser;
 import bean.Movie;
 import bean.MovieComment;
@@ -52,13 +52,19 @@ public class CommentServlet extends HttpServlet {
 				request.getSession().setAttribute("judge", judge);
 			}
 		}
-//		System.out.println("homeName"+homeName);
 		MovieCommentService mcs=new MovieCommentServiceImpl();
 		List<HomeUser> list = mcs.findUserByHomename(homeName);
-//		System.out.println("homeUser "+list);
+		System.out.println("list是是是："+list);
+		HomeUser homeUser = list.get(0);
+		int userid = homeUser.getUserid();
+		
+		
+		
+		
+		List<CollectionsMoviePath> moviePath=mcs.findMoviePathByUserid(userid);
+		request.getSession().setAttribute("MoviePath", moviePath);
 		request.getSession().setAttribute("HomeList", list);
 		try {
-			//request.getRequestDispatcher("/personalHomepage/personalHome.jsp").forward(request, response);
 			response.sendRedirect("/BadBanana/personalHomepage/personalHome.jsp");
 		}  catch (IOException e) {
 			e.printStackTrace();

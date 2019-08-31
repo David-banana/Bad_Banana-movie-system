@@ -43,6 +43,12 @@ public class CollectionServlet extends HttpServlet {
 		String userid = request.getParameter("userid");
 		UserService us = new UserServiceImpl();
 		us.cancelCollection(userid, movieid);
-		response.getWriter().write("{\"meth\":0}");
+		if("Home".equals(request.getParameter("method2"))) {
+			String username = request.getParameter("username");
+			System.out.println(username);
+			response.sendRedirect("/BadBanana/CommentServlet?homeName="+username+"&method=HomeUser");
+		}else {
+			response.getWriter().write("{\"meth\":0}");
+		}
 	}
 }

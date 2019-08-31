@@ -2,6 +2,7 @@ package service.impl;
 
 import java.util.List;
 
+import bean.CollectionsMoviePath;
 import bean.HomeUser;
 import bean.MovieComment;
 import dao.MovieCommentDao;
@@ -45,5 +46,11 @@ public class MovieCommentServiceImpl implements MovieCommentService {
 	@Override
 	public void addDianZan(int cid) {
 		mcd.addDianZan(cid);
+	}
+
+	@Override
+	public List<CollectionsMoviePath> findMoviePathByUserid(int userid) {
+		List<CollectionsMoviePath> list=mcd.findMoviePathByUserid(userid);	
+		return list;
 	}
 }

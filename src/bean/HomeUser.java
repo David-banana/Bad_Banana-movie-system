@@ -2,6 +2,7 @@ package bean;
 
 public class HomeUser {
 	private int cid;
+	private int userid;
 	private String username;
 	private String filmname;
 	private String fileComment;
@@ -11,8 +12,18 @@ public class HomeUser {
 	public HomeUser() {
 		super();
 	}
-
 	
+	
+	public int getUserid() {
+		return userid;
+	}
+
+
+	public void setUserid(int userid) {
+		this.userid = userid;
+	}
+
+
 	public int getCid() {
 		return cid;
 	}
@@ -66,9 +77,12 @@ public class HomeUser {
 
 	@Override
 	public String toString() {
-		return "HomeUser [cid=" + cid + ", username=" + username + ", filmname=" + filmname + ", fileComment="
-				+ fileComment + ", imgPathOne=" + imgPathOne + ", date=" + date + "]";
+		return "HomeUser [cid=" + cid + ", userid=" + userid + ", username=" + username + ", filmname=" + filmname
+				+ ", fileComment=" + fileComment + ", imgPathOne=" + imgPathOne + ", date=" + date + "]";
 	}
+
+
+	
 
 	
 
