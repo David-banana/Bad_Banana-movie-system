@@ -35,12 +35,12 @@
 <script type="text/javascript" src="js/move-top.js"></script>
 <script type="text/javascript" src="js/easing.js"></script>
 <script type="text/javascript">
-	jQuery(document).ready(function($) {
+/*  	jQuery(document).ready(function($) {
 		$(".scroll").click(function(event){		
 			event.preventDefault();
 			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 		});
-	});
+	});  */
 </script>
 <!-- start-smoth-scrolling -->
 <link href="css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
@@ -137,11 +137,11 @@
 								</ul>
 							</li>
 						<c:if test="${empty user }">
-						<li class="mr-lg-4 mr-3"><a href="/BadBanana/loginandregister/login.jsp?loginPath=genres" class="scroll">登录</a></li>
+						<li class="mr-lg-4 mr-3"><a href="/BadBanana/loginandregister/login.jsp?loginPath=genres&movietype=${typemovie[0].movietype}" class="scroll">登录</a></li>
 						</c:if>
 						<c:if test="${!empty user }">
 						<li class="mr-lg-4 mr-3"><a href="/BadBanana/UserServlet?method=userHome&homeName=${user.username }" class="scroll">${user.username}${time}!</a></li>
-						<li class="mr-lg-4 mr-3"><a href="/BadBanana/clearSessionServlet?quitPath=remendianying" class="scroll">退出</a></li>
+						<li class="mr-lg-4 mr-3"><a href="/BadBanana/clearSessionServlet?quitPath=genres&movietype=${typemovie[0].movietype}" class="scroll">退出</a></li>
 						</c:if>
 							<li><a href="/BadBanana/aboutus/aboutus.html">关于我们</a></li>
 							<li><a href="/BadBanana/contactus/contactus.jsp">联系我们</a></li>
@@ -151,14 +151,12 @@
 			</nav>	
 		</div>
 	</div>
-	<%session.getAttribute("typemovie");%>
 <!-- //nav -->
 <!-- /w3l-medile-movies-grids -->
 	<div class="general-agileits-w3l">
 		<div class="w3l-medile-movies-grids">
 
 				<!-- /movie-browse-agile -->
-				
 				      <div class="movie-browse-agile">
 					     <!--/browse-agile-w3ls -->
 						<div class="browse-agile-w3ls general-w3ls">

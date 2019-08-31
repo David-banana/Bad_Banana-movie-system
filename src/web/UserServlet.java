@@ -92,9 +92,18 @@ public class UserServlet extends HttpServlet {
 				response.sendRedirect("/BadBanana/IndexMovieInformationIndexServlet");
 			}else if("moviesingle".equals(loginPath)){
 				Movie movie = (Movie) request.getSession().getAttribute("movie");
-				request.getRequestDispatcher("/FindMovieInformationServlet?movieid="+movie.getMovieid()).forward(request, response);
+				request.getRequestDispatcher("/FindMovieInformationServlet?movieid="+movie.getMovieid()+"&path=moviesingle").forward(request, response);
 			}else if("contactus".equals(loginPath)){
 				request.getRequestDispatcher("/contactus/contactus.jsp").forward(request, response);
+			}else if("portfolio".equals(loginPath)){
+				Movie movie = (Movie) request.getSession().getAttribute("movie");
+				request.getRequestDispatcher("/FindMovieInformationServlet?movieid="+movie.getMovieid()+"&path=portfolio").forward(request, response);
+			}else if("services".equals(loginPath)){
+				Movie movie = (Movie) request.getSession().getAttribute("movie");
+				request.getRequestDispatcher("/FindMovieInformationServlet?movieid="+movie.getMovieid()+"&path=services").forward(request, response);
+			}else if("genres".equals(loginPath)){
+				String movieType = request.getParameter("movietype");
+				response.sendRedirect(request.getContextPath()+"/TypeMovieServlet?movietype="+movieType);
 			}else {
 				response.sendRedirect("/BadBanana/IndexMovieInformationIndexServlet");
 			}

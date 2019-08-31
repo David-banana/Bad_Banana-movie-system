@@ -48,6 +48,7 @@
                 <form action="${pageContext.servletContext.contextPath }/UserServlet" method="post" name = "loginForm" id="loginForm" class="tm-bg-black p-5 h-100">
                     <input type="hidden" name="method" value="login">
                     <input type="hidden" name="loginPath" value="${param.loginPath }">
+                    <input type="hidden" name="movietype" value="${param.movietype}">
                     <div class="input-field">
                         <div><input placeholder="Username" id="username" name="username" type="text" class="validate" value="${param.username }"></div>
                     </div>

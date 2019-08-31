@@ -14,13 +14,13 @@ import bean.Movie;
  * Servlet implementation class clearSessionServlet
  */
 @WebServlet("/clearSessionServlet")
-public class clearSessionServlet extends HttpServlet {
+public class ClearSessionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public clearSessionServlet() {
+    public ClearSessionServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,8 +42,20 @@ public class clearSessionServlet extends HttpServlet {
 			response.sendRedirect("/BadBanana/IndexMovieInformationIndexServlet");
 		}else if("moviesingle".equals(path)) {
 			Movie movie = (Movie) request.getSession().getAttribute("movie");
-//			System.out.println(movie);
-			response.sendRedirect("/BadBanana/FindMovieInformationServlet?movieid="+movie.getMovieid());
+			response.sendRedirect("/BadBanana/FindMovieInformationServlet?movieid="+movie.getMovieid()+"&path=moviesingle");
+		}else if("portfolio".equals(path)) {
+			Movie movie = (Movie) request.getSession().getAttribute("movie");
+			response.sendRedirect("/BadBanana/FindMovieInformationServlet?movieid="+movie.getMovieid()+"&path=portfolio");
+		}else if("services".equals(path)) {
+			Movie movie = (Movie) request.getSession().getAttribute("movie");
+			response.sendRedirect("/BadBanana/FindMovieInformationServlet?movieid="+movie.getMovieid()+"&path=services");
+		}else if("genres".equals(path)) {
+				/*
+				 * String movieType = request.getParameter("movietype");
+				 * System.out.println("clear:"+movieType);
+				 * response.sendRedirect("/BadBanana/TypeMovieServlet?movietype="+movieType);
+				 */
+			request.getRequestDispatcher("/TypeMovieServlet").forward(request, response);
 		}
 		
 		}

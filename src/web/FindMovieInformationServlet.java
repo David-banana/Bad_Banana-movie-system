@@ -25,6 +25,7 @@ public class FindMovieInformationServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String method = request.getParameter("search");
+		String path = request.getParameter("path");
 		MovieService ms = new MovieServiceImpl();
 		Movie movie=null;
 		if("search".equals(method)) {
@@ -54,8 +55,8 @@ public class FindMovieInformationServlet extends HttpServlet {
 			request.getSession().setAttribute("isCollection", isCollection);
 		}
 		session.setAttribute("MovieComment", list);
-		response.sendRedirect("/BadBanana/moviesingle/moviesingle.jsp");
-		return;
+		response.sendRedirect("/BadBanana/moviesingle/"+path+".jsp");
+
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

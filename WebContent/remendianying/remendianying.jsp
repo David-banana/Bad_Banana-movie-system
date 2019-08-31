@@ -294,7 +294,7 @@
 				<c:forEach items="${allmovie.list}" var = "allmovie">	
 									<div class="w3_agile_featured_movies">
 							<div class="col-md-2 w3l-movie-gride-agile">
-								<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie.movieid}" class="hvr-shutter-out-horizontal"><img src="${allmovie.imgPathOne}" title="album-name" class="img-responsive" alt=" " />
+								<a href="/BadBanana/FindMovieInformationServlet?movieid=${allmovie.movieid}&path=moviesingle" class="hvr-shutter-out-horizontal"><img src="${allmovie.imgPathOne}" title="album-name" class="img-responsive" alt=" " />
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 								</a>
 								<div class="mid-1 agileits_w3layouts_mid_1_home">

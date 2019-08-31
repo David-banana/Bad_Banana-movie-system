@@ -87,7 +87,6 @@ public class CommentServlet extends HttpServlet {
 		MovieComment movieComment = new MovieComment();
 		movieComment.setUserid(user.getUserid());
 		movieComment.setUsername(user.getUsername());
-		movieComment.setUsername(user.getUsername());
 		movieComment.setFid(movie.getMovieid());
 		movieComment.setFilmname(movie.getMoviename());
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

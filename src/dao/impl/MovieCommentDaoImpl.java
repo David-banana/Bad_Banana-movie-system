@@ -18,7 +18,7 @@ public class MovieCommentDaoImpl implements MovieCommentDao {
 	@Override
 	public List<MovieComment> selectMovieComment(String moviename) {
 		QueryRunner qr = new QueryRunner(DataSourceUtils.getDataSource());
-		String sql = "select * from film_comment where filmname = ?";
+		String sql = "select * from film_comment where filmname = ? order by click desc,date";
 		try {
 			List<MovieComment> list = qr.query(sql, new BeanListHandler<MovieComment>(MovieComment.class),moviename);
 			return list;
