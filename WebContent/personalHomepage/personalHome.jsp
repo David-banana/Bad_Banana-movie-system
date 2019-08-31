@@ -87,8 +87,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h2 class="rw-sentence">
 					<span>My Lover</span>
 					<div class="rw-words rw-words-1">
-					<c:forEach items="${HomeList }" var="str">
-						<span>${str.filmname }</span>
+					<c:forEach items="${MoviePath }" var="str">
+						<span>${str.moviename }</span>
 					</c:forEach>
 					
 					</div>
@@ -123,13 +123,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	<div id="gallery" class="gallery">
 		<h3 class="heading">照片墙</h3>
-			<div class="gallery-info">
-			
+			<div class="gallery-info" style="text-align: center;">
+			<c:if test="${empty MoviePath }">
+				
+				<c:if test="${judge eq 'true' }">
+					<span>您还没有收藏任何一部电影~</span>
+				</c:if>
+				<c:if test="${judge eq 'false' }">
+					<span>该用户暂时还没有收藏任何一部电影~</span>
+				</c:if>
+			</c:if>
 			<c:forEach items="${MoviePath }" var="str"  >
 				<div class="col-md-3 gallery-grids">
 					<a href="${str.imgPathOne}" class="gallery-box" data-lightbox="example-set" data-title="">
 						<img src="${str.imgPathOne}" alt="" class="img-responsive zoom-img">				
 						<c:if test="${judge eq 'true' }">
+						
 							<a href="${pageContext.request.contextPath }/CollectionServlet?movieid=${str.movieid}&userid=${HomeList[0].userid}&method=cancelCollection&method2=Home&username=${HomeList[0].username}">取消收藏</a>
 						</c:if>
 					</a>
@@ -155,34 +164,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<a href="/BadBanana/FindMovieInformationServlet?moviename=${str.filmname}&search=search"><h3>${str.filmname}</h3></a>
 				<a href="/BadBanana/FindWriteBack?cid=${str.cid}"><p>${str.fileComment}</p></a>
 				<h4><b>时间</b> : ${str.date }</h4>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				
 				<c:if test="${judge eq 'true' }">
-					<a href="/BadBanana/CommentServlet?method=deleteComment&cid=${str.cid }&username=${str.username}">删除</a>
+					<a href="/BadBanana/CommentServlet?method=deleteComment&cid=${str.cid }&username=${str.username}" style="padding-left: 950px;">删除</a>
 				</c:if>
 			</div>
 		</div>

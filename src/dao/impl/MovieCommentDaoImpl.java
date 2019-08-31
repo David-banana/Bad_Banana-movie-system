@@ -32,17 +32,16 @@ public class MovieCommentDaoImpl implements MovieCommentDao {
 	public List<HomeUser> findUserByHomename(String homeName) {
 //		System.out.println("进来了");
 		QueryRunner qr = new QueryRunner(DataSourceUtils.getDataSource());
-		String sql="select cid,userid,username,filmname,fileComment,date "
-				+ "from(select cid,userid,username,filmname,fileComment,date "
-				+ "from film_comment "
-				+ "where username=?) a "
-				+ "join film_formation b "
-				+ "on a.filmname=b.moviename";
+		String sql="select cid,userid,username,filmname,fileComment,date \r\n" + 
+				"		from(select cid,userid,username,filmname,fileComment,date \r\n" + 
+				"		from film_comment \r\n" + 
+				"		where username=?) a \r\n" + 
+				"		join film_formation b \r\n" + 
+				"		on a.filmname=b.moviename\r\n" + 
+				"		order by date DESC;";
 	
 		try {
 			List<HomeUser> list = qr.query(sql, new BeanListHandler<HomeUser>(HomeUser.class),homeName);
-			
-//			System.out.println("---"+list+"---");
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -114,12 +113,12 @@ public class MovieCommentDaoImpl implements MovieCommentDao {
 	@Override
 	public List<CollectionsMoviePath> findMoviePathByUserid(int userid) {
 		QueryRunner qr = new QueryRunner(DataSourceUtils.getDataSource());
-		String sql1="SELECT s.movieid,imgPathOne " + 
-				"from (SELECT userid,movieid " + 
-				"from collections " + 
-				"where userid=?) s " + 
-				"join film_formation f " + 
-				"on s.movieid=f.movieid";
+		String sql1="SELECT s.movieid,imgPathOne,f.moviename\r\n" + 
+				"		from (SELECT userid,movieid \r\n" + 
+				"		from collections \r\n" + 
+				"		where userid=?) s \r\n" + 
+				"		join film_formation f\r\n" + 
+				"		on s.movieid=f.movieid";
 		try {
 			List<CollectionsMoviePath> list1 = qr.query(sql1, new BeanListHandler<CollectionsMoviePath>(CollectionsMoviePath.class),userid);
 			return list1;

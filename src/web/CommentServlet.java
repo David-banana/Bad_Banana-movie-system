@@ -54,7 +54,7 @@ public class CommentServlet extends HttpServlet {
 		}
 		MovieCommentService mcs=new MovieCommentServiceImpl();
 		List<HomeUser> list = mcs.findUserByHomename(homeName);
-		System.out.println("list是是是："+list);
+//		System.out.println("list是是是："+list);
 		HomeUser homeUser = list.get(0);
 		int userid = homeUser.getUserid();
 		
@@ -62,6 +62,8 @@ public class CommentServlet extends HttpServlet {
 		
 		
 		List<CollectionsMoviePath> moviePath=mcs.findMoviePathByUserid(userid);
+		System.out.println("我是moviePath： "+moviePath);
+		
 		request.getSession().setAttribute("MoviePath", moviePath);
 		request.getSession().setAttribute("HomeList", list);
 		try {
