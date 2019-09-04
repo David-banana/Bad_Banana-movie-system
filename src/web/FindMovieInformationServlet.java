@@ -31,6 +31,7 @@ public class FindMovieInformationServlet extends HttpServlet {
 		if("search".equals(method)) {
 			String moviename = request.getParameter("moviename");
 			 movie = ms.FindMovieInformation(moviename);
+			 path="moviesingle";
 		}else {
 		int movieid = Integer.valueOf(request.getParameter("movieid"));
 //		System.out.println("FindMovie"+movieid);

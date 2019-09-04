@@ -49,14 +49,17 @@ public class ClearSessionServlet extends HttpServlet {
 		}else if("services".equals(path)) {
 			Movie movie = (Movie) request.getSession().getAttribute("movie");
 			response.sendRedirect("/BadBanana/FindMovieInformationServlet?movieid="+movie.getMovieid()+"&path=services");
-		}else if("genres".equals(path)) {
-				/*
+			} /*
+				 * else if("genres".equals(path)) {
+				 * 
 				 * String movieType = request.getParameter("movietype");
 				 * System.out.println("clear:"+movieType);
+				 * response.setCharacterEncoding("UTF-8");
 				 * response.sendRedirect("/BadBanana/TypeMovieServlet?movietype="+movieType);
+				 * 
+				 * // request.getRequestDispatcher("/TypeMovieServlet").forward(request,
+				 * response); }
 				 */
-			request.getRequestDispatcher("/TypeMovieServlet").forward(request, response);
-		}
 		
 		}
 	}

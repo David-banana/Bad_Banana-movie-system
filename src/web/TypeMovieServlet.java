@@ -18,12 +18,11 @@ public class TypeMovieServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		request.setCharacterEncoding("UTF-8");
 		String movietype = request.getParameter("movietype");
-		System.out.println("123"+movietype);
 		MovieServiceImpl msi = new MovieServiceImpl();
 		List<Movie> list = msi.FindMovieInformationByType(movietype);
 		HttpSession session = request.getSession();
 		session.setAttribute("typemovie", list);
-		System.out.println(session.getAttribute("typemovie"));
+//		System.out.println(session.getAttribute("typemovie"));
 		response.sendRedirect("/BadBanana/remendianying/genres.jsp");
 	}
 

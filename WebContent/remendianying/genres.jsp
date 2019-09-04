@@ -116,7 +116,7 @@
 					<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
 					<nav>
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="/BadBanana/index/index.jsp">首页</a></li>
+							<li class="active"><a href="/BadBanana/IndexMovieInformationIndexServlet">首页</a></li>
 								<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">电影类别 <b class="caret"></b></a>
 								<ul class="dropdown-menu multi-column columns-3">
@@ -141,7 +141,7 @@
 						</c:if>
 						<c:if test="${!empty user }">
 						<li class="mr-lg-4 mr-3"><a href="/BadBanana/UserServlet?method=userHome&homeName=${user.username }" class="scroll">${user.username}${time}!</a></li>
-						<li class="mr-lg-4 mr-3"><a href="/BadBanana/clearSessionServlet?quitPath=genres&movietype=${typemovie[0].movietype}" class="scroll">退出</a></li>
+						<%-- <li class="mr-lg-4 mr-3"><a href="/BadBanana/clearSessionServlet?quitPath=genres&movietype=${typemovie[0].movietype}" class="scroll">退出</a></li> --%>
 						</c:if>
 							<li><a href="/BadBanana/aboutus/aboutus.html">关于我们</a></li>
 							<li><a href="/BadBanana/contactus/contactus.jsp">联系我们</a></li>
@@ -178,7 +178,7 @@
 							
 							<c:forEach items="${typemovie }" var="typemovie">
 			 				 <div class="col-md-2 w3l-movie-gride-agile">
-										 <a href="/BadBanana/FindMovieInformationServlet?movieid=${typemovie.movieid}" class="hvr-shutter-out-horizontal"><img src="${typemovie.imgPathTwo}" title="album-name" alt=" " />
+										 <a href="/BadBanana/FindMovieInformationServlet?movieid=${typemovie.movieid}&path=moviesingle" class="hvr-shutter-out-horizontal"><img src="${typemovie.imgPathTwo}" title="album-name" alt=" " />
 									     <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 									</a>
 									  <div class="mid-1">
