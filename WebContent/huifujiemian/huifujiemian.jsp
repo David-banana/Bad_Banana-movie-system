@@ -20,7 +20,13 @@
 				},
 				success : function(data) {
 					console.log(data.dianzanshu);
+					console.log(data.isDianZan);					
 					$("#dianzanshu").html(data.dianzanshu);
+					if(!data.isDianZan){
+						$("#dianzanimg").prop("src","img/yiDianzan.jpg");
+					}else if(data.isDianZan){
+						$("#dianzanimg").prop("src","img/dianzan.jpg");
+					}
 				},
 				dataType : "json",
 				async : false
@@ -58,10 +64,19 @@
 
 
 		<!-- Header navigation -->
+		<div class="agileits-single-top">
+			<ol class="breadcrumb">
+				<li><a href="/BadBanana/IndexMovieInformationIndexServlet">首页</a></li>/
+				<li class="active"><a
+					href="/BadBanana/FindAllMovieInformationServlet">热门电影</a></li>/
+					<li class="active"><a
+					href="/BadBanana/FindMovieInformationServlet?path=services&search=back">评论</a></li>/
+					<li class="active">评论详情</li>
+			</ol>
+		</div>
 		<header>
 			<div class="headers d-none d-md-block">
-				<div><a a style=" color:#666; font-size:40px;">评论详情</a> <input type="button" value="返回首页"
-						style="margin-left:26em" onclick="backZhuye()"></div>
+				<div><a style="color:#666; font-size:40px;">评论详情</a></div>
 				<h2>Details of comments</h2>
 			</div>
 
@@ -72,7 +87,6 @@
 		<nav class="navbar navbar-expand-md navbar-dark bg-primary">
 
 			<!-- Company name shown on mobile -->
-			<a class="navbar-brand d-md-none d-lg-none d-xl-none" href="#">评论详情</a>
 
 			<!-- Mobile menu toggle -->
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -83,23 +97,23 @@
 
 		</nav>
 
-		<div class="tlinks">
-			Collect from <a href="http://www.cssmoban.com/" title="网站模板">网站模板</a>
-		</div>
 		<!-- Jumbtron / Slider -->
 		<!-- @TODO HEADER -->
-		<%
-			session.getAttribute("moviecomment");
-			session.getAttribute("witeback");
-		%>
 		<!-- Main content area -->
-		<main>
+		
 		<article>
 			<h3 class="article-title">${moviecomment.username}</h3>
 			<p>${moviecomment.fileComment}</p>
-			<label id="dianzan" name="dianzan" onclick="zengjia()"><img
-				src="img/dianzan.jpg" alt="点赞图" id="dianzanimg"
-				style="margin-right: 4em;cursor:pointer"></label>
+			
+			<label id="dianzan" name="dianzan" onclick="zengjia()">
+			 <c:if test="${!checkDianZan }"> 
+			<img src="img/dianzan.jpg" alt="点赞图" id="dianzanimg" style="margin-right: 4em;cursor:pointer" name="dianzanimg"></label>
+			 </c:if> 
+
+			<c:if test="${checkDianZan }">
+			<img src="img/yiDianzan.jpg" alt="点赞图" id="dianzanimg" style="margin-right: 4em;cursor:pointer" name="dianzanimg"></label>			
+			</c:if>
+			
 			<p style="margin-left: 27em;" id="">${moviecomment.date}</p>
 			<p style="margin-left: 27em;">
 				有<span style="color: blue" id="dianzanshu">
@@ -114,11 +128,13 @@
 				<p>${writeback.writeText }</p>
 				<p>${writeback.date }</p>
 			</article>
-		</c:forEach> <c:if test="${empty user }">
+		</c:forEach> 
+		<c:if test="${empty user }">
 			<h4>登录后，可以评论</h4>
 			<a href="/BadBanana/loginandregister/login.jsp?loginPath=huifujiemian&cid=${moviecomment.cid }"><input
 				type="button" value="登录" /></a>
-		</c:if> <c:if test="${!empty user }">
+		</c:if> 
+		<c:if test="${!empty user }">
 			<article>
 				<h3>您的评论</h3>
 				<form action="/BadBanana/SaveNewWriteBackServlet">
@@ -133,7 +149,8 @@
 						
 				</form>
 			</article>
-		</c:if> </main>
+		</c:if> 
+
 
 
 

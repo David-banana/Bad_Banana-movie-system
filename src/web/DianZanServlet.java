@@ -30,7 +30,6 @@ public class DianZanServlet extends HttpServlet {
 		if(checkDianZan==false) {
 			MovieCommentService mcs=new MovieCommentServiceImpl();
 			mcs.addDianZanInDianZanBiao(userid, commentid);
-//		System.out.println(filmcid);
 			mcs.addDianZan(cid);	
 		}else if(checkDianZan==true) {
 			MovieCommentService mcs=new MovieCommentServiceImpl();
@@ -41,8 +40,8 @@ public class DianZanServlet extends HttpServlet {
 		MovieComment mc = mcs.findMovieCommentbyid(cid);
 		int click = mc.getClick();
 		response.setContentType("text/plain;charset=utf-8");
-		// {"isExists": isExists}
-		response.getWriter().write("{\"dianzanshu\": "+click+"}");
+		// {"dianzanshu": isExists,"isDianZan":isExists}
+		response.getWriter().write("{\"dianzanshu\": "+click+",\"isDianZan\":"+checkDianZan+"}");
 
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

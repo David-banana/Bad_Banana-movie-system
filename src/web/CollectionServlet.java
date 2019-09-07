@@ -14,12 +14,7 @@ import service.impl.UserServiceImpl;
 public class CollectionServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		String movieid = request.getParameter("movieid");
-//		String userid = request.getParameter("userid");
 		String method = request.getParameter("method");
-		System.out.println(method);
-//		UserService us = new UserServiceImpl();
-//		us.collection(userid, movieid);
 		if("collection".equals(method)) {
 			collection(request, response);
 		}else if("cancelCollection".equals(method)) {

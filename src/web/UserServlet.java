@@ -59,7 +59,6 @@ public class UserServlet extends HttpServlet {
 		//判断时间
 		Date d = new Date();
 		int hours = d.getHours();
-//		System.out.println(hours);
 		if (hours < 12) {
 			request.getSession().setAttribute("time", "上午好");
 		} else if (hours < 18) {
@@ -157,11 +156,8 @@ public class UserServlet extends HttpServlet {
 	//获取个人主页
 	private void userHome(HttpServletRequest request, HttpServletResponse response) {
 		String user = request.getParameter("homeName");	
-//		System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-//		System.out.println("UserServlet"+user);
 		try {
 			response.sendRedirect("/BadBanana/CommentServlet?method=HomeUser&homeName="+user);
-			//request.getRequestDispatcher("/CommentServlet?method=HomeUser&homeName="+user).forward(request, response);
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
