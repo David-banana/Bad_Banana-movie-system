@@ -85,6 +85,10 @@
 		$("#moviename").val($(obj).html());
 		$("#list").css("display","none");		
 	}	
+	function goPage(obj){
+		$("#fenye").val(obj);
+		$("#pagego").submit();
+	}
 	
 	$(function(){
 		$("#xiayiye").click(function(){
@@ -104,20 +108,8 @@
 			}
 			$("#pagego").submit();
 		})
+		
 	});
-	$(function(){
-	$("#huanye li:nth-child(4)").click(function(){
-		$("#fenye").val(2);
-		$("#pagego").submit();
-	})
-	$("#huanye li:nth-child(3)").click(function(){
-		$("#fenye").val(1);
-		$("#pagego").submit();
-	})
-	
-	})
-	
-	
 	
 	
 	
@@ -339,7 +331,7 @@
 								<li><a href="javascript:void(0)" id = "shangyiye"class="frist" >上一页</a></li>
 								<li id="zongyeshu"  value = "${allmovie.totalPage}"></li> 
 								<c:forEach begin="1" end="${allmovie.totalPage }" var="i">
-									<li ><a href="#">${i }</li></a>
+									<li ><a href="javascript:void(0) " onclick="goPage(${i})">${i }</li></a>
 								</c:forEach>
 								<li>当前页：${allmovie.currentPage}</li>
 								<li><a href="javascript:void(0)" id = "xiayiye"   class="last" >下一页</a></li>
