@@ -145,7 +145,7 @@
 	<div class="header">
 		<div class="container">
 			<div class="w3layouts_logo">
-				<a href="index.jsp"><h1>B-B<span>Bad_Banana</span></h1></a>
+				<a href="/BadBanana/IndexMovieInformationIndexServlet"><h1>B-B<span>Bad_Banana</span></h1></a>
 			</div>
 			<div class="w3_search">
 				<form action="/BadBanana/SearchMovieServlet" method="get">
@@ -273,7 +273,6 @@
 	</div>
 <!-- //nav -->
 <!-- banner -->
-<% session.getAttribute("allmovie");%>
 	<div id="slidey" style="display:none;">
 		<ul>
 			<li><img src="${allmovie.list[1].imgPathThree}" alt=" "><p class='title'>${allmovie.list[1].moviename}</p><p class='description'>${allmovie.list[1].generalizeOne}</p></li>
@@ -339,10 +338,9 @@
 							<ul id="huanye">
 								<li><a href="javascript:void(0)" id = "shangyiye"class="frist" >上一页</a></li>
 								<li id="zongyeshu"  value = "${allmovie.totalPage}"></li> 
-								<li ><a href="#">1</a></li>
-								<li ><a href="#">2</a></li>
-								<li ><a href="#">3</a></li>
-								<li ><a href="#">4</a></li>
+								<c:forEach begin="1" end="${allmovie.totalPage }" var="i">
+									<li ><a href="#">${i }</li></a>
+								</c:forEach>
 								<li>当前页：${allmovie.currentPage}</li>
 								<li><a href="javascript:void(0)" id = "xiayiye"   class="last" >下一页</a></li>
 								<input id="fenye" name = "currentPage" value = "${allmovie.currentPage}" type = "hidden"></input> 
@@ -391,33 +389,13 @@
 						
 					</div>
 				</div>
-				<div class="col-md-6 w3ls_footer_grid_right">
-					<a href="index.html"><h2>BB<span>Bad_Banana</span></h2></a>
-				</div>
+
 				<div class="clearfix"> </div>
 			</div>
 			<div class="col-md-5 w3ls_footer_grid1_left">
 			
 			</div>
-			<!-- <div class="col-md-7 w3ls_footer_grid1_right">
-				<ul>
-					<li>
-						<a href="../index/index.html">首页</a>
-					</li>
-					<li>
-						<a href="/BadBanana/FindAllMovieInformationServlet">热门电影</a>
-					</li>
-					<li>
-						<a href="../loginandregister/Login.html">登录</a>
-					</li>
-					<li>
-						<a href="../aboutus/aboutus.html">关于我们</a>
-					</li>
-					<li>
-						<a href="../contactus/contactus.jsp">联系我们</a>
-					</li>
-				</ul>
-			</div> -->
+
 			<div class="clearfix"> </div>
 		</div>
 	</div>

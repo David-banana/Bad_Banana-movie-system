@@ -4,12 +4,12 @@
 <!doctype html>
 
 <script src="js/jquery-3.3.1.min.js"></script>
-<script>
+<script type="text/javascript">
 
 	function zengjia() {
 		console.log('${empty user}')
-		if ('${empty user}'== true) {
-			alert("请先登录")
+		if (${empty user}== true) {
+			alert("请先登录");
 		}
 		else {			
 			$.ajax({
@@ -116,7 +116,7 @@
 			</article>
 		</c:forEach> <c:if test="${empty user }">
 			<h4>登录后，可以评论</h4>
-			<a href="/BadBanana/loginandregister/login.jsp?path=index/index.jsp"><input
+			<a href="/BadBanana/loginandregister/login.jsp?loginPath=huifujiemian&cid=${moviecomment.cid }"><input
 				type="button" value="登录" /></a>
 		</c:if> <c:if test="${!empty user }">
 			<article>

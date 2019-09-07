@@ -53,7 +53,6 @@ public class UserServlet extends HttpServlet {
 	//登录
 	protected void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String loginPath = request.getParameter("loginPath");
-//		System.out.println("loginPath"+loginPath);
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		UserService us = new UserServiceImpl();
@@ -104,6 +103,9 @@ public class UserServlet extends HttpServlet {
 			}else if("genres".equals(loginPath)){
 				String movieType = request.getParameter("movietype");
 				response.sendRedirect(request.getContextPath()+"/TypeMovieServlet?movietype="+movieType);
+			}else if("huifujiemian".equals(loginPath)){
+				String cid = request.getParameter("cid");
+				response.sendRedirect(request.getContextPath()+"/FindWriteBack?cid="+cid);
 			}else {
 				response.sendRedirect("/BadBanana/IndexMovieInformationIndexServlet");
 			}

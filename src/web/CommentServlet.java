@@ -54,7 +54,6 @@ public class CommentServlet extends HttpServlet {
 		}
 		MovieCommentService mcs=new MovieCommentServiceImpl();
 		List<HomeUser> list = mcs.findUserByHomename(homeName);
-//		System.out.println("list是是是："+list);
 		HomeUser homeUser = list.get(0);
 		int userid = homeUser.getUserid();
 		
@@ -79,7 +78,6 @@ public class CommentServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");//获得目前登录用户
 		Movie movie = (Movie) session.getAttribute("movie");//获得评论电影
-//		System.out.println(user+" "+movie);
 		String comment = request.getParameter("myComment");//获得评论
 		if(comment==null) {
 			response.sendRedirect("/BadBanana");
@@ -96,7 +94,6 @@ public class CommentServlet extends HttpServlet {
 		msc.addMovieComment(movieComment);
 		response.sendRedirect("/BadBanana/FindMovieInformationServlet?movieid=" + movie.getMovieid());
 		}
-//		System.out.println(comment);
 	}
 	
 	public void deleteComment(HttpServletRequest request,HttpServletResponse response){
@@ -106,10 +103,7 @@ public class CommentServlet extends HttpServlet {
 		MovieCommentService mcs=new MovieCommentServiceImpl();
 		mcs.deleteCommentByCid(cid);
 		
-//			System.out.println("欧力给！");
-			//request.getRequestDispatcher("/personalHome.jsp").forward(request, response);
 			try {
-//				System.out.println("kaikaiakiakiakaikaiakiakia");
 				response.sendRedirect("/BadBanana/CommentServlet?method=HomeUser&homeName="+homeName);
 			} catch (IOException e) {
 				e.printStackTrace();

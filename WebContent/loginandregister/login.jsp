@@ -49,6 +49,7 @@
                     <input type="hidden" name="method" value="login">
                     <input type="hidden" name="loginPath" value="${param.loginPath }">
                     <input type="hidden" name="movietype" value="${param.movietype}">
+                    <input type="hidden" name="cid" value="${param.cid}">
                     <div class="input-field">
                         <div><input placeholder="Username" id="username" name="username" type="text" class="validate" value="${param.username }"></div>
                     </div>

@@ -40,14 +40,14 @@
 		<div class="container-fluid px-lg-5">
 			<nav class="py-4">
                         <div class="logo" id="logo">
-                            <h1> <a href="index.html">BANANA_MOVIE</a>
+                            <h1> <a href="/BadBanana/IndexMovieInformationIndexServlet">BANANA_MOVIE</a>
                             </h1>
                         </div>
 
                         <label for="drop" class="toggle">Menu</label>
                         <input type="checkbox" id="drop">
                         <ul class="menu mt-2">
-                            <li class="mr-lg-4 mr-3 active"><a href="index.jsp">首页</a></li>
+                            <li class="mr-lg-4 mr-3 active"><a href="/BadBanana/IndexMovieInformationIndexServlet">首页</a></li>
                             <li class="mr-lg-4 mr-3"><a href="/BadBanana/FindAllMovieInformationServlet" class="scroll">热门电影</a></li>
                             
 							
@@ -107,7 +107,7 @@
 			<h3>${indexmovieOne.moviename}  </h3>
 			<h6 class="mt-3"> ${indexmovieOne.daoyanname} </h6>
 			<p class="wtp mt-3">${indexmovieOne.generalizeOne} </p>
-			<a href="/BadBanana/FindMovieInformationServlet?movieid=${indexmovieOne.movieid}" class="btn button-style-1 mt-sm-5 mt-4 scroll">了解更多 </a>
+			<a href="/BadBanana/FindMovieInformationServlet?movieid=${indexmovieOne.movieid}&path=moviesingle" class="btn button-style-1 mt-sm-5 mt-4 scroll">了解更多 </a>
 		</div>
 	</section>
 	<!-- //what -->
@@ -117,7 +117,7 @@
 			<h3>${indexmovieTwo.moviename}</h3>
 			<h6 class="mt-3">${indexmovieTwo.daoyanname}  </h6>
 			<p class="wtp mt-3">${indexmovieTwo.generalizeOne}  </p>
-			<a href="/BadBanana/FindMovieInformationServlet?movieid=${indexmovieTwo.movieid}" class="btn button-style-1 mt-sm-5 mt-4 scroll">了解更多 </a>
+			<a href="/BadBanana/FindMovieInformationServlet?movieid=${indexmovieTwo.movieid}&path=moviesingle" class="btn button-style-1 mt-sm-5 mt-4 scroll">了解更多 </a>
 		</div>
 	</section>
 	<!-- //what -->

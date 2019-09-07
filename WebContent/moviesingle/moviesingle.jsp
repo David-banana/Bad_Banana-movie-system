@@ -26,8 +26,8 @@
 
         <nav role="navigation" class="probootstrap-nav hidden-xs">
           <ul class="probootstrap-main-nav">
-          <%session.getAttribute("movie");%>
          
+          	<li><a href="/BadBanana/IndexMovieInformationIndexServlet">首页</a></li>
             <li class="active"><a href="moviesingle.jsp">电影简介</a></li>
             <li><a href="portfolio.jsp">演职员表</a></li>
             <li><a href="services.jsp">评论</a></li>

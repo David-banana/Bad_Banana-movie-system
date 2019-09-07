@@ -46,6 +46,32 @@
 <link href="css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
 <script src="js/owl.carousel.js"></script>
 <script>
+$(function(){
+	$("#moviename").keyup(function(){
+		$.get(
+		"/BadBanana/ReMenDianYingServlet",
+		{"word":$("#moviename").val()}
+			,
+		function(data){
+				console.log(data);
+			$("#list").empty();
+			for(var i=0;i<data.length;i++){
+				if(i>6){
+					break;
+				}
+				$("#list").append("<div onmouseover='on(this)' onmouseout='out(this)' onclick='onck(this)'>"+data[i].moviename+"</div>");
+				
+			}
+			$("#list").css("display","block");
+		},
+		"json"
+		)
+	})	
+	$("#moviename").mouseout(function() {
+		$("#list").css("display","none");
+	});
+
+})
 	$(document).ready(function() { 
 		$("#owl-demo").owlCarousel({
 	 
@@ -66,12 +92,14 @@
 	<div class="header">
 		<div class="container">
 			<div class="w3layouts_logo">
-				<a href="index.jsp"><h1>B-B<span>Bad_Banana</span></h1></a>
+				<a href="/BadBanana/IndexMovieInformationIndexServlet"><h1>B-B<span>Bad_Banana</span></h1></a>
 			</div>
 			<div class="w3_search">
-				<form action="#" method="post">
-					<input type="text" name="Search" placeholder="Search" required="">
+				<form action="/BadBanana/SearchMovieServlet" method="get">
+					<input type="text" name="moviename" placeholder="Search" required="" id="moviename">
+					<input type="hidden" name="search" value="search">
 					<input type="submit" value="Go">
+					<div id=list style="width:357px ;border:1px solid gray;background-color:white;position:absolute; z-index:1000;display:none"></div>
 				</form>
 			</div>
 			<div class="clearfix"> </div>
@@ -165,7 +193,9 @@
 									<div class="container">
 										<div class="agileits-single-top">
 											<ol class="breadcrumb">
-											  <li><a href="/BadBanana/FindAllMovieInformationServlet">首页</a></li>
+											
+											  <li ><a href="/BadBanana/IndexMovieInformationIndexServlet">首页</a></li>
+											  <li class="active"><a href="/BadBanana/FindAllMovieInformationServlet">热门电影</a></li>
 											  <li class="active">${ori}</li>
 											</ol>
 										</div>
@@ -175,7 +205,9 @@
 							<div class="browse-inner">
 							
 							
-							
+							<c:if test="${empty typemovie }">
+								<span>暂时还没有相关电影哦~</span>
+							</c:if>
 							<c:forEach items="${typemovie }" var="typemovie">
 			 				 <div class="col-md-2 w3l-movie-gride-agile">
 										 <a href="/BadBanana/FindMovieInformationServlet?movieid=${typemovie.movieid}&path=moviesingle" class="hvr-shutter-out-horizontal"><img src="${typemovie.imgPathTwo}" title="album-name" alt=" " />
@@ -197,31 +229,13 @@
 									</div>
 									</c:forEach>
 														 
-							 	    <div class="ribben two">
-										<p>NEW</p>
-									</div>	
+							 	   
 									</div>
 
 								<div class="clearfix"> </div>
 								</div>
 								</div>
 						</div>
-				<!--//browse-agile-w3ls -->
-						<!-- <div class="blog-pagenat-wthree">
-							<ul>
-								<li><a class="frist" href="#">Prev</a></li>
-								<li><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a class="last" href="#">Next</a></li>
-							</ul>
-						</div> -->
-					</div>
-				    <!-- //movie-browse-agile -->
-				   <!--body wrapper start-->
-			
 					</div>	
 			</div>	
 		</div>
@@ -238,7 +252,7 @@
 					</div>
 				</div>
 				<div class="col-md-6 w3ls_footer_grid_right">
-					<a href="index.jsp"><h1>B-B<span>Bad_Banana</span></h1></a>
+					<a href="/BadBanana/IndexMovieInformationIndexServlet"><h1><span>Bad_Banana</span></h1></a>
 				</div>
 				<div class="clearfix"> </div>
 			</div>

@@ -19,8 +19,7 @@ public class SearchMovieServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MovieService ms = new MovieServiceImpl();
-//		String moviename = request.getParameter("moviename");
-		String moviename="哥斯拉";
+		String moviename = request.getParameter("moviename");
 		List<Movie> movies = ms.searchMovies(moviename);
 		System.out.println(movies);
 		HttpSession session = request.getSession();
