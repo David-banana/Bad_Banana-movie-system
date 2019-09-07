@@ -11,18 +11,23 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bean.Movie;
+import service.MovieService;
 import service.impl.MovieServiceImpl;
-@WebServlet("/TypeMovieServlet")
-public class TypeMovieServlet extends HttpServlet {
+
+@WebServlet("/SearchMovieServlet")
+public class SearchMovieServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String movietype = request.getParameter("movietype");
-		MovieServiceImpl msi = new MovieServiceImpl();
-		List<Movie> list = msi.FindMovieInformationByType(movietype);
+		MovieService ms = new MovieServiceImpl();
+//		String moviename = request.getParameter("moviename");
+		String moviename="哥斯拉";
+		List<Movie> movies = ms.searchMovies(moviename);
+		System.out.println(movies);
 		HttpSession session = request.getSession();
-		session.setAttribute("typemovie", list);
-		session.setAttribute("ori", movietype);
-		response.sendRedirect("/BadBanana/remendianying/genres.jsp");
+		session.setAttribute("typemovie", movies);
+		session.setAttribute("ori","搜索" );
+		response.sendRedirect(request.getContextPath()+"/remendianying/genres.jsp");
+//		request.getRequestDispatcher("/remendianying/genres.jsp").forward(request, response);
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

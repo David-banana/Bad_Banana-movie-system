@@ -148,7 +148,7 @@
 				<a href="index.jsp"><h1>B-B<span>Bad_Banana</span></h1></a>
 			</div>
 			<div class="w3_search">
-				<form action="/BadBanana/FindMovieInformationServlet" method="get">
+				<form action="/BadBanana/SearchMovieServlet" method="get">
 					<input type="text" name="moviename" placeholder="Search" required="" id="moviename">
 					<input type="hidden" name="search" value="search">
 					<input type="submit" value="Go">

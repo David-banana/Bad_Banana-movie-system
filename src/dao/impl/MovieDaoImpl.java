@@ -128,6 +128,4 @@ public class MovieDaoImpl implements MovieDao {
 		}
 		return 0;
 	}
-
-	
 }

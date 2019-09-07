@@ -8,7 +8,7 @@
 
 	function zengjia() {
 		console.log('${empty user}')
-		if ('${empty user}'==true) {
+		if ('${empty user}'== true) {
 			alert("请先登录")
 		}
 		else {			

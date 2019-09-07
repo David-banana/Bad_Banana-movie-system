@@ -166,7 +166,7 @@
 										<div class="agileits-single-top">
 											<ol class="breadcrumb">
 											  <li><a href="/BadBanana/FindAllMovieInformationServlet">首页</a></li>
-											  <li class="active">${typemovie[0].movietype}</li>
+											  <li class="active">${ori}</li>
 											</ol>
 										</div>
 									</div>
@@ -197,7 +197,6 @@
 									</div>
 									</c:forEach>
 														 
-								 
 							 	    <div class="ribben two">
 										<p>NEW</p>
 									</div>	
@@ -208,7 +207,7 @@
 								</div>
 						</div>
 				<!--//browse-agile-w3ls -->
-						<div class="blog-pagenat-wthree">
+						<!-- <div class="blog-pagenat-wthree">
 							<ul>
 								<li><a class="frist" href="#">Prev</a></li>
 								<li><a href="#">1</a></li>
@@ -218,7 +217,7 @@
 								<li><a href="#">5</a></li>
 								<li><a class="last" href="#">Next</a></li>
 							</ul>
-						</div>
+						</div> -->
 					</div>
 				    <!-- //movie-browse-agile -->
 				   <!--body wrapper start-->

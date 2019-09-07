@@ -13,4 +13,5 @@ public interface MovieService {
 	List<Movie> FindHotMovieInformation();
 	boolean checkMovieIsCollection(Integer userid,Integer movieid);
 	PageBean findMoviePageBean(String currentPage, String pageSize);
+	List<Movie> searchMovies(String moviename);
 }

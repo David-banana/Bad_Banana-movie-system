@@ -68,6 +68,12 @@ public class MovieServiceImpl implements MovieService {
 		pageBean.setList(list);
 		return pageBean;
 	}
+
+	@Override
+	public List<Movie> searchMovies(String moviename) {
+		List<Movie> list = md.selectMovieByDimName(moviename);
+		return list;
+	}
 	
 	
 
