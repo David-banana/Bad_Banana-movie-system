@@ -32,7 +32,11 @@ public class DianZanServlet extends HttpServlet {
 			mcs.addDianZanInDianZanBiao(userid, commentid);
 //		System.out.println(filmcid);
 			mcs.addDianZan(cid);	
-		}	
+		}else if(checkDianZan==true) {
+			MovieCommentService mcs=new MovieCommentServiceImpl();
+			mcs.removeDianZanInDianZanBiao(userid,commentid);
+			mcs.removeDianZan(cid);
+		}
 		MovieCommentService mcs = new MovieCommentServiceImpl();
 		MovieComment mc = mcs.findMovieCommentbyid(cid);
 		int click = mc.getClick();

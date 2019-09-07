@@ -105,6 +105,20 @@
 			$("#pagego").submit();
 		})
 	});
+	$(function(){
+	$("#huanye li:nth-child(4)").click(function(){
+		$("#fenye").val(2);
+		$("#pagego").submit();
+	})
+	$("#huanye li:nth-child(3)").click(function(){
+		$("#fenye").val(1);
+		$("#pagego").submit();
+	})
+	
+	})
+	
+	
+	
 	
 	
 	
@@ -322,9 +336,14 @@
 	
 	<form id="pagego" action="${pageContext.request.contextPath }/FindAllMovieInformationServlet">
 				<div class="blog-pagenat-wthree">
-							<ul>
+							<ul id="huanye">
 								<li><a href="javascript:void(0)" id = "shangyiye"class="frist" >上一页</a></li>
 								<li id="zongyeshu"  value = "${allmovie.totalPage}"></li> 
+								<li ><a href="#">1</a></li>
+								<li ><a href="#">2</a></li>
+								<li ><a href="#">3</a></li>
+								<li ><a href="#">4</a></li>
+								<li>当前页：${allmovie.currentPage}</li>
 								<li><a href="javascript:void(0)" id = "xiayiye"   class="last" >下一页</a></li>
 								<input id="fenye" name = "currentPage" value = "${allmovie.currentPage}" type = "hidden"></input> 
 								

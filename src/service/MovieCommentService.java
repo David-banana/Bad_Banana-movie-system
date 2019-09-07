@@ -15,4 +15,6 @@ public interface MovieCommentService {
 	void addDianZan(int cid);
 	void addDianZanInDianZanBiao(String userid,String commentid);
 	List<CollectionsMoviePath> findMoviePathByUserid(int userid);
+	void removeDianZan(int cid);
+	void removeDianZanInDianZanBiao(String userid, String commentid);
 }

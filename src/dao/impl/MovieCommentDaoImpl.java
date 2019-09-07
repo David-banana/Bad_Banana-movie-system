@@ -129,6 +129,28 @@ public class MovieCommentDaoImpl implements MovieCommentDao {
 		return null;
 	}
 
+	@Override
+	public void removeDianZan(int cid) {
+		QueryRunner qr = new QueryRunner(DataSourceUtils.getDataSource());
+		String sql="update film_comment set click=click-1 where cid=?";
+		try {
+			qr.update(sql,cid);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void removeDianZanInDianZanBiao(String userid, String commentid) {
+		QueryRunner qr = new QueryRunner(DataSourceUtils.getDataSource());
+		String sql="delete from dianzanbiao where userid=? and commentid=?";
+		try {
+			qr.update(sql, userid,commentid);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
 	
 	
 	

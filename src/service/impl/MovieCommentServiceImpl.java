@@ -53,4 +53,14 @@ public class MovieCommentServiceImpl implements MovieCommentService {
 		List<CollectionsMoviePath> list=mcd.findMoviePathByUserid(userid);	
 		return list;
 	}
+
+	@Override
+	public void removeDianZan(int cid) {
+		mcd.removeDianZan(cid);
+	}
+
+	@Override
+	public void removeDianZanInDianZanBiao(String userid, String commentid) {
+		mcd.removeDianZanInDianZanBiao(userid,commentid);
+	}
 }
